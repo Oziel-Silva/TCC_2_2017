@@ -1,0 +1,55 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.6 }
+
+\bibitem[Brunelli 2009]{brunelli2009template}
+\abntrefinfo{Brunelli}{BRUNELLI}{2009}
+{BRUNELLI, R. \emph{Template matching techniques in computer vision: theory and
+  practice}. [S.l.]: John Wiley \& Sons, 2009.}
+
+\bibitem[Kandel 2013]{KANDEL}
+\abntrefinfo{Kandel}{KANDEL}{2013}
+{KANDEL, e.~a. E.~R. \emph{Principles of Neural Science}. 5. ed. The address:
+  Mc Graw Hill, 2013. v.~2. An optional note.
+ISBN 978007181001-2.}
+
+\bibitem[Lotte 2008]{lottephd}
+\abntrefinfo{Lotte}{LOTTE}{2008}
+{LOTTE, F.
+\emph{Study of electroencephalographic signal processing and classification
+  techniques towards the use of brain-computer interfaces in virtual reality
+  applications}.
+Tese (Doutorado) --- INSA de Rennes, 2008.}
+
+\bibitem[Lotte e Guan 2011]{F.Lotte}
+\abntrefinfo{Lotte e Guan}{LOTTE; GUAN}{2011}
+{LOTTE, F.; GUAN, C. Regularizing common spatial patterns to improve bci
+  designs: Unified theory and new algorithms.
+\emph{IEEE Transactions on Biomedical Engineering}, v.~58, n.~2, p. 355--362,
+  Feb 2011.
+ISSN 0018-9294.}
+
+\bibitem[Mason e Birch 2003]{MasonAndBirch}
+\abntrefinfo{Mason e Birch}{MASON; BIRCH}{2003}
+{MASON, S.~G.; BIRCH, G.~E. A general framework for brain-computer interface
+  design.
+\emph{IEEE Transactions on Neural Systems and Rehabilitation Engineering},
+  v.~11, n.~1, p. 70--85, March 2003.
+ISSN 1534-4320.}
+
+\bibitem[Siuly 2012]{SIULYDissertacao}
+\abntrefinfo{Siuly}{SIULY}{2012}
+{SIULY, S.
+\emph{Analysis and Classification of EEG Signals}.
+Disserta\c{c}\~{a}o (Mestrado) --- University of Southern Queensland,
+  https://www.springer.com/gp/book/9783319476520, 7 2012.}
+
+\bibitem[Siuly, Li e Zhang 2017]{Siulybook}
+\abntrefinfo{Siuly, Li e Zhang}{SIULY; LI; ZHANG}{2017}
+{SIULY, S.; LI, Y.; ZHANG, Y. \emph{EEG Signal Analysis and Classification:
+  Techniques and Applications}. [S.l.]: Springer, 2017.}
+
+\end{thebibliography}
