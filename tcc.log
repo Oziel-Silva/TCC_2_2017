@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.21)  16 NOV 2017 17:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.21)  16 NOV 2017 19:32
 entering extended mode
 **./tcc.tex
 (tcc.tex
@@ -1272,7 +1272,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ])
 (editaveis/aspectosgerais.tex [28]
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <17.28> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 8.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 10.
 ) (editaveis/consideracoes.tex [29
 
 ] [30
@@ -1312,7 +1312,7 @@ Package epstopdf Info: Source file: <figuras/fig01.eps>
 (epstopdf)             \includegraphics on input line 124.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/fig01-eps-converted-to.pdf, id=354, 1204.5pt x 903.375pt>
+<figuras/fig01-eps-converted-to.pdf, id=365, 1204.5pt x 903.375pt>
 File: figuras/fig01-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figuras/fig01-eps-converted-to.pdf>
@@ -1402,7 +1402,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 46.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 46.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 46.
 Package rerunfilecheck Info: File `tcc.brf' has not changed.
-(rerunfilecheck)             Checksum: 50800D6F7E534BF8423F9F59A832BBA6;1219.
+(rerunfilecheck)             Checksum: 39E0FBCF211596A237CB9149DAEBC9C4;1455.
 
 
 LaTeX Warning: There were undefined references.
@@ -1413,10 +1413,10 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 46.
  ) 
 Here is how much of TeX's memory you used:
- 12996 strings out of 493323
- 188550 string characters out of 3139066
- 311063 words of memory out of 3000000
- 16052 multiletter control sequences out of 15000+200000
+ 13007 strings out of 493323
+ 188745 string characters out of 3139066
+ 311263 words of memory out of 3000000
+ 16062 multiletter control sequences out of 15000+200000
  100209 words of font info for 64 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,13n,38p,795b,531s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1438,9 +1438,9 @@ lm/lmssbo10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmssbx10.pfb
 es/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fon
 ts/type1/public/lm/lmtk10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/l
 m/lmtt12.pfb>
-Output written on tcc.pdf (57 pages, 656295 bytes).
+Output written on tcc.pdf (57 pages, 661107 bytes).
 PDF statistics:
- 707 PDF objects out of 1000 (max. 8388607)
- 136 named destinations out of 1000 (max. 500000)
+ 723 PDF objects out of 1000 (max. 8388607)
+ 137 named destinations out of 1000 (max. 500000)
  447 words of extra memory for PDF output out of 10000 (max. 10000000)
 
