@@ -11,11 +11,10 @@
 \contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase {Introdu\IeC {\c c}\IeC {\~a}o}}{27}{chapter.1}
 \contentsline {chapter}{Introdu\IeC {\c c}\IeC {\~a}o}{27}{chapter.1}
 \contentsline {section}{\numberline {1.1}Contextualiza\IeC {\c c}\IeC {\~a}o}{27}{section.1.1}
-\contentsline {section}{\numberline {1.2}Quest\IeC {\~a}o de Pesquisa}{28}{section.1.2}
-\contentsline {section}{\numberline {1.3}Justificativa}{28}{section.1.3}
-\contentsline {section}{\numberline {1.4}Objetivos}{28}{section.1.4}
-\contentsline {subsection}{\numberline {1.4.1}Objetivos Gerais}{28}{subsection.1.4.1}
-\contentsline {subsection}{\numberline {1.4.2}Objetivos Espec\IeC {\'\i }ficos}{28}{subsection.1.4.2}
+\contentsline {section}{\numberline {1.2}Justificativa}{28}{section.1.2}
+\contentsline {section}{\numberline {1.3}Objetivos}{28}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Objetivos Gerais}{28}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Objetivos Espec\IeC {\'\i }ficos}{28}{subsection.1.3.2}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {Referencial Te\IeC {\'o}rico}}{29}{chapter.2}
 \contentsline {section}{\numberline {2.1}O C\IeC {\'e}rebro}{29}{section.2.1}
