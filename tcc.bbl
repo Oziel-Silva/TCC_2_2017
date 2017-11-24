@@ -5,6 +5,14 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v-1.9.6 }
 
+\bibitem[Blankertz et al. 2006]{BCICompetition}
+\abntrefinfo{Blankertz et al.}{BLANKERTZ et al.}{2006}
+{BLANKERTZ, B. et al. The bci competition iii: validating alternative
+  approaches to actual bci problems.
+\emph{IEEE Transactions on Neural Systems and Rehabilitation Engineering},
+  v.~14, n.~2, p. 153--159, June 2006.
+ISSN 1534-4320.}
+
 \bibitem[Brunelli 2009]{brunelli2009template}
 \abntrefinfo{Brunelli}{BRUNELLI}{2009}
 {BRUNELLI, R. \emph{Template matching techniques in computer vision: theory and
