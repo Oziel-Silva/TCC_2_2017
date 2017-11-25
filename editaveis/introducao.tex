@@ -15,9 +15,16 @@ O algoritmo que realiza a classificação é caracterizado por uma função mate
 
 Portanto os classificadores do tipo supervisionados são implementados a partir de dois processos: \textit{treinamento} e \textit{testes} \cite{Siulybook}.
 
+Assim como propõe o seu nome, o LDA é um classificador linear e tem como suas principais vantagens a simplicidade e atratividade computacional(livro Pattern Recognition).
+O objetivo do LDA é usar de uma transformação linear para encontrar um conjunto otmizado de vetores discriminantes e remapear o conjunto de características
+original, em um outro conjunto de dimensão  inferior.(Classification Depend on Linear Discriminant Analysis Using Disired Outputs).
 
+Apesar do LDA ser um algorítmo interessante no que se trata de consumo computacional, em geral, os algoritmos de classificação são complexos computacionalmente 
+e com tempo de execução elevado, isso os tornam restritivos a poucas aplicações, assim não podendo equipar projetos que têm restrições de dimensão e peso.
 
-Este trabalho apresenta uma análise temporal do algoritmo classificador LDA identificando o bloco ou função do algoritmo que consome um maior intervalo de tempo para realizar seu processamento, além da sua respectiva implementação em \textit{hardware} (FPGA) afim de paralelizar os processos, otimizando o tempo de processamento e consumo de recursos.
+Este trabalho apresenta uma análise temporal do algoritmo classificador LDA identificando o bloco ou função do algoritmo 
+que consome um maior intervalo de tempo para realizar seu processamento, além da sua respectiva implementação em \textit{hardware}
+(FPGA) afim de paralelizar os processos, otimizando o tempo de processamento e consumo de recursos.
 
 \section{Justificativa}
 
