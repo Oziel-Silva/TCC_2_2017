@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500) (preloaded format=latex 2017.11.16)  25 NOV 2017 19:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500) (preloaded format=latex 2017.11.16)  25 NOV 2017 19:35
 entering extended mode
 **tcc.tex fixos/informacoes.tex fixos/fichaCatalografica.tex fixos/folhaDeAprov
 acao.tex fixos/pacotes.tex fixos/comandos.tex fixos/setup.tex fixos/listasAutom
@@ -1288,15 +1288,15 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 38.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 75.
 
 (/home/oziel/.miktex/texmfs/install/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 38.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 75.
 
-Overfull \hbox (46.41678pt too wide) in paragraph at lines 38--39
+Overfull \hbox (46.41678pt too wide) in paragraph at lines 75--76
 []\T1/lmr/m/n/12 Explorar o al-go-ritmo de treina-mento do clas-si-fi-cador LDA
  de-sen-volvido por ([][][][][][],
  []
@@ -1413,7 +1413,7 @@ Package atveryend Info: Executing hook `AfterLastShipout' on input line 46.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 46.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 46.
 Package rerunfilecheck Info: File `tcc.brf' has not changed.
-(rerunfilecheck)             Checksum: E5ABA11472CBFFA361FF9A9F46EF0A0C;1194.
+(rerunfilecheck)             Checksum: 30ADD5C2471F0E7E1C6F5F0D402BE797;1194.
 
 
 LaTeX Warning: There were undefined references.
@@ -1430,6 +1430,6 @@ Here is how much of TeX's memory you used:
  15825 multiletter control sequences out of 15000+200000
  100209 words of font info for 64 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 45i,13n,51p,1419b,512s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 45i,13n,51p,1055b,512s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on tcc.dvi (59 pages, 126056 bytes).
+Output written on tcc.dvi (59 pages, 126448 bytes).

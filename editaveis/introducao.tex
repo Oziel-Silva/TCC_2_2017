@@ -3,33 +3,70 @@
 
 \section{Contextualização}
 
-Através de uma rede de mais de 100 bilhões de células nervosas interconectadas, o cérebro realiza o controle de nossas ações, percepções, emoções e etc \cite{KANDEL}. Estas células são chamadas de \textit{neurônios}, e neles são armazenados sinais elétricos, que representam todas as informações de controle \cite{Siulybook}. Estes sinais podem ser medidos pela eletroencefalografia (EEG), que é um sistema de medição de sinais elétricos produzidos pelo cérebro durante atividades cerebrais \cite{F.Lotte}. Segundo \cite{SIULYDissertacao}, a EEG é uma das mais importantes ferramentas para diagnosticar doenças cerebrais.
+Através de uma rede de mais de 100 bilhões de células nervosas interconectadas, o cérebro
+realiza o controle de nossas ações, percepções, emoções e etc \cite{KANDEL}. Estas células
+são chamadas de \textit{neurônios}, e neles são armazenados sinais elétricos, que representam
+todas as informações de controle \cite{Siulybook}. Estes sinais podem ser medidos pela
+eletroencefalografia (EEG), que é um sistema de medição de sinais elétricos produzidos pelo
+cérebro durante atividades cerebrais \cite{F.Lotte}. Segundo \cite{SIULYDissertacao}, a EEG
+é uma das mais importantes ferramentas para diagnosticar doenças cerebrais.
 
-Além do diagnóstico de doenças cerebrais uma outra aplicação para os sinais adquiridos pela EEG são as \textit{Brain Computer Interfaces} (BCIs) \cite{F.Lotte}. Uma BCI é um sistema que realiza a comunicação entre o cérebro e um computador \cite{Siulybook}, onde sua principal função é a tradução dos sinais elétricos, obtidos através da EEG, em comandos de controle para qualquer dispositivo eletrônico \cite{Siulybook}.
+Além do diagnóstico de doenças cerebrais uma outra aplicação para os sinais adquiridos
+pela EEG são as \textit{Brain Computer Interfaces} (BCIs) \cite{F.Lotte}. Uma BCI é um
+sistema que realiza a comunicação entre o cérebro e um computador \cite{Siulybook}, onde
+sua principal função é a tradução dos sinais elétricos, obtidos através da EEG, em comandos
+de controle para qualquer dispositivo eletrônico \cite{Siulybook}.
 
-A BCI realiza a tradução destes comandos através de seis passos: 1) medição dos sinais provenientes de atividades cerebrais através da EEG, 2) pré-processamento destes sinais, 3) extração de características, 4) classificação, 5)tradução dos sinais em comandos e 6) realimentação \cite{MasonAndBirch}. Um dos principais passos para a implementação de uma BCI é a classificação, pois é após este passo que é realizada a tradução dos sinais da EEG em comandos de controle \cite{MasonAndBirch}.
+A BCI realiza a tradução destes comandos através de seis passos: 1) medição dos sinais
+provenientes de atividades cerebrais através da EEG, 2) pré-processamento destes sinais,
+3) extração de características, 4) classificação, 5)tradução dos sinais em comandos e 6)
+realimentação \cite{MasonAndBirch}. Um dos principais passos para a implementação de uma
+BCI é a classificação, pois é após este passo que é realizada a tradução dos sinais da EEG
+em comandos de controle \cite{MasonAndBirch}.
 
-A classificação de um sinal é caracterizada, em aprendizado de máquina e em reconhecimento de padrões, como um algoritmo que atribui parte de um dado sinal de entrada a um dado número de classes ou categorias \cite{brunelli2009template}. Um exemplo é a classificação de um e-mail como "spam" ou "não-spam". Os algoritmos que realizam a classificação dos sinais de entrada são chamados de \textbf{classificadores} \cite{Siulybook}. De acordo com \cite{lottephd}, "estes classificadores são capazes de aprender como identificar um vetor de características, graças aos processos de treinamentos". Estes conjuntos são formados por vetores de características previamente atribuídos às suas respectivas classes.
+A classificação de um sinal é caracterizada, em aprendizado de máquina e em reconhecimento de
+padrões, como um algoritmo que atribui parte de um dado sinal de entrada a um dado número de
+classes ou categorias \cite{brunelli2009template}. Um exemplo é a classificação de um e-mail
+como "spam" ou "não-spam". Os algoritmos que realizam a classificação dos sinais de entrada são
+chamados de \textbf{classificadores} \cite{Siulybook}. De acordo com \cite{lottephd}, "estes
+classificadores são capazes de aprender como identificar um vetor de características, graças
+aos processos de treinamentos". Estes conjuntos são formados por vetores de características
+previamente atribuídos às suas respectivas classes.
 
-O algoritmo que realiza a classificação é caracterizado por uma função matemática que mapeia um sinal de entrada em sua respectiva classe \cite{lottephd}. Os classificadores preferidos pelos pesquisadores são os \textbf{classificadores supervisionados}, pois estes tipos de classificadores necessitam de um conjunto de dados de treinamento. Ou seja, o conjunto de dados necessários para um classificador supervisionado são divididos em: dados de treino e dados de testes. \cite{Siulybook}.
+O algoritmo que realiza a classificação é caracterizado por uma função matemática
+que mapeia um sinal de entrada em sua respectiva classe \cite{lottephd}. Os classificadores
+preferidos pelos pesquisadores são os \textbf{classificadores supervisionados}, pois estes
+tipos de classificadores necessitam de um conjunto de dados de treinamento. Ou seja, o conjunto
+de dados necessários para um classificador supervisionado são divididos em: dados de treino e dados
+de testes. \cite{Siulybook}.
 
 Portanto os classificadores do tipo supervisionados são implementados a partir de dois processos: \textit{treinamento} e \textit{testes} \cite{Siulybook}.
 
-Assim como propõe o seu nome, o LDA é um classificador linear e tem como suas principais vantagens a simplicidade e atratividade computacional(livro Pattern Recognition).
-O objetivo do LDA é usar de uma transformação linear para encontrar um conjunto otmizado de vetores discriminantes e remapear o conjunto de características
-original, em um outro conjunto de dimensão  inferior.(Classification Depend on Linear Discriminant Analysis Using Disired Outputs).
+Assim como propõe o seu nome, o LDA é um classificador linear e tem como suas principais vantagens
+a simplicidade e atratividade computacional(livro Pattern Recognition).
+O objetivo do LDA é usar de uma transformação linear para encontrar um conjunto otmizado de vetores
+discriminantes e remapear o conjunto de características
+original, em um outro conjunto de dimensão  inferior.(Classification Depend on Linear Discriminant
+Analysis Using Disired Outputs).
 
-Apesar do LDA ser um algorítmo interessante no que se trata de consumo computacional, em geral, os algoritmos de classificação são complexos computacionalmente 
-e com tempo de execução elevado, isso os tornam restritivos a poucas aplicações, assim não podendo equipar projetos que têm restrições de dimensão e peso.
+Apesar do LDA ser um algorítmo interessante no que se trata de consumo computacional, em geral, os algoritmos de classificação são complexos computacionalmente com tempo de execução elevado,
+isso os tornam restritivos a poucas aplicações, para executar um 
+códido que descreve esses algoritmos é necessário uma máquina de proporções não versátil e não portátil,
+assim não podendo equipar projetos que têm restrições de dimensão e peso.
 
-Este trabalho apresenta uma análise temporal do algoritmo classificador LDA identificando o bloco ou função do algoritmo 
-que consome um maior intervalo de tempo para realizar seu processamento, além da sua respectiva implementação em \textit{hardware}
+Este trabalho apresenta uma análise temporal do algoritmo classificador LDA identificando o bloco ou 
+função do algoritmo que consome um maior intervalo de tempo para realizar seu processamento, além da
+ sua respectiva implementação em \textit{hardware} e \textit{software}, com intuito de obter os resultados
+de dois métodos de implementação diferentes, assim obtendo respaldo para comparação entre as duas
+arquiteturas de implementação.
+
 (FPGA) afim de paralelizar os processos, otimizando o tempo de processamento e consumo de recursos.
 
 \section{Justificativa}
 
 \section{Objetivos}
-Esta seção apresenta os objetivos gerais e específicos propostos a serem desenvolvidos neste presente trabalho.
+Esta seção apresenta os objetivos gerais e específicos propostos a serem desenvolvidos neste
+ presente trabalho.
 \subsection{Objetivos Gerais}
 - Implementar parte do algoritmo de treinamento de um classificador LDA utilizando um SoC na plataforma Zynq afim de otimizar tanto o algoritmo, em relação a tempo de execução, quanto o seu consumo de recursos. 
 \subsection{Objetivos Específicos}
