@@ -10,6 +10,12 @@
 {BRUNELLI, R. \emph{Template matching techniques in computer vision: theory and
   practice}. [S.l.]: John Wiley \& Sons, 2009.}
 
+\bibitem[Crockett et al. 2014]{zynqBook}
+\abntrefinfo{Crockett et al.}{CROCKETT et al.}{2014}
+{CROCKETT, L.~H. et al. \emph{The Zynq Book: Embedded Processing with the Arm
+  Cortex-A9 on the Xilinx Zynq-7000 All Programmable Soc}. [S.l.]: Strathclyde
+  Academic Media, 2014.}
+
 \bibitem[Kandel 2013]{KANDEL}
 \abntrefinfo{Kandel}{KANDEL}{2013}
 {KANDEL, e.~a. E.~R. \emph{Principles of Neural Science}. 5. ed. The address:
@@ -40,6 +46,13 @@ ISSN 0018-9294.}
   v.~11, n.~1, p. 70--85, March 2003.
 ISSN 1534-4320.}
 
+\bibitem[Shashoa et al. 2016]{ShashoaLDA}
+\abntrefinfo{Shashoa et al.}{SHASHOA et al.}{2016}
+{SHASHOA, N. A.~A. et al. Classification depend on linear discriminant analysis
+  using desired outputs. In:  IEEE. \emph{Sciences and Techniques of Automatic
+  Control and Computer Engineering (STA), 2016 17th International Conference
+  on}. [S.l.], 2016. p. 328--332.}
+
 \bibitem[Siuly 2012]{SIULYDissertacao}
 \abntrefinfo{Siuly}{SIULY}{2012}
 {SIULY, S.
@@ -51,5 +64,11 @@ Disserta\c{c}\~{a}o (Mestrado) --- University of Southern Queensland,
 \abntrefinfo{Siuly, Li e Zhang}{SIULY; LI; ZHANG}{2017}
 {SIULY, S.; LI, Y.; ZHANG, Y. \emph{EEG Signal Analysis and Classification:
   Techniques and Applications}. [S.l.]: Springer, 2017.}
+
+\bibitem[Theodoridis, Koutroumbas et al. 1999]{patternRecogn}
+\abntrefinfo{Theodoridis, Koutroumbas et al.}{THEODORIDIS; KOUTROUMBAS et
+  al.}{1999}
+{THEODORIDIS, S.; KOUTROUMBAS, K. et al. \emph{Pattern recognition.} [S.l.]:
+  Academic press London, 1999.}
 
 \end{thebibliography}

@@ -1,5 +1,5 @@
 \chapter[Introdução]{Introdução}
-\addcontentsline{toc}{chapter}{Introdução}
+
 
 \section{Contextualização}
 
@@ -21,48 +21,41 @@ A BCI realiza a tradução destes comandos através de seis passos: 1) medição
 provenientes de atividades cerebrais através da EEG, 2) pré-processamento destes sinais,
 3) extração de características, 4) classificação, 5)tradução dos sinais em comandos e 6)
 realimentação \cite{MasonAndBirch}. Um dos principais passos para a implementação de uma
-BCI é a classificação, pois é após este passo que é realizada a tradução dos sinais da EEG
+BCI é a \textbf{classificação}, pois é após este passo que é realizada a tradução dos sinais provenientes da EEG
 em comandos de controle \cite{MasonAndBirch}.
 
 A classificação de um sinal é caracterizada, em aprendizado de máquina e em reconhecimento de
 padrões, como um algoritmo que atribui parte de um dado sinal de entrada a um dado número de
 classes ou categorias \cite{brunelli2009template}. Um exemplo é a classificação de um e-mail
 como "spam" ou "não-spam". Os algoritmos que realizam a classificação dos sinais de entrada são
-chamados de \textbf{classificadores} \cite{Siulybook}. De acordo com \cite{lottephd}, "estes
+chamados de \textbf{classificadores} \cite{Siulybook}. De acordo com \cite[p. 41]{lottephd}, "estes
 classificadores são capazes de aprender como identificar um vetor de características, graças
 aos processos de treinamentos". Estes conjuntos são formados por vetores de características
-previamente atribuídos às suas respectivas classes.
+previamente atribuídos às suas respectivas classes \cite{lottephd}.
 
 O algoritmo que realiza a classificação é caracterizado por uma função matemática
 que mapeia um sinal de entrada em sua respectiva classe \cite{lottephd}. Os classificadores
 preferidos pelos pesquisadores são os \textbf{classificadores supervisionados}, pois estes
-tipos de classificadores necessitam de um conjunto de dados de treinamento. Ou seja, o conjunto
-de dados necessários para um classificador supervisionado são divididos em: dados de treino e dados
-de testes. \cite{Siulybook}.
+tipos de classificadores necessitam de um conjunto de dados de treinamento. Os dados de treinamento são um conjunto de dados previamente classificados \cite{Siulybook}. Portanto os classificadores supervisionados são implementados a partir de dois processos: \textit{treinamento} e \textit{testes} \cite{Siulybook}. As \textit{Support Vector Machines} (SVM), os \textit{Linear Discriminant Analysis} (LDA), os filtros Kalman, as árvores de decisões são alguns exemplos de classificadores do tipo supervisionados \cite{Siulybook}.
 
-Portanto os classificadores do tipo supervisionados são implementados a partir de dois processos: \textit{treinamento} e \textit{testes} \cite{Siulybook}.
-
-Assim como propõe o seu nome, o LDA é um classificador linear e tem como suas principais vantagens
-a simplicidade e atratividade computacional(livro Pattern Recognition).
-O objetivo do LDA é usar de uma transformação linear para encontrar um conjunto otmizado de vetores
+O LDA como dito anteriormente é um dos classificadores supervisionados e tem como suas principais vantagens
+a simplicidade e atratividade computacional, por se tratar de um classificador linear \cite{patternRecogn}.
+O objetivo do LDA é usar uma transformação linear para encontrar um conjunto otmizado de vetores
 discriminantes e remapear o conjunto de características
-original, em um outro conjunto de dimensão  inferior.(Classification Depend on Linear Discriminant
-Analysis Using Disired Outputs).
+original, em um outro conjunto de dimensão  inferior \cite{ShashoaLDA}.
 
 Apesar do LDA ser um algorítmo interessante no que se trata de consumo computacional, em geral, os algoritmos de classificação são complexos computacionalmente com tempo de execução elevado,
 isso os tornam restritivos a poucas aplicações, para executar um 
 códido que descreve esses algoritmos é necessário uma máquina de proporções não versátil e não portátil,
 assim não podendo equipar projetos que têm restrições de dimensão e peso.
 
-Este trabalho apresenta uma análise temporal do algoritmo classificador LDA identificando o bloco ou 
-função do algoritmo que consome um maior intervalo de tempo para realizar seu processamento, além da
- sua respectiva implementação em \textit{hardware} e \textit{software}, com intuito de obter os resultados
-de dois métodos de implementação diferentes, assim obtendo respaldo para comparação entre as duas
-arquiteturas de implementação.
+Um \textit{System on Chip} (SoC) é caracterizado pela implementação de todo um sistema computacional, tais como memórias, processadores, entradas e saídas, lógicas digitais, entre outros, em um único chip de silício \cite{zynqBook}. Diferente dos computadores tradicionais, que possuem seu sistema implementado a partir de módulos isolados e combinados em uma placa de circuito impresso, ou placa-mãe, os SoCs possuem como principais características um baixo custo de implementação, além de baixo consumo de potência, menor tamanho físico, maior confiabilidade e maior velocidade do sistema geral, quando comparado com um computador tradicional \cite{zynqBook}. Um exemplo de um SoC é a plataforma Zynq que combina em um único chip processadores \textit{Advanced Risc Machine} (ARM) e \textit{Field Programmable Gate Array} (FPGA), esse útimo utilizado para configurar todos os módulos de um computador tradicional \cite{zynqBook}. 
 
-(FPGA) afim de paralelizar os processos, otimizando o tempo de processamento e consumo de recursos.
+Tendo em vista a grande vantagem dos SoCs sobre os computadores tradicionais, onde são implementados e executados os algoritmos de classificação, este trabalho apresenta um estudo da viabilidade da implementação em hardware e em software embarcado, do algoritmo de treinamento do classificador LDA, realizando a comparação de consumo computacional, processamento computacional (tempo de execução), entre as implementações em hardware e software, onde a implementação em hardware consiste no mapeamento do algoritmo na plataforma FPGA, afim de paralelizar seus processos e a implementação em software consiste em executar o algoritmo em um sistema embarcado utilizando os cores ARM, ambos da plataforma Zynq, além da comparação com sua implementação inicial em \textit{Matlab}.
+
 
 \section{Justificativa}
+As aplicações das BCIs apresentam um crescente desenvolvimento, graças ao aumento do interesse em pesquisas voltadas para o tema (BCI COMPETITION). Por ser considerado o principal processo das BCIs, a classificação requer um cuidado especial \cite{MasonAndBirch}. Como o LDA é um classificador supervisionado, a acurácia da classificação depende inteiramente de um bom treinamento \cite{F.Lotte}. Isso requer do algoritmo de treinamento um maior esforço computacional. Como os SoCs apresentam características de baixo consumo de potência, tamanho físico pequeno e possuir todos módulos de um sistema computacional em um único chip, a implementação de algoritmos de classificação em sistema deste porte podem ou não tornar as BCIs mais acessíveis, tendo em vista que um algoritmo de treinamento embarcado em um SoC reduzirá a necessidade de um sistema computacional tradicional, além de um melhor processamento computacional, pois sua implementação em FPGA na plataforma \textit{Zynq} torna-se possível paralelizar seus processos de execução \cite{zynqBook}.
 
 \section{Objetivos}
 Esta seção apresenta os objetivos gerais e específicos propostos a serem desenvolvidos neste
@@ -77,5 +70,5 @@ Esta seção apresenta os objetivos gerais e específicos propostos a serem dese
 	\item Explorar o algoritmo de treinamento do classificador LDA desenvolvido por \cite{F.Lotte};
 	\item Mapear parte deste algoritmo em arquiteturas paralelas utilizando a linguagem VHDL;
 	\item Implementar em sistema embarcado o algoritmo de treinamento utilizando os cores ARM da Zynq;
-	\item Realizar teste e validação das implementações utilizando as bases de dados do BCI Competition III.
+	\item Realizar teste e validação das implementações utilizando as bases de dados do BCI Competition III, em especifico o conjunto de dados BCI III \textit{dataset} IVa.
 \end{itemize}
