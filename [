@@ -13,27 +13,13 @@ O cérebro é o processador central do SNC, nele são recebidos e processados os
 A \textit{BCI Competition} é uma competição que promove o desenvolvimento e melhoria da tecnologia voltada para as BCIs, onde são submetidas diferentes técnicas de análise de dados cerebrais \cite{BCICompetition}. Já foram realizadas quatro edições da competição, nos anos de 2001, 2002, 2004 e 2008 \cite{BCICompetition}. Em cada uma destas competições são fornecidos publicamente sinais cerebrais, adquiridos em laboratórios especializados \cite{BCICompetition}.
  
 \section{\textit{Linear Discriminant Analisys}}
-Supondo a existência de um conjunto de dados L,com características multivariadas, e que cada dado
+ Supondo a existência de um conjunto de dados L,com características multivariadas, e que cada dado
 seja conhecido devido ser proveniente de uma das  classes K, tal que são predefinidas com características
-semelhantes aos dados. As classes podem ser exemplificadas como sendo: espécies de plantas,
-precença ou ausência de uma condição médica específica, diferentes tipos de tumores, tipos de veículos automotores
-entre outros. Para separar as classes conhecidas uma das outras, é atribuido um rótulo a cada classe, então os dados são
-representados como dados rotulados.(livro Modern Multivariate
-Statistical Techiniques -Alan J. Izenman)
-
-
-Devido a indispensabilidade de diminuir as dimensões dos dados de um determinado conjunto, o objetivo do LDA
-é reduzir a dimensão do espaço de conjunto de dados, resolvendo o inconvêniente da sobreposição.  
-(A Comparison of Linear Discriminant Analysis and Ridge Classifier on Twitter Data)
-
-
-
-\section{Sistemas em Chip}
-
-Sistemas em \textit{Chip} do inglês \textit{System-on-Chip} ou apenas SoC, implica que todo um sistema
-que contém funcionalidades em hardware e software se encontra em um unico chip de silício, ao invés de 
-uma implementação maior em vários chips físicos diferentes. O termo SoC é normalmente usado quando se fala
-de um Circuito Integrado de Aplicação Específica, este também do inglês\textit{ Application Specific Integrated Circuit} (ASIC)
+semelhantes. As classes podem ser apontadas, por exemplo como espécies de plantas, precença ou ausência
+de uma condição médica específica, diferentes tipos de tumores entre outros. Para separar as classes
+conhecidas, é atribuido um rótulo a cada classe, então os dados são representados como dados rotulados.(livro Modern Multivariate
+Statistical Techiniques -Alan J. Izenman)     
+\section{Sistemas em Chip (SoC)}
 
 \section{Estado da Arte}
 

@@ -23,8 +23,8 @@
 \contentsline {section}{\numberline {2.3}\textit {Brain Computer Interface}}{29}{section.2.3}
 \contentsline {section}{\numberline {2.4}\textit {BCI Competition}}{29}{section.2.4}
 \contentsline {section}{\numberline {2.5}\textit {Linear Discriminant Analisys}}{29}{section.2.5}
-\contentsline {section}{\numberline {2.6}Sistemas em Chip (SoC)}{29}{section.2.6}
-\contentsline {section}{\numberline {2.7}Estado da Arte}{29}{section.2.7}
+\contentsline {section}{\numberline {2.6}Sistemas em Chip}{30}{section.2.6}
+\contentsline {section}{\numberline {2.7}Estado da Arte}{30}{section.2.7}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Considera\IeC {\c c}\IeC {\~o}es sobre os Elementos Textuais}}{31}{chapter.3}
 \contentsline {section}{\numberline {3.1}Introdu\IeC {\c c}\IeC {\~a}o}{31}{section.3.1}
