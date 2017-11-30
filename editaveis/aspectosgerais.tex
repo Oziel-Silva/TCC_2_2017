@@ -1,10 +1,21 @@
 
 \chapter[Referencial Teórico]{Referencial Teórico}
+Este capítulo apresenta os conceitos teóricos que abordam este trabalho, detalhando a estrutura cerebral responsável pela geração dos sinais de interesse na subseção 2.1, o sistema de captura dos sinais (a EEG) na subseção 2.2, o sistema que se refere às BCIs que realizam a tradução dos sinais em comandos para dispositivos na subseção 2.3, os detalhes técnicos a respeito dos sinais oferecidos pela base de dados \textit{BCI Competition} na subseção 2.4, a estrutura geral de um classificador LDA na subseção 2.5, os conceitos de um SoC na subseção 2.6 e por fim o estado da arte das implementações de algoritmos de classificação na subseção 2.7. 
 
 \section{O Cérebro}
-O SNC (Sistema Nervoso Central) é o responsável direto pelo comando do nosso comportamento geral\cite{David_Clarck}. Ele pode ser dividido em duas principais áreas: medula espinhal e o cérebro \cite{KANDEL}.
-A medula espinhal, parte caldal do SNC recebe e processa todos os sinais dos sensores corporais, além de realizar o controle dos membros e do tronco humano \cite{KANDEL}.
-O cérebro é o processador central do SNC, nele são recebidos e processados os sinais da medula espinhal, além de fornecer todos os sinais de controle para a própria medula \cite{KANDEL}. O cérebro é dividido em 3 principais regiões: cerebrum, cerebelo e tronco encefálico \cite{SIULYDissertacao}.
+O Sistema Nervoso Central (SNC) é o responsável direto pelo comando do nosso comportamento geral\cite{David_Clarck}. Ele pode ser dividido em três principais áreas: tronco encefálico ou medula espinhal, o cérebro e o cerebelo (Figura \ref{BrainParts}) \cite{alvarezneurobiomecanismos}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[keepaspectratio=true,scale=1.0]{figuras/estrutura_cerebral.PNG}
+	\caption{Três principais áreas do cérebro \cite{alvarezneurobiomecanismos}}
+	\label{BrainParts}
+\end{figure}
+
+O tronco encefálico, parte caldal do SNC recebe e processa todos os sinais dos sensores corporais, além de realizar o controle dos membros e do tronco humano \cite{KANDEL}.
+O cérebro é o processador do SNC, nele são recebidos e processados os sinais da medula espinhal, além de fornecer todos os sinais de controle para a própria medula, que por sua vez distribui os sinais para os membros e tronco \cite{KANDEL}.
+O cerebelo é localizado logo atrás do tronco encefálico que se conectam através de fibras chamadas de pedúnculos \cite{KANDEL}, é a segunda maior estrutura do SNC contendo mais da metade dos neurônios cerebrais, \cite{SIULYDissertacao} é responsável pelo mapeamento em volta do indivíduo, ou seja, sua percepção \cite{alvarezneurobiomecanismos}, além do controle da região motora e a memória de movimentos \cite{SIULYDissertacao,alvarezneurobiomecanismos}
+
 \section{Eletroencefalografia}
 
 \section{\textit{Brain Computer Interface}}
@@ -35,7 +46,7 @@ Foram adquiridos sinais de 5 sujeitos rotulados em \textit{aa, al, av, aw} e \te
 	\end{tabular}
 \end{table}
 
-Os dados foram adquiridos e armazenados utilizando amplificadores do tipo \textit{BrainAmp} e uma capa de eletrodos de 128 canais. Foram utilizados 118 canais de EEG posicionados de acordo com o sistema 10/20. Cada um destes canais foram filtrados em banda passante, utilizando um filtro \textit{butterworth} de quinta ordem entre as frequências de 0.05 e 200 Hz, posteriormente foram digitalizados com uma frequência de amostragem de 1 kHz com precisão de 16 bits, apresentando uma resolução de 0.1 uV, além disso tamém foram disponibilizados os mesmos dados com uma frequência de amostragem de 100 Hz \cite{siteBCI}.
+Os dados foram adquiridos e armazenados utilizando amplificadores do tipo \textit{BrainAmp} e uma capa de eletrodos de 128 canais. Foram utilizados 118 canais de EEG posicionados de acordo com o sistema 10/20. Cada um destes canais foram filtrados em banda passante, utilizando um filtro \textit{butterworth} de quinta ordem entre as frequências de 0.05 e 200 Hz, posteriormente foram digitalizados com uma frequência de amostragem de 1 kHz com precisão de 16 bits, apresentando uma resolução de 0.1 $\mu$V, além disso tamém foram disponibilizados os mesmos dados com uma frequência de amostragem de 100 Hz \cite{siteBCI}.
  
 \section{\textit{Linear Discriminant Analisys}}
 Supondo a existência de um conjunto de dados L,com características multivariadas, e que cada dado
@@ -43,31 +54,19 @@ seja conhecido devido ser proveniente de uma das  classes K, tal que são predef
 semelhantes aos dados. As classes podem ser exemplificadas como sendo: espécies de plantas,
 precença ou ausência de uma condição médica específica, diferentes tipos de tumores, tipos de veículos automotores
 entre outros. Para separar as classes conhecidas uma das outras, é atribuido um rótulo a cada classe, então os dados são
-representados como dados rotulados.(livro Modern Multivariate
-Statistical Techiniques -Alan J. Izenman)
+representados como dados rotulados \cite{izenmanLDA}.
 
 
 Devido a indispensabilidade de diminuir as dimensões dos dados de um determinado conjunto, o objetivo do LDA
-é reduzir a dimensão do espaço de conjunto de dados, resolvendo o inconvêniente da sobreposição.  
-(A Comparison of Linear Discriminant Analysis and Ridge Classifier on Twitter Data)
-
+é reduzir a dimensão do espaço de conjunto de dados, resolvendo o inconvêniente da sobreposição \cite{SinghLDA}.
 
 
 \section{\textit{System-on-Chip}}
 
-\textit{System-on-Chip} (SoC), implica que todo sistema que
-contém funcionalidades implementadas em \textit{hardware}
-e \textit{software} se encontra em um único chip de silício,combinando processamento, lógica de
-alta velocidade, interface, memória entre outros componentes ao invés de 
-uma implementação maior em vários \textit{chips} físicos diferentes agrupados em uma placa 
-de cicuito impresso.(livro zynq book)
+\textit{System-on-Chip} (SoC), implica que todo sistema que contém funcionalidades implementadas em hardware e software se encontra em um único chip de silício,combinando processamento, lógica de alta velocidade, interface, memória entre outros componentes ao invés de uma implementação maior em vários chips físicos diferentes agrupados em uma placa 
+de cicuito impresso \cite{zynqBook}.
 
-
-São vários os argumentos a favor da escolha de um SoC a uma placa de circuito impresso, pode-se
-citar que a solução é de menor custo, viabiliza transferência de dados mais rápidas e seguras entre
-vários elementos do sistema, possui maior velocidade geral do sistema, menor consumo de energia entre
-vários outros elementos que fortalecem a escolha de um SoC em sistemas discretos com componentes
-equivalentes. (livro zynq book)
+São vários os argumentos a favor da escolha de um SoC a uma placa de circuito impresso, pode-se citar que a solução é de menor custo, viabiliza transferência de dados mais rápidas e seguras entre vários elementos do sistema, possui maior velocidade geral do sistema, menor consumo de energia entre vários outros elementos que fortalecem a escolha de um SoC em sistemas discretos com componentes equivalentes \cite{zynqBook}.
 
 
 \section{Estado da Arte}

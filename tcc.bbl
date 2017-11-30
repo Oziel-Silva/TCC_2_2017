@@ -5,10 +5,18 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v-1.9.6 }
 
-\bibitem[BCI Competition III]{siteBCI}
-\abntrefinfo{BCI\ldots}{BCI\ldots}{}
-{BCI Competition III. \url{http://www.bbci.de/competition/iii/desc_IVa.html}.
-Accessed: 2017-10-22.}
+\bibitem[Alvarez e Lemos 2006]{alvarezneurobiomecanismos}
+\abntrefinfo{Alvarez e Lemos}{ALVAREZ; LEMOS}{2006}
+{ALVAREZ, A.; LEMOS, I. d.~C. Os neurobiomecanismos do aprender: a
+  aplica{\c{c}}{\~a}o de novos conceitos no dia-a-dia escolar e
+  terap{\^e}utico.
+\emph{Revista Psicopedagogia}, Associacao Brasileira de Psicopedagogia, v.~23,
+  n.~71, p. 181--190, 2006.}
+
+\bibitem[Blankertz et al. 2005]{siteBCI}
+\abntrefinfo{Blankertz et al.}{BLANKERTZ et al.}{2005}
+{BLANKERTZ, B. et al. \emph{BCI Competition III}. 2005.
+Dispon{\'\i}vel em: \url{http://www.bbci.de/competition/iii/desc\_IVa.html}.}
 
 \bibitem[Blankertz et al. 2006]{BCICompetition}
 \abntrefinfo{Blankertz et al.}{BLANKERTZ et al.}{2006}
@@ -35,6 +43,11 @@ ISBN 0521840503,9780521840507. Dispon{\'\i}vel em:
 {CROCKETT, L.~H. et al. \emph{The Zynq Book: Embedded Processing with the Arm
   Cortex-A9 on the Xilinx Zynq-7000 All Programmable Soc}. [S.l.]: Strathclyde
   Academic Media, 2014.}
+
+\bibitem[Izenman 2008]{izenmanLDA}
+\abntrefinfo{Izenman}{IZENMAN}{2008}
+{IZENMAN, A.~J. \emph{Modern multivariate statistical techniques}. [S.l.]:
+  Springer, 2008. v.~1.}
 
 \bibitem[Kandel 2013]{KANDEL}
 \abntrefinfo{Kandel}{KANDEL}{2013}
@@ -72,6 +85,14 @@ ISSN 1534-4320.}
   using desired outputs. In:  IEEE. \emph{Sciences and Techniques of Automatic
   Control and Computer Engineering (STA), 2016 17th International Conference
   on}. [S.l.], 2016. p. 328--332.}
+
+\bibitem[Singh, Prakash e Chandrasekaran 2016]{SinghLDA}
+\abntrefinfo{Singh, Prakash e Chandrasekaran}{SINGH; PRAKASH;
+  CHANDRASEKARAN}{2016}
+{SINGH, A.; PRAKASH, B.~S.; CHANDRASEKARAN, K. A comparison of linear
+  discriminant analysis and ridge classifier on twitter data. In:  IEEE.
+  \emph{Computing, Communication and Automation (ICCCA), 2016 International
+  Conference on}. [S.l.], 2016. p. 133--138.}
 
 \bibitem[Siuly 2012]{SIULYDissertacao}
 \abntrefinfo{Siuly}{SIULY}{2012}

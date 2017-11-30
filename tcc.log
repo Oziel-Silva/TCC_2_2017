@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.21)  30 NOV 2017 14:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.21)  30 NOV 2017 16:42
 entering extended mode
 **./tcc.tex
 (tcc.tex
@@ -1283,33 +1283,27 @@ DA de-sen-vol-vido por ([][]LOTTE;
  []
 
 [29]) (editaveis/aspectosgerais.tex [30]
+<figuras/estrutura_cerebral.PNG, id=317, 259.7203pt x 225.09094pt>
+File: figuras/estrutura_cerebral.PNG Graphic file (type png)
+
+<use figuras/estrutura_cerebral.PNG>
+Package pdftex.def Info: figuras/estrutura_cerebral.PNG used on input line 10.
+(pdftex.def)             Requested size: 259.71967pt x 225.09038pt.
+ [31
+
+ <./figuras/estrutura_cerebral.PNG>]
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <17.28> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 10.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 21.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <14.4> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 15.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 26.
 
-
-Package hyperref Warning: Suppressing empty link on input line 16.
-
-
-Package hyperref Warning: Suppressing empty link on input line 17.
-
-[31
-
-]
-
-Package hyperref Warning: Suppressing empty link on input line 22.
-
-
-Package hyperref Warning: Suppressing empty link on input line 38.
-
-[32]) (editaveis/consideracoes.tex [33] [34
-
-]) (tcc.bbl (tcc.brf)
+[32] [33]) (editaveis/consideracoes.tex [34]) (tcc.bbl (tcc.brf)
 \tf@brf=\write5
 \openout5 = `tcc.brf'.
 
- [35] [36
+ [35
+
+] [36
 
 ]
 
@@ -1317,14 +1311,13 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\uppercase' on input line 3.
 
 bibitemlist
-) (editaveis/apendices.tex [37] [38
-
-]
+[37]) (editaveis/apendices.tex [38]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\uppercase' on input line 4.
 
 [39
+
 
 ] [40] [41
 
@@ -1363,7 +1356,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 46.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 46.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 46.
 Package rerunfilecheck Info: File `tcc.brf' has not changed.
-(rerunfilecheck)             Checksum: FF420C669D7C1FF42042BC63F70B53A8;2346.
+(rerunfilecheck)             Checksum: 3238664BE956DC01A13665AF5CFBCAD8;2939.
 
 
 LaTeX Warning: There were undefined references.
@@ -1374,28 +1367,29 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 46.
  ) 
 Here is how much of TeX's memory you used:
- 12882 strings out of 493323
- 186865 string characters out of 3139066
- 312197 words of memory out of 3000000
- 15982 multiletter control sequences out of 15000+200000
+ 12925 strings out of 493323
+ 187739 string characters out of 3139066
+ 312990 words of memory out of 3000000
+ 16019 multiletter control sequences out of 15000+200000
  87394 words of font info for 58 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,13n,38p,1148b,507s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program Files/M
-iKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}<C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lm
-r10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Progra
-m Files/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/lm/lmri12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
-lic/lm/lmss12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmss17.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmssbo10.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/lm/lmssbx10.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/lm/lmsso12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/lm/lmsso17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb
->
-Output written on tcc.pdf (51 pages, 509414 bytes).
+ 41i,13n,38p,1148b,630s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Fil
+es/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program Files/MiKTeX 2.9/fonts/e
+nc/dvips/lm/lm-mathsy.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lm
+bx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi12.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/lm/lmri10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmss12.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/lm/lmss17.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/lm/lmssbo10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+lm/lmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsso12.pfb>
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsso17.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb>
+Output written on tcc.pdf (51 pages, 570803 bytes).
 PDF statistics:
- 638 PDF objects out of 1000 (max. 8388607)
- 119 named destinations out of 1000 (max. 500000)
- 338 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 688 PDF objects out of 1000 (max. 8388607)
+ 123 named destinations out of 1000 (max. 500000)
+ 343 words of extra memory for PDF output out of 10000 (max. 10000000)
 
