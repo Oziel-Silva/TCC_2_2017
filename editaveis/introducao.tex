@@ -1,0 +1,34 @@
+\chapter[Introdução]{Introdução}
+\addcontentsline{toc}{chapter}{Introdução}
+
+\section{Contextualização}
+
+Através de uma rede de mais de 100 bilhões de células nervosas interconectadas, o cérebro realiza o controle de nossas ações, percepções, emoções e etc \cite{KANDEL}. Estas células são chamadas de \textit{neurônios}, e neles são armazenados sinais elétricos, que representam todas as informações de controle \cite{Siulybook}. Estes sinais podem ser medidos pela eletroencefalografia (EEG), que é um sistema de medição de sinais elétricos produzidos pelo cérebro durante atividades cerebrais \cite{F.Lotte}. Segundo \cite{SIULYDissertacao}, a EEG é uma das mais importantes ferramentas para diagnosticar doenças cerebrais.
+
+Além do diagnóstico de doenças cerebrais uma outra aplicação para os sinais adquiridos pela EEG são as \textit{Brain Computer Interfaces} (BCIs) \cite{F.Lotte}. Uma BCI é um sistema que realiza a comunicação entre o cérebro e um computador \cite{Siulybook}, onde sua principal função é a tradução dos sinais elétricos, obtidos através da EEG, em comandos de controle para qualquer dispositivo eletrônico \cite{Siulybook}.
+
+A BCI realiza a tradução destes comandos através de seis passos: 1) medição dos sinais provenientes de atividades cerebrais através da EEG, 2) pré-processamento destes sinais, 3) extração de características, 4) classificação, 5)tradução dos sinais em comandos e 6) realimentação \cite{MasonAndBirch}. Um dos principais passos para a implementação de uma BCI é a classificação, pois é após este passo que é realizada a tradução dos sinais da EEG em comandos de controle \cite{MasonAndBirch}.
+
+A classificação de um sinal é caracterizada, em aprendizado de máquina e em reconhecimento de padrões, como um algoritmo que atribui parte de um dado sinal de entrada a um dado número de classes ou categorias \cite{brunelli2009template}. Um exemplo é a classificação de um e-mail como "spam" ou "não-spam". Os algoritmos que realizam a classificação dos sinais de entrada são chamados de \textbf{classificadores} \cite{Siulybook}. De acordo com \cite{lottephd}, "estes classificadores são capazes de aprender como identificar um vetor de características, graças aos processos de treinamentos". Estes conjuntos são formados por vetores de características previamente atribuídos às suas respectivas classes.
+
+O algoritmo que realiza a classificação é caracterizado por uma função matemática que mapeia um sinal de entrada em sua respectiva classe \cite{lottephd}. Os classificadores preferidos pelos pesquisadores são os \textbf{classificadores supervisionados}, pois estes tipos de classificadores necessitam de um conjunto de dados de treinamento. Ou seja, o conjunto de dados necessários para um classificador supervisionado são divididos em: dados de treino e dados de testes. \cite{Siulybook}.
+
+Portanto os classificadores do tipo supervisionados são implementados a partir de dois processos: \textit{treinamento} e \textit{testes} \cite{Siulybook}.
+
+
+
+Este trabalho apresenta uma análise temporal do algoritmo classificador LDA identificando o bloco ou função do algoritmo que consome um maior intervalo de tempo para realizar seu processamento, além da sua respectiva implementação em \textit{hardware} (FPGA) afim de paralelizar os processos, otimizando o tempo de processamento.
+
+\section{Questão de Pesquisa}
+\section{Justificativa}
+\section{Objetivos}
+Esta seção apresenta os objetivos gerais e específicos propostos a serem desenvolvidos neste presente trabalho.
+\subsection{Objetivos Gerais}
+- Otimizar o algoritmo de Classificação de Sinais de EEG Aplicados a BCI com Implementação em FPGA
+\subsection{Objetivos Específicos}
+- Explorar o algoritmo de classificação ("A determinar") desenvolvido por \cite{F.Lotte};
+
+- Realizar uma análise de \textit{profile} em cada função ou bloco do algoritmo, a fim de determinar o tempo de processamento de cada uma das funções ou de cada bloco; 
+
+- Implementar em FPGA a função ou o bloco que apresente maior tempo de processamento, a fim de paralelizar seus processos, otimizando o tempo de execução;
+- 
