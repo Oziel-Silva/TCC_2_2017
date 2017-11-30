@@ -2,12 +2,21 @@ This is BibTeX, Version 0.99dThe top-level auxiliary file: tcc.aux
 The style file: abntex2-alf.bst
 Database file #1: abntex2-options.bib
 Database file #2: bibliografia.bib
+I was expecting a `,' or a `}'---line 114 of file bibliografia.bib
+ : 
+ : =======
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 143 of file bibliografia.bib
+ : 
+ : >>>>>>> referencial_teorico
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for "NBR14724:2011"
-Warning--I didn't find a database entry for "site_BCI"
 Warning--campo year vazio ou faltando em siteBCI
 +---------------------------------------------------------+
 | Estilo bibliográfico abntex2-alf.bst versão v-1.9.6           |
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://www.abntex.net.br/                               |
 +---------------------------------------------------------+
-(There were 3 warnings)
+(There were 2 error messages)
