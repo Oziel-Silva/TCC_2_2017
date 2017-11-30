@@ -1,4 +1,4 @@
-TARGET = TCC_FGA.pdf
+TARGET = TCC.pdf
 
 BIBTEX = bibtex
 LATEX = latex
@@ -56,3 +56,4 @@ dist: clean
 
 dist-clean: clean
 	rm -f $(PDF_FILE) $(TARGET)
+	rm -f TCC.pdf
