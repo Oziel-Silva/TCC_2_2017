@@ -10,7 +10,32 @@ O cérebro é o processador central do SNC, nele são recebidos e processados os
 \section{\textit{Brain Computer Interface}}
 
 \section{\textit{BCI Competition}}
-A \textit{BCI Competition} é uma competição que promove o desenvolvimento e melhoria da tecnologia voltada para as BCIs, onde são submetidas diferentes técnicas de análise de dados cerebrais \cite{BCICompetition}. Já foram realizadas quatro edições da competição, nos anos de 2001, 2002, 2004 e 2008 \cite{BCICompetition}. Em cada uma destas competições são fornecidos publicamente sinais cerebrais, adquiridos em laboratórios especializados \cite{BCICompetition}.
+A \textit{BCI Competition} é uma competição que promove o desenvolvimento e melhoria da tecnologia voltada para as BCIs, onde são submetidas diferentes técnicas de análise de dados cerebrais \cite{BCICompetition}. Já foram realizadas quatro edições da competição, nos anos de 2001, 2002, 2004 e 2008 \cite{BCICompetition}. Em cada uma destas competições são fornecidos publicamente sinais cerebrais, adquiridos em laboratórios especializados \cite{BCICompetition}. Estes sinais são divididos em dois conjuntos de dados, os dados de treinamento e os dados de teste, que são utilizados para treinamento e teste dos algoritmos dos participantes \cite{BCICompetition}.
+
+\subsection{\textit{BCI Competition III}}
+O objetivo do \textit{BCI Competition III} é validar as metodologias de classificação e processamento de sinais cerebrais aplicados em BCIs desenvolvidas pelos participantes da competição \cite{siteBCI}. Esta edição foi realizada entre Maio e Junho de 2004, onde foram disponilizados 8 \textit{datasets} (I, II, II, IIIa, IIIb, IVa, IVb, IVc e V), desenvolvidos com a participação de 49 laboratórios especializados \cite{BCICompetition}.
+Para cada um dos \textit{datasets} foram realizadas diferentes tarefas que estimulam atividades cerebrais durante a aquisição dos sinais, configurando assim um objetivo especifico para cada um dos \textit{datasets} \cite{siteBCI}.
+
+\subsection{\textit{BCI Competition III - Dataset IVa}}
+O \textit{dataset IVa} refere-se a um conjunto de dados adquiridos através da EEG, onde os sujeitos (indivíduos nos quais foram capturados os sinais) foram submetidos a estimular o cérebro por imagética motora, através de indicações visuais \cite{BCICompetition}. Os indivíduos foram submetidos a realizarem três tarefas, indicadas visualmente por 3.5s cada tarefa, sendo interrompidas em periodos aleatórios entre 1.75s e 2.25s, onde o sujeito era submetido a um periodo de relaxamento \cite{BCICompetition}. As três tarefas de imagéticas motoras foram: (L) mão esquerda, (R) mão direita e (F) pé direito \cite{BCICompetition}.
+
+Foram adquiridos sinais de 5 sujeitos rotulados em \textit{aa, al, av, aw} e \textit{ay}, onde foram executadas no total 280 tarefas por cada sujeito, algumas previamente rotulada (dados de treinamento) em cada instante de tempo onde a tarefa foi executada, outras não rotuladas (dados de teste) \cite{siteBCI}. Estes sinais foram adquiridos, tratados e disponibilizados por \textit{Fraunhofer FIRST, Intelligent Data Analysis Group (Head: Klaus-Robert Müller), and Charité University Medicine Berlin, Campus Benjamin Franklin, Department of Neurology, Neurophysics Group} \cite{BCICompetition}. A tabela 1 apresenta a quantidade de tarefas previamente classificadas (nomeados \#tr) e a quantidade de tarefas não classificadas (nomeadas \#te) para cada sujeito.
+
+\begin{table}[h!]
+	\centering
+	\caption{Número de tarefas rotuladas e não rotuladas por sujeito \cite{BCICompetition}.}
+	\label{my-label}
+	\begin{tabular}{lll}
+		\textbf{Sujeitos} & \textbf{\#tr} & \textbf{\#te} \\
+		\textit{aa} & 168 & 112 \\
+		\textit{al} & 224 & 56 \\
+		\textit{av} & 84 & 196 \\
+		\textit{aw} & 56 & 224 \\
+		\textit{ay} & 28 & 252
+	\end{tabular}
+\end{table}
+
+Os dados foram adquiridos e armazenados utilizando amplificadores do tipo \textit{BrainAmp} e uma capa de eletrodos de 128 canais. Foram utilizados 118 canais de EEG posicionados de acordo com o sistema 10/20. Cada um destes canais foram filtrados em banda passante, utilizando um filtro \textit{butterworth} de quinta ordem entre as frequências de 0.05 e 200 Hz, posteriormente foram digitalizados com uma frequência de amostragem de 1 kHz com precisão de 16 bits, apresentando uma resolução de 0.1 uV, além disso tamém foram disponibilizados os mesmos dados com uma frequência de amostragem de 100 Hz \cite{siteBCI}.
  
 \section{\textit{Linear Discriminant Analisys}}
 Supondo a existência de um conjunto de dados L,com características multivariadas, e que cada dado
