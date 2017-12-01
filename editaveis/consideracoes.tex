@@ -1,9 +1,24 @@
 \chapter[Proposta Metodológica]{Proposta Metodológica}
+Este capítulo apresenta os procedimentos e métodos a serem utilizados para desenvolvimento deste presente trabalho, detalhando as metodologias \textit{Bottom-Up}, utilizadas nas implementações tanto em hardware quanto em software, além das linguagens de programação utilizadas nas implementações e suas respectivas ferramentas. Por fim é apresentado um cronograma de atividades.
 
 \section{Implementação em hardware}
+Esta seção apresenta os dispositivos e ferramentas a serem utilizados neste presente trabalho, além das metodologias a serem desenvolvidas, para implementação do algoritmo de treinamento do classificador LDA em Hardware.
 
+\subsection{Dispositivos e ferramentas}
+Visando as grandes vantagens de utilização dos SoCs, o algoritmo de treinamento do classificador LDA será implementado nas lógicas digitais da FPGA na plataforma Zynq da placa \textit{Zybo-Board}, utilizando os \textit{IP-Cores} e a linguagem de programação \textit{VHSIC Hardware Description Language} (VHDL), a fim de paralelizar os processos do algoritmo. Para o mapeamento do algoritmo em VHDL será utilizado a plataforma \textit{Vivado HLS}, que possui todas as ferramentas necessárias para descrição, simulação, implementação e mapeamento hardware que descreve o algoritmo na FPGA.
 
+\subsection{Metodologias de desenvolvimento}
+Para desenvolvimento do algoritmo será adotada a metodologia \textit{bottom-up}, onde cada sub-bloco desenvolvido é testado antes de ser inserido ao bloco principal, bloco de integração de todos sub-blocos do projeto, também conhecido como \textit{Top module}.
+Após a implementação e simulação do \textit{Top module}, será utilizado para teste e validação do hardware o \textit{dataset IVa} do \textit{BCI Competition III}, além de uma análise estatística do erro apresentado quando comparado com o desenvolvimento na plataforma \textit{Matlab} por \cite{F.Lotte}.
+Para validação da eficiência do SoC serão coletados os dados das seguintes características:
+\begin{itemize}
+	\item Consumo de hardware: LUTs, FFs, blocos de DSP, blocos de memória RAM, I/O, MUX;
+\end{itemize}
+ 
 
 \section{Implementação em software}
+
+
+\section{Cronograma de Atividades}
 
 
