@@ -13,8 +13,26 @@ O Sistema Nervoso Central (SNC) é o responsável direto pelo comando do nosso c
 \end{figure}
 
 O tronco encefálico, parte caldal do SNC recebe e processa todos os sinais dos sensores corporais, além de realizar o controle dos membros e do tronco humano \cite{KANDEL}.
+
 O cérebro é o processador do SNC, nele são recebidos e processados os sinais da medula espinhal, além de fornecer todos os sinais de controle para a própria medula, que por sua vez distribui os sinais para os membros e tronco \cite{KANDEL}.
+
 O cerebelo é localizado logo atrás do tronco encefálico que se conectam através de fibras chamadas de pedúnculos \cite{KANDEL}, é a segunda maior estrutura do SNC contendo mais da metade dos neurônios cerebrais, \cite{SIULYDissertacao} é responsável pelo mapeamento em volta do indivíduo, ou seja, sua percepção \cite{alvarezneurobiomecanismos}, além do controle da região motora e a memória de movimentos \cite{SIULYDissertacao,alvarezneurobiomecanismos}
+
+Os sinais de controle e de sensoriamento são sinais elétricos armazenados nos neurônios \cite{KANDEL}. Suas características eletroquímicas permitem que os neurônios armazenem e transmitam sinais elétricos para qualquer outra célula receptora mesmo que a longa distâncias \cite{SIULYDissertacao}. Sua estrutura pode ser dividida em três principais partes: 1) Corpo da celula, 2) axônio e 3) dendrito, conforme apresentado na Figura(\ref{neuronParts}).
+\begin{figure}[h]
+	\centering
+	\includegraphics[keepaspectratio=true,scale=1.0]{figuras/Estrutura_neuronio.PNG}
+	\caption{Estrutura de um neurônio \cite{SIULYDissertacao}}
+	\label{neuronParts}
+\end{figure}
+
+A ativação dos neurônios é dada através de um gradiente de concentração eletroquímico, resultando na produção de uma corrente elétrica cerebral que flui através do axônio, o que torna possível a comunicação com outras celulas \cite{SIULYDissertacao}. A corrente elétrica cerebral consiste comumente de íons de Na+, K+, Ca++ e Cl- \cite{EEGSignals}.
+
+As atividades elétricas cerebrais podem ser divididas em dois conjuntos: os potenciais de ação (AP) e os potenciais de sinapse (SP) \cite{SIULYDissertacao}.
+
+Sempre que um potencial de sinapse atinge o limite de condução, ou seja, se o potencial é carregado (estimulado por algua atividade cerebral) até o ponto em que se é gerada uma corrente elétrica no axônio, um AP é iniciado \cite{SIULYDissertacao}.
+
+Como dito antes, o cerebelo é o responsável pelo controle da percepção e dos movimentos, além da memória de movimento, portanto a percepção, os movimentos e a imagética motora são os estímulos que iniciam uma AP na região do cerebelo \cite{alvarezneurobiomecanismos}.
 
 \section{Eletroencefalografia}
 A Eletroencefalografia (EEG) é um somatório de potenciais elétricos
@@ -77,8 +95,6 @@ Foram adquiridos sinais de 5 sujeitos rotulados em \textit{aa, al, av, aw} e \te
 		\textit{ay} & 28 & 252
 	\end{tabular}
 \end{table}
-
-Os dados foram adquiridos e armazenados utilizando amplificadores do tipo \textit{BrainAmp} e uma capa de eletrodos de 128 canais. Foram utilizados 118 canais de EEG posicionados de acordo com o sistema 10/20. Cada um destes canais foram filtrados em banda passante, utilizando um filtro \textit{butterworth} de quinta ordem entre as frequências de 0.05 e 200 Hz, posteriormente foram digitalizados com uma frequência de amostragem de 1 kHz com precisão de 16 bits, apresentando uma resolução de 0.1 $\mu$V, além disso tamém foram disponibilizados os mesmos dados com uma frequência de amostragem de 100 Hz \cite{siteBCI}.
  
 \section{\textit{Linear Discriminant Analisys}}
 Supondo a existência de um conjunto de dados $\vec x$,com características multivariadas, e que cada dado
@@ -94,9 +110,11 @@ Devido a indispensabilidade de diminuir as dimensões dos dados de um determinad
 
 No reconhecimento de padrões supervisionados, o classificador é desenvolvido explorando as informações 
 já conhecidas e contidas num vetor de treinamento disponibilizado préviamente\cite{izenmanLDA}. O LDA tem a 
-proposta de encontrar uma transformação ótima para maximizar a seguinte proporção.
-
-$J(W) = \frac { W^T S_B W}{W^T S_W W}$
+proposta de encontrar uma transformação ótima para maximizar a proporção de acordo com a equação \ref{eq: Proporção}.
+\begin{equation}
+	\label{eq: Proporção}
+	J(W) = \frac { W^T S_B W}{W^T S_W W}
+\end{equation}
 
 Onde $S_B$ é a matriz de dispersão entre as classes e$ S_W$ a matriz de dispersão dentro das classes. 
 
@@ -127,7 +145,7 @@ Sistema Operacional (SO) para gerência, uma camada em um nível mais baixo
 faz a interface com o sistema de hardware \cite{zynqBook}.
 
  Diagrama
-\subsection{Zybo}
+\subsection{\textit{Zybo-Board}}
 A Zybo é uma plataforma de desenvolvimento(figura\ref{Zybo Board}), que é equipada com o Z-7010
 este que é  o menor integrante da familía Xilinx Zynq-7000.
 Baseado na arquitetura Xilinx$^{\textregistered}$ \textit{All-Programmable System-on-Chip} (AP SoC)

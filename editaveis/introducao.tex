@@ -31,46 +31,42 @@ classes ou categorias \cite{brunelli2009template}. Um exemplo é a classificaç�
 como "spam" ou "não-spam". Os algoritmos que realizam a classificação dos sinais de entrada são
 chamados de \textbf{classificadores} \cite{Siulybook}. De acordo com \cite[p. 41]{lottephd}, "estes
 classificadores são capazes de aprender como identificar um vetor de características, graças
-aos processos de treinamentos". Estes conjuntos são formados por vetores de características
-previamente atribuídos às suas respectivas classes \cite{lottephd}.
+aos processos de treinamentos".
 
 O algoritmo que realiza a classificação é caracterizado por uma função matemática
 que mapeia um sinal de entrada em sua respectiva classe \cite{lottephd}. Os classificadores
 preferidos pelos pesquisadores são os \textbf{classificadores supervisionados}, pois estes
-tipos de classificadores necessitam de um conjunto de dados de treinamento. Os dados de treinamento são um conjunto de dados previamente classificados \cite{Siulybook}. Portanto os classificadores supervisionados são implementados a partir de dois processos: \textit{treinamento} e \textit{testes} \cite{Siulybook}. As \textit{Support Vector Machines} (SVM), os \textit{Linear Discriminant Analysis} (LDA), os filtros Kalman, as árvores de decisões são alguns exemplos de classificadores do tipo supervisionados \cite{Siulybook}.
+tipos de classificadores necessitam de um conjunto de dados de treinamento para realizar o processo de treinamento do classificado. O conjunto de dados para realização do processo de treinamento são formados por vetores de características previamente atribuídos às suas respectivas classes \cite{lottephd}. Portanto os classificadores supervisionados são implementados a partir de dois processos: \textbf{treinamento} e \textbf{testes} \cite{Siulybook}. As \textit{Support Vector Machines} (SVM), os \textit{Linear Discriminant Analysis} (LDA), os filtros Kalman e as árvores de decisões são alguns exemplos mais conhecidos de classificadores do tipo supervisionados \cite{Siulybook}.
 
-O LDA como dito anteriormente é um dos classificadores supervisionados e tem como suas principais vantagens
+O LDA como dito anteriormente é um dos classificadores supervisionados e tem como principais vantagens
 a simplicidade e atratividade computacional, por se tratar de um classificador linear \cite{patternRecogn}.
 O objetivo do LDA é usar uma transformação linear para encontrar um conjunto otmizado de vetores
 discriminantes e remapear o conjunto de características
 original, em um outro conjunto de dimensão  inferior \cite{ShashoaLDA}.
 
+A simplicidade e robustez do LDA possibilita sua implementação em um sistema embarcado, oque viabiliza sua acessibilidade a qualquer usuário, um exemplo de sistema a se embarcar este tipo de algoritmo são os \textit{Systems on Chip} (SoC).
 
-Apesar do LDA ser um algorítmo interessante no que se trata de consumo computacional, em geral, os algoritmos de classificação são complexos computacionalmente com tempo de execução elevado,
-isso os tornam restritivos a poucas aplicações, para executar um 
-códido que descreve esses algoritmos é necessário uma máquina de proporções não versátil e não portátil,
-assim não podendo equipar projetos que têm restrições de dimensão e peso.
+Um SoC é caracterizado pela implementação de todo um sistema computacional, tais como memórias, processadores, entradas e saídas, lógicas digitais, entre outros, em um único chip de silício \cite{zynqBook}. Diferente dos computadores tradicionais, que possuem seu sistema implementado a partir de módulos isolados e combinados em uma placa de circuito impresso, ou placa-mãe, os SoCs possuem como principais características um baixo custo de implementação, além de baixo consumo de potência, menor tamanho físico, maior confiabilidade e maior velocidade do sistema geral, quando comparado com um computador tradicional \cite{zynqBook}. Um exemplo de um SoC é a plataforma \textit{Zynq} que combina em um único chip processadores \textit{Advanced Risc Machine} (ARM) e \textit{Field Programmable Gate Array} (FPGA), esse útimo utilizado para configurar todos os módulos de um computador tradicional \cite{zynqBook}. 
 
-Um \textit{System on Chip} (SoC) é caracterizado pela implementação de todo um sistema computacional, tais como memórias, processadores, entradas e saídas, lógicas digitais, entre outros, em um único chip de silício \cite{zynqBook}. Diferente dos computadores tradicionais, que possuem seu sistema implementado a partir de módulos isolados e combinados em uma placa de circuito impresso, ou placa-mãe, os SoCs possuem como principais características um baixo custo de implementação, além de baixo consumo de potência, menor tamanho físico, maior confiabilidade e maior velocidade do sistema geral, quando comparado com um computador tradicional \cite{zynqBook}. Um exemplo de um SoC é a plataforma Zynq que combina em um único chip processadores \textit{Advanced Risc Machine} (ARM) e \textit{Field Programmable Gate Array} (FPGA), esse útimo utilizado para configurar todos os módulos de um computador tradicional \cite{zynqBook}. 
-
-Tendo em vista a grande vantagem dos SoCs sobre os computadores tradicionais, onde são implementados e executados os algoritmos de classificação, este trabalho apresenta um estudo da viabilidade da implementação em hardware e em software embarcado, do algoritmo de treinamento do classificador LDA, realizando a comparação de consumo computacional, processamento computacional (tempo de execução), entre as implementações em hardware e software, onde a implementação em hardware consiste no mapeamento do algoritmo na plataforma FPGA, afim de paralelizar seus processos e a implementação em software consiste em executar o algoritmo em um sistema embarcado utilizando os cores ARM, ambos da plataforma Zynq, além da comparação com sua implementação inicial em \textit{Matlab}.
+Tendo em vista a grande vantagem dos SoCs sobre os computadores tradicionais, onde são implementados e executados os algoritmos de classificação, este trabalho apresenta um estudo da viabilidade da implementação em hardware e em software embarcado, do algoritmo de treinamento do classificador LDA desenvolvido previamente por \cite{F.Lotte} na plataforma \textit{Matlab}, realizando a comparação de consumo computacional, processamento computacional (tempo de execução), entre as implementações em hardware e software, onde a implementação em hardware consiste no mapeamento do algoritmo na plataforma FPGA, afim de paralelizar seus processos e a implementação em software consiste em executar o algoritmo em um sistema embarcado utilizando os cores ARM, ambos da plataforma Zynq, além da comparação com sua implementação inicial em \textit{Matlab}.
 
 
 \section{Justificativa}
-As aplicações das BCIs apresentam um crescente desenvolvimento, graças ao aumento do interesse em pesquisas voltadas para o tema (BCI COMPETITION). Por ser considerado o principal processo das BCIs, a classificação requer um cuidado especial \cite{MasonAndBirch}. Como o LDA é um classificador supervisionado, a acurácia da classificação depende inteiramente de um bom treinamento \cite{F.Lotte}. Isso requer do algoritmo de treinamento um maior esforço computacional. Como os SoCs apresentam características de baixo consumo de potência, tamanho físico pequeno e possuir todos módulos de um sistema computacional em um único chip, a implementação de algoritmos de classificação em sistema deste porte podem ou não tornar as BCIs mais acessíveis, tendo em vista que um algoritmo de treinamento embarcado em um SoC reduzirá a necessidade de um sistema computacional tradicional, além de um melhor processamento computacional, pois sua implementação em FPGA na plataforma \textit{Zynq} torna-se possível paralelizar seus processos de execução \cite{zynqBook}.
+As aplicações das BCIs apresentam um crescente desenvolvimento, graças ao aumento do interesse em pesquisas voltadas para o tema \cite{BCICompetition} . Por ser considerado o principal processo das BCIs, a classificação requer um cuidado especial \cite{MasonAndBirch}. Como o LDA é um classificador supervisionado, a acurácia da classificação depende inteiramente de um bom treinamento \cite{F.Lotte}. Isso requer do algoritmo de treinamento um maior esforço computacional. Como os SoCs apresentam características de baixo consumo de potência, tamanho físico pequeno e possuir todos módulos de um sistema computacional em um único chip, a implementação de algoritmos de classificação em sistema deste porte podem tornar as BCIs mais acessíveis, tendo em vista que um algoritmo de treinamento embarcado em um SoC reduzirá a necessidade de um sistema computacional tradicional, além de um melhor processamento computacional, pois sua implementação em plataformas como FPGAs torna-se possível paralelizar seus processos de execução \cite{zynqBook}.
 
 \section{Objetivos}
 Esta seção apresenta os objetivos gerais e específicos propostos a serem desenvolvidos neste
  presente trabalho.
 \subsection{Objetivos Gerais}
 \begin{itemize}
-	\item Implementar parte do algoritmo de treinamento de um classificador LDA utilizando um SoC na plataforma Zynq afim de otimizar tanto o algoritmo, em relação a tempo de execução, quanto o seu consumo de recursos.
+	\item Implementar parte do algoritmo de treinamento de um classificador LDA em um sistema embarcado, utilizando um SoC na plataforma \textit{Zynq} afim de otimizar o algoritmo, tanto em relação a tempo de execução, quanto o seu consumo de recursos.
 \end{itemize} 
 \subsection{Objetivos Específicos}
 
 \begin{itemize}
 	\item Explorar o algoritmo de treinamento do classificador LDA desenvolvido por \cite{F.Lotte};
-	\item Mapear parte deste algoritmo em arquiteturas paralelas utilizando a linguagem VHDL;
-	\item Implementar em sistema embarcado o algoritmo de treinamento utilizando os cores ARM da Zynq;
+	\item Mapear parte deste algoritmo em arquiteturas paralelas (arquiteturas de hardware) utilizando a linguagem VHDL;
+	\item Implementar em sistema embarcado o algoritmo de treinamento utilizando os cores ARM da \textit{Zynq};
 	\item Realizar teste e validação das implementações utilizando as bases de dados do BCI Competition III, em especifico o conjunto de dados BCI III \textit{dataset} IVa.
+	\item Realizar uma análise estatística do erro associado a ambas implementações, comparadas com a implementação na plataforma \textit{Matlab} por \cite{F.Lotte}.
 \end{itemize}
