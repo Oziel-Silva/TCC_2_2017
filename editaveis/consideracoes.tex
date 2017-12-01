@@ -10,6 +10,8 @@ Visando as grandes vantagens de utilização dos SoCs, o algoritmo de treinament
 \subsection{Metodologias de desenvolvimento}
 Para desenvolvimento do algoritmo será adotada a metodologia \textit{bottom-up}, onde cada sub-bloco desenvolvido é testado antes de ser inserido ao bloco principal, bloco de integração de todos sub-blocos do projeto, também conhecido como \textit{Top module}.
 Após a implementação e simulação do \textit{Top module}, será utilizado para teste e validação do hardware o \textit{dataset IVa} do \textit{BCI Competition III}, além de uma análise estatística do erro apresentado quando comparado com o desenvolvimento na plataforma \textit{Matlab} por \cite{F.Lotte}.
+Os dados foram adquiridos e armazenados utilizando amplificadores do tipo \textit{BrainAmp} e uma capa de eletrodos de 128 canais. Foram utilizados 118 canais de EEG posicionados de acordo com o sistema 10/20. Cada um destes canais foram filtrados em banda passante, utilizando um filtro \textit{butterworth} de quinta ordem entre as frequências de 0.05 e 200 Hz, posteriormente foram digitalizados com uma frequência de amostragem de 1 kHz com precisão de 16 bits, apresentando uma resolução de 0.1 $\mu$V, além disso tamém foram disponibilizados os mesmos dados com uma frequência de amostragem de 100 Hz \cite{siteBCI}.
+
 Para validação da eficiência do SoC serão coletados os dados das seguintes características:
 \begin{itemize}
 	\item Consumo de hardware: LUTs, FFs, blocos de DSP, blocos de memória RAM, I/O, MUX;
