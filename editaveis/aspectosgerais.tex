@@ -34,6 +34,8 @@ Sempre que um potencial de sinapse atinge o limite de condução, ou seja, se o 
 
 Como dito antes, o cerebelo é o responsável pelo controle da percepção e dos movimentos, além da memória de movimento, portanto a percepção, os movimentos e a imagética motora são os estímulos que iniciam uma AP na região do cerebelo \cite{alvarezneurobiomecanismos}.
 
+Os potenciais elétricos gerados a partir dos potenciais de sinapse são armazenados na escalpe (ou couro cabeludo), onde durante uma atividade cerebral é criado um dipolo elétrico entre os dentritos e a soma (região ao redor do núcleo) \cite{SYULYDissertacao}. Estes potenciais podem ser medidos pela eletroencefalografia, conteúdo abordado na seção 2.2 deste trabalho.
+
 \section{Eletroencefalografia}
 A Eletroencefalografia (EEG) é um somatório de potenciais elétricos
  (na faixa de micro volt) representados graficamente em tempo real.
@@ -69,6 +71,40 @@ Com a baixa amplitude desse tipo de sinal, ele pode sofrer facilmente
  desses sinais por um especialista da área.
 
 \section{\textit{Brain Computer Interface}}
+
+Uma \textit{Brain Computer Interface} (BCI) (em português, Interface Cérebro-Máquina) é um sistema que analisa sinais cerebrais e os convertem para um novo sinal de saída \cite{BCIWolpaw}, ou seja, uma BCI é um sistema que realiza a comunicação entre o cerébro e o mundo externo sem a interação neuromuscular \cite{BCIWolpaw}.
+O termo BCI foi utilizado pela primeira vez por Jacques Vidal em 1970, onde foram utilizadas técnicas invasivas para aquisição dos sinais cerebrais, sistema de ECoG \cite{BCIWolpaw}, onde os sensores de aquisição eram instalados na região do cortex. Em 1980 o mesmo Jacques Vidal publicou pela primeira vez a utilização de uma BCI não invasiva utilizando o sistema da EEG \cite{CristophBCI}, as duas técnicas são apresentadas na Figura \ref{ECoGeEEG}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[keepaspectratio=true,scale=1.0]{figuras/sistemas_de_aquisicao.PNG}
+	\caption{Diferença entre os sistemas ECoG e EEG \cite{BCIWolpaw}.}
+	\label{ECoGeEEG}
+\end{figure}
+
+Atualmente é mais comum a utilização do sistema da EEG para aquisição de sinais cerebrais por se tratar de um sistema não invasivo \cite{CristophBCI}. A BCI realiza a tradução destes sinais através de seis passos: 1) medição dos sinais cerebrais, 2) pré-processamento destes sinais, 3) extração de características, 4) classificação, 5)tradução dos sinais em comandos e 6) realimentação \cite{MasonAndBirch}, conforme apresentado na Figura \ref{BCI_flow}.
+\newline
+\begin{figure}[h!]
+	\centering
+	\includegraphics[keepaspectratio=true,scale=1.0]{figuras/Fluxograma_BCI.PNG}
+	\caption{Fluxograma de processos de uma BCI, onde pode ser aplicado em mecanismos motorizados, reabilitação muscular, alarmes, entre outros (Adaptado de \cite{BCIWolpaw}).}
+	\label{BCI_flow}
+\end{figure}
+
+\begin{enumerate}
+	\item \textbf{Medição de sinais}: Consiste na primeira etapa de um BCI, onde são medidos potenciais elétricos provenientes de atividades cerebrais \cite{SIULYDissertacao}, os sinais utilizados neste trabalho foram adquiridos utilizando a EEG.
+	\item \textbf{Pré-Processamento}: Nesta etapa são utilizados filtros para limpar todo tipo de ruído do sinal e amplificando as informações relevantes dentro do sinal \cite{SIULYDissertacao}.
+	\item \textbf{Extração de Características}: Nesta etapa são extraídos dos sinais valores relevantes, chamados de características \cite{SIULYDissertacao}.
+	\item \textbf{Classificação}: Nesta etapa as características extraídas no processo anterior são rotuladas em determinadas classes \cite{SIULYDissertacao}. 
+	\item \textbf{Tradução em comandos}: Nesta etapa um comando é associado a cada uma das respectivas classes \cite{SIULYDissertacao}.
+	\item \textbf{Realimentação}: Por fim é fornecido ao usuário da BCI uma informação a respeito do seu estado mental, qual atividade cerebral foi detectada \cite{SIULYDissertacao}.
+\end{enumerate}
+
+Um dos principais passos para a implementação de uma
+BCI é a \textbf{classificação}, pois é após este passo que é realizada a tradução dos sinais provenientes da EEG
+em comandos de controle \cite{MasonAndBirch}. Para isso são utilizados algoritmos classificadores, onde um tipo de algoritmo de classificação é o LDA, que é detalhado na seção 2.5.
+
+São utilizadas estratégias mentais para definir ao usuário tarefas mentais para gerar características padrões nos sinais cerebrais de acordo com determinada tarefa, para que o classificador possa interpretar corretamente \cite{SIULYDissertacao}. Uma das mais comuns é imagética motora, que caracteriza a imaginação do movimento de um membro do corpo humano \cite{SIULYDissertacao}.  
 
 \section{\textit{BCI Competition}}
 A \textit{BCI Competition} é uma competição que promove o desenvolvimento e melhoria da tecnologia voltada para as BCIs, onde são submetidas diferentes técnicas de análise de dados cerebrais \cite{BCICompetition}. Já foram realizadas quatro edições da competição, nos anos de 2001, 2002, 2004 e 2008 \cite{BCICompetition}. Em cada uma destas competições são fornecidos publicamente sinais cerebrais, adquiridos em laboratórios especializados \cite{BCICompetition}. Estes sinais são divididos em dois conjuntos de dados, os dados de treinamento e os dados de teste, que são utilizados para treinamento e teste dos algoritmos dos participantes \cite{BCICompetition}.
