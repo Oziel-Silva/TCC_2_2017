@@ -97,8 +97,18 @@ Foram adquiridos sinais de 5 sujeitos rotulados em \textit{aa, al, av, aw} e \te
 \end{table}
  
 \section{\textit{Linear Discriminant Analisys}}
-Supondo a existência de um conjunto de dados $\vec x$,com características multivariadas, e que cada dado
-seja conhecido devido ser proveniente de uma das  classes $y$, tal que são predefinidas com características
+O LDA é um classificador desenvolvido para explorar as informações no reconhecimento de padrões supervisionados,
+as informações conhecidas são contidas num vetor de treinamento previamente disponibilizado \cite{izenmanLDA}.
+No algoritmo do LDA as informações de maior relevância são descobertas, enquanto que as de menor são 
+eliminadas. O critério usado pelo algoritmo é obter as dimensões que possuem as características mais
+distintas das classes padrão.(A Expert System for Stomach Cancer Images with
+Artificial Neural Network by using HOG Features
+and Linear Discriminant Analysis:
+HOG LDA ANN )
+
+Para um melhor entendimento, supõe-se a existência de um conjunto de dados $\vec x$, onde $\vec x = (x_1, x_2,...,x_n)^T$
+e $T$ indicando transposição, com características multivariadas, e que cada dado
+seja conhecido devido ser proveniente de uma das  classes $y$,tal que, são predefinidas com características
 semelhantes aos dados. As classes podem ser exemplificadas como sendo: espécies de plantas,
 precença ou ausência de uma condição médica específica, diferentes tipos de tumores, tipos de veículos automotores
 entre outros. Para separar as classes conhecidas uma das outras, é atribuido um rótulo a cada classe, então os dados são
@@ -106,21 +116,44 @@ representados como dados rotulados \cite{izenmanLDA}.
 
 
 Devido a indispensabilidade de diminuir as dimensões dos dados de um determinado conjunto, o objetivo do LDA
-é reduzir a dimensão do espaço de conjunto de dados, resolvendo o inconvêniente da sobreposição \cite{SinghLDA}.
+é reduzir a dimensão do espaço de conjunto de dados, resolvendo o inconveniente da sobreposição \cite{SinghLDA}.
 
-No reconhecimento de padrões supervisionados, o classificador é desenvolvido explorando as informações 
-já conhecidas e contidas num vetor de treinamento disponibilizado préviamente\cite{izenmanLDA}. O LDA tem a 
-proposta de encontrar uma transformação ótima para maximizar a proporção de acordo com a equação \ref{eq: Proporção}.
+O LDA tem a proposta de encontrar uma transformação ótima para maximizar a proporção de acordo com a equação \ref{eq: Proporção}.
+com isso encotrando o vetor $W$ que proporciona a melhor descriminação. 
+
 \begin{equation}
 	\label{eq: Proporção}
 	J(W) = \frac { W^T S_B W}{W^T S_W W}
 \end{equation}
 
-Onde $S_B$ é a matriz de dispersão entre as classes e$ S_W$ a matriz de dispersão dentro das classes. 
+Onde $S_B$ é a matriz de dispersão entre as classes e $ S_W$ a matriz de dispersão dentro das classes. 
 
-Quando o número de classes a serem separadas são apenas duas, assume-se que as funções de probabilidade
-são normalmente distribuidas
+$S_B$ é obtido com o 
+\begin{equation}
+	\label{eq: dispersão_sb}
+	 S_B = \sum_{j=1}^{c} n_j(m_j - m)(m_j - m)^T 
+\end{equation}
 
+\begin{equation}
+	\label{eq: media}
+	m = \frac{1}{n}\sum_{i=1}^{n} x_i
+\end{equation}
+
+\begin{equation}
+	\label{eq: media}
+	m = \frac{1}{n_j}\sum_{x \in c j}^{} x
+\end{equation}
+
+\begin{equation}
+	\label{eq: dispersão_sb}
+	 S_B = \sum_{j=1}^{c} \sum_{x \in C j}{} (X - m_j)(X - m_j)^T 
+\end{equation}
+
+ \begin{equation}
+	\label{eq: media}
+	S_W^-1 S_B W = \lambda W
+\end{equation}
+ 
 \section{\textit{System-on-Chip}}
 
 \textit{System-on-Chip} (SoC), implica que todo sistema que contém funcionalidades implementadas em hardware e software se encontra em um único chip de silício,combinando processamento, lógica de alta velocidade, interface, memória entre outros componentes ao invés de uma implementação maior em vários chips físicos diferentes agrupados em uma placa 
