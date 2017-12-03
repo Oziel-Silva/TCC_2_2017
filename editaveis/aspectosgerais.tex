@@ -37,38 +37,68 @@ Como dito antes, o cerebelo é o responsável pelo controle da percepção e dos
 Os potenciais elétricos gerados a partir dos potenciais de sinapse são armazenados na escalpe (ou couro cabeludo), onde durante uma atividade cerebral é criado um dipolo elétrico entre os dentritos e a soma (região ao redor do núcleo) \cite{SYULYDissertacao}. Estes potenciais podem ser medidos pela eletroencefalografia, conteúdo abordado na seção 2.2 deste trabalho.
 
 \section{Eletroencefalografia}
-A Eletroencefalografia (EEG) é um somatório de potenciais elétricos
- (na faixa de micro volt) representados graficamente em tempo real.
- [MONITORAMENTO DO CÉREBRO COM ELETROENCEFALOGRAFIA E O ÍNDICE BISPECTRAL
- DERIVADO DO ELETROENCEFALOGRAMA DURANTE A CIRURGIA CARDÍACA], esses potenciais
- refletem a atividade elétrica do cérebro humano. É muito usado por profissionais
- de saúde e cientistas para avaliar e estudar funções cerebrais e diagnosticar
- disturbios neurológicos.[LIVRO BCI] 
 
-A técnica popular que registra sinais do cérebro usando eletrodos estratégicamente
- colocados sobre o couro cabeludo do paciente portanto, não invasiva, é muito
- importante nos diagnósticos de doenças neurológicas. Em um exame de EEG ,
- dependendo da sua aplicação, podem ser usados de 1 a 256 eletrodos que iram
- captar os sinais de forma paralela, cada par de eletrodos é chamado de um canal,
- portanto com 256 eletrodos tem-se uma leitura de 128 canais, também conhecido como
- EEG multicanais, cada canal recebe um amplificador de instrumentação e a um equipamento
- de gravação do EEG.
+A Eletroencefalografia (EEG) é a mensuração de potenciais elétricos
+ (na faixa de micro volt), que refletem a atividade do cérebro humano[file:///home/oziel/Downloads/ANALYSIS%20AND%20CLASSIFICATION%20OF%20EEG%20SIGNALS.pdf ],.
+ É muito usado por profissionais de saúde e cientistas para avaliar e estudar
+ funções cerebrais e diagnosticar distúrbios neurológicos. [LIVRO BCI],
+
+
+A técnica popular que registra sinais do cérebro usando eletrodos
+ estrategicamente colocados sobre o couro cabeludo do paciente
+, portanto não invasiva, é muito importante nos diagnósticos de
+ doenças neurológicas. Em um exame de EEG , dependendo da sua
+ aplicação, podem ser usados de 1 a 256 eletrodos que iram captar 
+os sinais de forma paralela, cada par de eletrodos é chamado de um
+ canal, portanto com 256 eletrodos tem-se uma leitura de 128 canais,
+ também conhecido como EEG multi canais, cada canal recebe um
+ amplificador de instrumentação e a um equipamento de gravação do EEG.
 
 Devido às diferentes camadas e tecidos interpostos entre a fonte do sinal
- (atividade neural no córtex) e os sensores colocados no couro cabeludo,
- tudo isso atuando como um filtro passa-baixa, faz com o que a resolução
- espacial do EEG seja ruim.[RAO R.P.N.-BRAIN-COMPUTER INTERFACING AN
- INTRODUCTION-CAMBRIDGE UNIVERSITY PRESS (2013)], em contra partida a
- resolução temporal é boa, na casa de milessegundos.
+ (atividade neural no córtex) e os sensores colocados no couro cabeludo, tudo
+ isso atuando como um filtro passa-baixa, faz com o que a resolução 
+espacial do EEG seja ruim.% [RAO R.P.N.-BRAIN-COMPUTER INTERFACING AN INTRODUCTION-CAMBRIDGE UNIVERSITY PRESS (2013)],
+em contra partida tem boa resolução temporal na faixa de milisegundos.
+ 
+Em um adulto normal, o sinal típico de EEG tem sua amplitude variando
+ de 1 a 100 microvolt, se for medido usando eletrodos de tipo agulha 
+ o seu módulo pode variar de 10 a 20 milivolt. Considera a não uniformidade
+ do cérebro humano e a organização funcional do cortex, o sinal de EEG pode
+ variar bastante de acoordo com a disposição dos eletrodos.
+% [file:///home/oziel/Downloads/ANALYSIS%20AND%20CLASSIFICATION%20OF%20EEG%20SIGNALS.pdf]
 
-Com a baixa amplitude desse tipo de sinal, ele pode sofrer facilmente
- atenuações, contaminações em seu espectro, como por exemplo interferência
- da rede elétrica de 60 Hz e seus harmônicos associados, e principalmente
- atividades musculares exercidas no ato da extração dos sinais. Portanto
- no momento do exame os pacientes são orientados a não realizar nenhum
- tipo de movimento. A instrumentação eletrônica faz um grande trabalho
- ao usar filtros e algoritmos que ptoporcionam a visualização e leitura
- desses sinais por um especialista da área.
+Com a baixa amplitude desse tipo de sinal, ele pode sofrer facilmente atenuações,
+ contaminações em seu espectro, como por exemplo interferência da rede elétrica de
+ 60 Hz e seus harmônicos associados, e principalmente atividades musculares exercidas
+ no ato da extração dos sinais. Portanto no momento do exame os pacientes são
+ orientados a não realizar nenhum tipo de movimento. A instrumentação eletrônica
+ faz um grande trabalho ao usar filtros e algoritmos que ptoporcionam a
+ visualização e leitura desses sinais por um especialista da área.
+
+
+Para especificar um padrão de alocação dos eletrodos na cabeça dos pacientes
+ ou voluntários, é usado o sistema internacional 10-20, esse padrão determina 
+as distancias entre eletrodos. São posicionados eletrodos primeiramente em pontos
+ estratégicos, os pontos são nomeados por: mastoids, eletrodos de referência
+ localizados atŕas de cada orelha ( A1 e A2),
+Nasion, referência no segmento do topo do nariz, porém nivelado com os olhos
+ e por fim, o onion, referência situada na base do crânio no ponto médio da
+ parte de trás da cabeça, as medidas são feitas a partir desses pontos, no sentido
+ trasversal e medio,  com intervalos de 10 e 20 %,
+% [file:///home/oziel/Documentos/ruindows/Users/Oziel/Desktop/TCC_1/livros/Rao%20R.P.N.-Brain-Computer%20Interfacing_%20An%20Introduction-Cambridge%20University%20Press%20(2013).pdf] 
+
+A Frequência do sinal é dos parâmetros mais importantes na avaliação 
+clínica de anomalias  em EEGs, e também para compreender o comportamento 
+operacional na pesquisa cognitiva.
+Com inumeras oscilações não periódicas milhares de cominicação entre 
+neorônios, comportamentos imprevisíveis o EEG humano é comumente ordenado
+ em faixas de frequêcias específicas, as bandas são divididas em: delta
+ (0.5-4 Hz) , theta(4-8Hz), alpha(8-13Hz), beta(13-30) e acima de 30Hz gamma, imagem ()
+
+
+
+
+
 
 \section{\textit{Brain Computer Interface}}
 
@@ -155,7 +185,8 @@ Devido a indispensabilidade de diminuir as dimensões dos dados de um determinad
 é reduzir a dimensão do espaço de conjunto de dados, resolvendo o inconveniente da sobreposição \cite{SinghLDA}.
 
 O LDA tem a proposta de encontrar uma transformação ótima para maximizar a proporção de acordo com a equação \ref{eq: Proporção}.
-com isso encotrando o vetor $W$ que proporciona a melhor descriminação. 
+com isso encotrando o vetor $W$ que proporciona a melhor descriminação. (A Linear Discriminant Analysis Using
+Weighted Local Structure Information)
 
 \begin{equation}
 	\label{eq: Proporção}
@@ -164,12 +195,12 @@ com isso encotrando o vetor $W$ que proporciona a melhor descriminação.
 
 Onde $S_B$ é a matriz de dispersão entre as classes e $ S_W$ a matriz de dispersão dentro das classes. 
 
-$S_B$ é obtido sengunda a esquação \ref{eq: dispersaosb} 
+$S_B$ é obtido sengundo a esquação \ref{eq: dispersaosb} 
 \begin{equation}
 	\label{eq: dispersaosb}
 	 S_B = \sum_{j=1}^{c} n_j(m_j - \bar m)(m_j -\bar m)^T 
 \end{equation}
-onde $C$ é o número de classes, e $\bar m$ o vetor média e  $m_j$ é o vetor de média dos dados 
+onde $c$ é o número de classes, e $\bar m$ o vetor média e  $m_j$ é o vetor de média dos dados 
 pertinentes à classe $j$ e $x$ é o vetor de treinamento.
 
 \begin{equation}
@@ -239,6 +270,3 @@ sem perder a capacidade de processamento do Zynq AP SoC. (store Digilent)
 
 
 \section{Estado da Arte}
-
-
-
