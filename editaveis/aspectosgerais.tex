@@ -8,7 +8,7 @@ O Sistema Nervoso Central (SNC) é o responsável direto pelo comando do nosso c
 \begin{figure}[h]
 	\centering
 	\includegraphics[keepaspectratio=true,scale=1.0]{figuras/estrutura_cerebral.eps}
-	\caption{Três principais áreas do cérebro \cite{alvarezneurobiomecanismos}}
+	\caption{Três principais áreas do cérebro. Fonte: \cite{alvarezneurobiomecanismos}}
 	\label{BrainParts}
 \end{figure}
 
@@ -22,7 +22,7 @@ Os sinais de controle e de sensoriamento são sinais elétricos armazenados nos 
 \begin{figure}[h]
 	\centering
 	\includegraphics[keepaspectratio=true,scale=1.0]{figuras/Estrutura_neuronio.PNG}
-	\caption{Estrutura de um neurônio \cite{SIULYDissertacao}}
+	\caption{Estrutura de um neurônio. Fonte: \cite{SIULYDissertacao}}
 	\label{neuronParts}
 \end{figure}
 
@@ -30,93 +30,55 @@ A ativação dos neurônios é dada através de um gradiente de concentração e
 
 As atividades elétricas cerebrais podem ser divididas em dois conjuntos: os potenciais de ação (AP) e os potenciais de sinapse (SP) \cite{SIULYDissertacao}.
 
-Sempre que um potencial de sinapse atinge o limite de condução, ou seja, se o potencial é carregado (estimulado por algua atividade cerebral) até o ponto em que se é gerada uma corrente elétrica no axônio, um AP é iniciado \cite{SIULYDissertacao}.
+Sempre que um potencial de sinapse atinge o limite de condução, ou seja, se o potencial é carregado (estimulado por alguma atividade cerebral) até o ponto em que se é gerada uma corrente elétrica no axônio, um AP é iniciado \cite{SIULYDissertacao}.
 
 Como dito antes, o cerebelo é o responsável pelo controle da percepção e dos movimentos, além da memória de movimento, portanto a percepção, os movimentos e a imagética motora são os estímulos que iniciam uma AP na região do cerebelo \cite{alvarezneurobiomecanismos}.
 
-Os potenciais elétricos gerados a partir dos potenciais de sinapse são armazenados na escalpe (ou couro cabeludo), onde durante uma atividade cerebral é criado um dipolo elétrico entre os dentritos e a soma (região ao redor do núcleo) \cite{SYULYDissertacao}. Estes potenciais podem ser medidos pela eletroencefalografia, conteúdo abordado na seção 2.2 deste trabalho.
+Os potenciais elétricos gerados a partir dos potenciais de sinapse são armazenados na escalpe (ou couro cabeludo), onde durante uma atividade cerebral é criado um dipolo elétrico entre os dentritos e a soma (região ao redor do núcleo) \cite{SIULYDissertacao}. Estes potenciais podem ser medidos pela eletroencefalografia, conteúdo abordado na seção 2.2 deste trabalho.
 
 \section{Eletroencefalografia}
 
-A Eletroencefalografia (EEG) é a mensuração de potenciais elétricos
- (na faixa de micro volt), que refletem a atividade do cérebro humano[file:///home/oziel/Downloads/ANALYSIS%20AND%20CLASSIFICATION%20OF%20EEG%20SIGNALS.pdf ],.
- É muito usado por profissionais de saúde e cientistas para avaliar e estudar
- funções cerebrais e diagnosticar distúrbios neurológicos. [LIVRO BCI],
+A Eletroencefalografia (EEG) é um sistema de aquisição de potenciais elétricos, que refletem atividades cerebrais humano \cite{Siulybook}. É muito usado por profissionais de saúde e cientistas para avaliar e estudar funções cerebrais e diagnosticar distúrbios neurológicos \cite{Siulybook}.
 
+A técnica popular que registra sinais do cérebro usando eletrodos estrategicamente colocados sobre o couro cabeludo do paciente, portanto não invasiva, é muito importante nos diagnósticos de doenças neurológicas \cite{raobrain}. Em um exame de EEG , dependendo da sua aplicação, podem ser usados de 1 a 256 eletrodos que iram captar os sinais de forma paralela \cite{raobrain}. Cada par de eletrodos formam um canal, portanto com 256 eletrodos tem-se uma leitura de 128 canais, também conhecido como EEG multi canais \cite{raobrain}. Cada canal recebe um amplificador de instrumentação e um equipamento de gravação do EEG \cite{raobrain}.
 
-A técnica popular que registra sinais do cérebro usando eletrodos
- estrategicamente colocados sobre o couro cabeludo do paciente
-, portanto não invasiva, é muito importante nos diagnósticos de
- doenças neurológicas. Em um exame de EEG , dependendo da sua
- aplicação, podem ser usados de 1 a 256 eletrodos que iram captar 
-os sinais de forma paralela, cada par de eletrodos é chamado de um
- canal, portanto com 256 eletrodos tem-se uma leitura de 128 canais,
- também conhecido como EEG multi canais, cada canal recebe um
- amplificador de instrumentação e a um equipamento de gravação do EEG.
-
-Devido às diferentes camadas e tecidos interpostos entre a fonte do sinal
- (atividade neural no córtex) e os sensores colocados no couro cabeludo, tudo
- isso atuando como um filtro passa-baixa, faz com o que a resolução 
-espacial do EEG seja ruim.% [RAO R.P.N.-BRAIN-COMPUTER INTERFACING AN INTRODUCTION-CAMBRIDGE UNIVERSITY PRESS (2013)],
-em contra partida tem boa resolução temporal na faixa de milisegundos.
+Devido às diferentes camadas e tecidos interpostos entre a fonte do sinal (atividade neural no córtex) e os sensores colocados no couro cabeludo, tudo isso atuando como um filtro passa-baixa, faz com o que a resolução 
+espacial do EEG seja ruim, em contra partida tem boa resolução temporal na faixa de milisegundos \cite{raobrain}.
  
-Em um adulto normal, o sinal típico de EEG tem sua amplitude variando
- de 1 a 100 microvolt, se for medido usando eletrodos de tipo agulha 
- o seu módulo pode variar de 10 a 20 milivolt. Considera a não uniformidade
- do cérebro humano e a organização funcional do cortex, o sinal de EEG pode
- variar bastante de acoordo com a disposição dos eletrodos.
-% [file:///home/oziel/Downloads/ANALYSIS%20AND%20CLASSIFICATION%20OF%20EEG%20SIGNALS.pdf]
+Em um adulto normal, o sinal típico de EEG tem sua amplitude variando de 1 a 100 microvolt, se for medido usando eletrodos de tipo agulha o seu módulo pode variar de 10 a 20 milivolt. Considera a não uniformidadeb do cérebro humano e a organização funcional do cortex, o sinal de EEG pode variar bastante de acoordo com a disposição dos eletrodos \cite{SIULYDissertacao}.
 
-Com a baixa amplitude desse tipo de sinal, ele pode sofrer facilmente atenuações,
- contaminações em seu espectro, como por exemplo interferência da rede elétrica de
- 60 Hz e seus harmônicos associados, e principalmente atividades musculares exercidas
- no ato da extração dos sinais. Portanto no momento do exame os pacientes são
- orientados a não realizar nenhum tipo de movimento. A instrumentação eletrônica
- faz um grande trabalho ao usar filtros e algoritmos que ptoporcionam a
- visualização e leitura desses sinais por um especialista da área.
+Com a baixa amplitude desse tipo de sinal, ele pode sofrer facilmente atenuações, contaminações em seu espectro, como por exemplo interferência da rede elétrica de 60 Hz e seus harmônicos associados, e principalmente atividades musculares exercidas no ato da extração dos sinais. Portanto no momento do exame os pacientes são orientados a não realizar nenhum tipo de movimento \cite{raobrain}.
 
-
-Para especificar um padrão de alocação dos eletrodos na cabeça dos pacientes
- ou voluntários, é usado o sistema internacional 10-20, esse padrão determina 
-as distancias entre eletrodos. São posicionados eletrodos primeiramente em pontos
- estratégicos, os pontos são nomeados por: mastoids, eletrodos de referência
- localizados atŕas de cada orelha ( A1 e A2),
-Nasion, referência no segmento do topo do nariz, porém nivelado com os olhos
- e por fim, o onion, referência situada na base do crânio no ponto médio da
- parte de trás da cabeça, as medidas são feitas a partir desses pontos, no sentido
- trasversal e medio,  com intervalos de 10 e 20 %,
-% [file:///home/oziel/Documentos/ruindows/Users/Oziel/Desktop/TCC_1/livros/Rao%20R.P.N.-Brain-Computer%20Interfacing_%20An%20Introduction-Cambridge%20University%20Press%20(2013).pdf] 
+Para especificar um padrão de alocação dos eletrodos na cabeça dos pacientes ou voluntários, é usado o sistema internacional 10-20, esse padrão determina as distancias entre eletrodos \cite{Siulybook}. São posicionados eletrodos primeiramente em pontos estratégicos, os pontos são nomeados por: \textit{mastoids}mastoids, eletrodos de referência localizados atŕas de cada orelha (A1 e A2), \textit{Nasion}, referência no segmento do topo do nariz, porém nivelado com os olhos e por fim, o \textit{onion}, referência situada na base do crânio no ponto médio da parte de trás da cabeça, as medidas são feitas a partir desses pontos, no sentido transversal e médio,  com intervalos de 10 e 20 \% \cite{raobrain}, conforme Figura \ref{padrao1020}.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.75]{figuras/padrao1020.png}
-	\caption{Sistema Internacional de Posicionamento 10-20 }
+	\caption{Sistema Internacional de Posicionamento 10-20. Fonte: \cite{campisi2012eeg}.}
 	\label{padrao1020}
 \end{figure}
 
-
-A Frequência do sinal é dos parâmetros mais importantes na avaliação 
-clínica de anomalias  em EEGs, e também para compreender o comportamento 
-operacional na pesquisa cognitiva.
-Com inumeras oscilações não periódicas milhares de cominicação entre 
-neorônios, comportamentos imprevisíveis o EEG humano é comumente ordenado
- em faixas de frequêcias específicas, as bandas são divididas em: delta
- (0.5-4 Hz) , theta(4-8Hz), alpha(8-13Hz), beta(13-30) e acima de 30Hz gamma, imagem ()
+A Frequência do sinal é um dos parâmetros mais importantes na avaliação clínica de anomalias em EEGs, e também para compreender o comportamento operacional na pesquisa cognitiva \cite{SIULYDissertacao}.
+Com inúmeras oscilações não periódicas milhares de comunicação entre neorônios, comportamentos imprevisíveis o EEG humano é comumente ordenado  em faixas de frequêcias específicas, as bandas são divididas em: delta
+ (0.5-4 Hz) , theta($\theta$)(4-8Hz), alpha($\alpha$)(8-13Hz), beta($\beta$)(13-30Hz) e acima de 30Hz gama($\gamma$), conforme Figura \ref{EEGcomun}.
+ \newline
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[keepaspectratio=true,scale=0.75]{figuras/formas_EEG.png}
-	\caption{Exemplos de diferentes tipos de EEG}
+	\caption{Exemplos de diferentes tipos de EEG. Fonte: \cite{campisi2012eeg}}.
 	\label{EEGcomun}
 \end{figure}
 
-
+Uma das aplicações dos sinais adquiridos pela EEG são as \textit{Brain Computer Interface} \cite{F.Lotte, SIULYDissertacao}, que é apresentado na seção 2.3.
 
 
 \section{\textit{Brain Computer Interface}}
 
 Uma \textit{Brain Computer Interface} (BCI) (em português, Interface Cérebro-Máquina) é um sistema que analisa sinais cerebrais e os convertem para um novo sinal de saída \cite{BCIWolpaw}, ou seja, uma BCI é um sistema que realiza a comunicação entre o cerébro e o mundo externo sem a interação neuromuscular \cite{BCIWolpaw}.
-O termo BCI foi utilizado pela primeira vez por Jacques Vidal em 1970, onde foram utilizadas técnicas invasivas para aquisição dos sinais cerebrais, sistema de ECoG \cite{BCIWolpaw}, onde os sensores de aquisição eram instalados na região do cortex. Em 1980 o mesmo Jacques Vidal publicou pela primeira vez a utilização de uma BCI não invasiva utilizando o sistema da EEG \cite{CristophBCI}, as duas técnicas são apresentadas na Figura \ref{ECoGeEEG}.
+O termo BCI foi utilizado pela primeira vez por Jacques Vidal em 1970, onde foram utilizadas técnicas invasivas para aquisição dos sinais cerebrais, sistema de eletrocorticografia (ECoG) \cite{BCIWolpaw}, onde os sensores de aquisição eram instalados na região do cortex. Em 1980 o mesmo Jacques Vidal publicou pela primeira vez a utilização de uma BCI não invasiva utilizando o sistema da EEG \cite{CristophBCI}, as duas técnicas são apresentadas na Figura \ref{ECoGeEEG}.
+\pagebreak
+
 
 \begin{figure}[h]
 	\centering
@@ -125,11 +87,11 @@ O termo BCI foi utilizado pela primeira vez por Jacques Vidal em 1970, onde fora
 	\label{ECoGeEEG}
 \end{figure}
 
-Atualmente é mais comum a utilização do sistema da EEG para aquisição de sinais cerebrais por se tratar de um sistema não invasivo \cite{CristophBCI}. A BCI realiza a tradução destes sinais através de seis passos: 1) medição dos sinais cerebrais, 2) pré-processamento destes sinais, 3) extração de características, 4) classificação, 5)tradução dos sinais em comandos e 6) realimentação \cite{MasonAndBirch}, conforme apresentado na Figura \ref{BCI_flow}.
-\newline
+Atualmente é mais comum a utilização do sistema da EEG para aquisição de sinais cerebrais por se tratar de um sistema não invasivo \cite{CristophBCI}. A BCI realiza a tradução dos sinais cerebrais através de seis passos: 1) medição dos sinais cerebrais, 2) pré-processamento destes sinais, 3) extração de características, 4) classificação, 5)tradução dos sinais em comandos e 6) realimentação \cite{MasonAndBirch}, conforme apresentado na Figura \ref{BCI_flow}.
+
 \begin{figure}[h!]
 	\centering
-	\includegraphics[keepaspectratio=true,scale=1.0]{figuras/Fluxograma_BCI.PNG}
+	\includegraphics[keepaspectratio=true,scale=0.6]{figuras/Fluxograma_BCI.PNG}
 	\caption{Fluxograma de processos de uma BCI, onde pode ser aplicado em mecanismos motorizados, reabilitação muscular, alarmes, entre outros (Adaptado de \cite{BCIWolpaw}).}
 	\label{BCI_flow}
 \end{figure}
