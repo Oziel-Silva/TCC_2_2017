@@ -164,32 +164,37 @@ com isso encotrando o vetor $W$ que proporciona a melhor descriminação.
 
 Onde $S_B$ é a matriz de dispersão entre as classes e $ S_W$ a matriz de dispersão dentro das classes. 
 
-$S_B$ é obtido com o 
+$S_B$ é obtido sengunda a esquação \ref{eq: dispersaosb} 
 \begin{equation}
-	\label{eq: dispersão_sb}
-	 S_B = \sum_{j=1}^{c} n_j(m_j - m)(m_j - m)^T 
+	\label{eq: dispersaosb}
+	 S_B = \sum_{j=1}^{c} n_j(m_j - \bar m)(m_j -\bar m)^T 
 \end{equation}
+onde $C$ é o número de classes, e $\bar m$ o vetor média e  $m_j$ é o vetor de média dos dados 
+pertinentes à classe $j$ e $x$ é o vetor de treinamento.
 
 \begin{equation}
 	\label{eq: media}
-	m = \frac{1}{n}\sum_{i=1}^{n} x_i
+	\bar m = \frac{1}{n}\sum_{i=1}^{n} {x_i}
 \end{equation}
 
 \begin{equation}
-	\label{eq: media}
+	\label{eq: media2}
 	m = \frac{1}{n_j}\sum_{x \in c j}^{} x
 \end{equation}
-
+A matriz de dispersão entre classes é definida pela equaçao \ref{eq: dispersaosw},
 \begin{equation}
-	\label{eq: dispersão_sb}
+	\label{eq: dispersaosw}
 	 S_B = \sum_{j=1}^{c} \sum_{x \in C j}{} (X - m_j)(X - m_j)^T 
 \end{equation}
+Para $S_W$sendo uma matriz não-singular, a solução da equação 
+\ref{eq: Proporção}, pode ser escrita como: 
 
  \begin{equation}
-	\label{eq: media}
-	S_W^-1 S_B W = \lambda W
+	\label{eq: final}
+	S_W^{-1} S_B W = \lambda W
 \end{equation}
  
+onde $\lambda$ é o auto-valor correspondente ao auto-vetor $W$.
 \section{\textit{System-on-Chip}}
 
 \textit{System-on-Chip} (SoC), implica que todo sistema que contém funcionalidades implementadas em hardware e software se encontra em um único chip de silício,combinando processamento, lógica de alta velocidade, interface, memória entre outros componentes ao invés de uma implementação maior em vários chips físicos diferentes agrupados em uma placa 
