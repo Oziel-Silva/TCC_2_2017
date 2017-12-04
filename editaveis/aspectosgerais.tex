@@ -83,7 +83,7 @@ O termo BCI foi utilizado pela primeira vez por Jacques Vidal em 1970, onde fora
 \begin{figure}[h]
 	\centering
 	\includegraphics[keepaspectratio=true,scale=1.0]{figuras/sistemas_de_aquisicao.PNG}
-	\caption{Diferença entre os sistemas ECoG e EEG \cite{BCIWolpaw}.}
+	\caption{Diferença entre os sistemas ECoG e EEG. Fonte: \cite{BCIWolpaw}.}
 	\label{ECoGeEEG}
 \end{figure}
 
@@ -233,19 +233,19 @@ o Z-7010 possui em seu encapsulamento um processador ARM Cortex-A9 de
 dois núcleos e um Xilinx 7-Series(FPGA), Esse chip combinado com memórias, entradas 
 e saídas de áudio e vídeo, USB, Ethernet, slot SD entre outros periféricos e suportes
 proporciona um \textit{kit} para desenvolvedores que procuram uma plataforma de baixo custo
-sem perder a capacidade de processamento do Zynq AP SoC. (store Digilent)  
+sem perder a capacidade de processamento do Zynq AP SoC \cite{DigilentZybo}.  
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[keepaspectratio=true,scale=1.0]{figuras/zyboboard.eps}
-	\caption{Placa de Desenvolvimento Zybo-Board}
+	\caption{Placa de Desenvolvimento Zybo-Board. Fonte: \cite{DigilentZybo}}
 	\label{Zybo Board}
 \end{figure}
 
 
 
 \section{Estado da Arte}
-A implementação de algoritmos de classificação em FPGA não é novidade. Em 2003 \cite{RNAFPGA} descreveu um algoritmo de uma rede neural para reconhecimento de faces, obtendo uma acurácia de 92\%, neste mesmo trabalho realizou a comparação com a implementação em mais duas plataformas \textit{Zero Instrunction Set Computer} e em DSPs, onde obteve melhor resultado na implementação em DSP com acurácia de 98\%.
+A implementação de algoritmos de classificação em FPGA não é novidade. Em 2003 \cite{RNAFPGA} descreveu um algoritmo de uma rede neural para reconhecimento de faces, obtendo uma acurácia de 92\%. Neste mesmo trabalho realizou a comparação com a implementação em mais duas plataformas \textit{Zero Instrunction Set Computer} e em DSPs, onde obteve melhor resultado na implementação em DSP com acurácia de 98\%.
 
 Os algoritmos de classificação por padrão possuem estrutura bem definida, sobre o \textit{BCI Competition - Data Set IVa}, os melhores resultados obtidos foram de \cite{WangBCIWinner}, onde utilizando do classificador LDA, conseguiu acurácias de 94.17\% geral, 	95.5\% sobre o sujeito (aa), 100.0\% sobre o sujeito (al), 80.6\% sobre o sujeito (av)	100.0\% sobre o sujeito (aw) 97.6\% sobre o sujeito (ay).
 
