@@ -245,3 +245,21 @@ sem perder a capacidade de processamento do Zynq AP SoC. (store Digilent)
 
 
 \section{Estado da Arte}
+A implementação de algoritmos de classificação em FPGA não é novidade. Em 2003 \cite{RNAFPGA} descreveu um algoritmo de uma rede neural para reconhecimento de faces, obtendo uma acurácia de 92\%, neste mesmo trabalho realizou a comparação com a implementação em mais duas plataformas \textit{Zero Instrunction Set Computer} e em DSPs, onde obteve melhor resultado na implementação em DSP com acurácia de 98\%.
+
+Os algoritmos de classificação por padrão possuem estrutura bem definida, sobre o \textit{BCI Competition - Data Set IVa}, os melhores resultados obtidos foram de \cite{WangBCIWinner}, onde utilizando do classificador LDA, conseguiu acurácias de 94.17\% geral, 	95.5\% sobre o sujeito (aa), 100.0\% sobre o sujeito (al), 80.6\% sobre o sujeito (av)	100.0\% sobre o sujeito (aw) 97.6\% sobre o sujeito (ay).
+
+A tabela \ref{arte_state} apresenta a acurácia obtida por \cite{F.Lotte} no ano de 2010, no desenvolvimento do algoritmo de classificação LDA, utilizando do algoritmo \textit{Common Spatial Pattern} (CSP) para maximizar a variância do filtro passa-faixa utilizados pelo EEG para uma das classes, enquanto minimiza a variância para as outras demais classes.
+\begin{table}[h]
+	\centering
+	\caption{Acurácia de classificação do algoritmo LDA utilizando do algoritmo CSP para maximização de variância de classes. \cite{F.Lotte}}
+	\label{arte_state}
+	\begin{tabular}{ll}
+		\textbf{Sujeitos} & \textbf{\begin{tabular}[c]{@{}l@{}}Acurácia do LDA com \\ algoritmo CSP\end{tabular}} \\
+		\textit{aa} & 66,70\% \\
+		\textit{al} & 96,43\% \\
+		\textit{av} & 47,45\% \\
+		\textit{aw} & 71,88\% \\
+		\textit{ay} & 49,60\%
+	\end{tabular}
+\end{table}
