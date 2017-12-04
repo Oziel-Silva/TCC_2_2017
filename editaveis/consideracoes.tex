@@ -1,11 +1,18 @@
 \chapter[Proposta Metodológica]{Proposta Metodológica}
-Este capítulo apresenta os procedimentos e métodos a serem utilizados para desenvolvimento deste presente trabalho, detalhando as metodologias \textit{Bottom-Up}, utilizadas nas implementações tanto em hardware quanto em software, além das linguagens de programação utilizadas nas implementações e suas respectivas ferramentas. Por fim é apresentado um cronograma de atividades.
+Este capítulo apresenta os procedimentos e métodos a serem utilizados para desenvolvimento deste presente
+ trabalho, detalhando as metodologias \textit{Bottom-Up}, utilizadas nas implementações tanto em hardware
+ quanto em software, além das linguagens de programação utilizadas nas implementações e suas respectivas
+ ferramentas. Por fim é apresentado um cronograma de atividades.
 
 \section{Implementação em hardware}
 Esta seção apresenta os dispositivos e ferramentas a serem utilizados neste presente trabalho, além das metodologias a serem desenvolvidas, para implementação do algoritmo de treinamento do classificador LDA em Hardware.
 
 \subsection{Dispositivos e ferramentas}
-Visando as grandes vantagens de utilização dos SoCs, o algoritmo de treinamento do classificador LDA será implementado nas lógicas digitais da FPGA na plataforma Zynq da placa \textit{Zybo-Board}, utilizando os \textit{IP-Cores}, que são blocos matemáticos desenvolvidos com propriedades intelectuais \cite{munoz2010tradeoff} em unidade de ponto flutuante desenvolvidos por \cite{munoz2010tradeoff} e a linguagem de programação \textit{VHSIC Hardware Description Language} (VHDL), a fim de paralelizar os processos do algoritmo. Para o mapeamento do algoritmo em VHDL será utilizado a plataforma \textit{Vivado HLS}, que possui todas as ferramentas necessárias para descrição, simulação, implementação e mapeamento hardware que descreve o algoritmo na FPGA \cite{zynqBook}.
+Visando as grandes vantagens de utilização dos SoCs, o algoritmo de treinamento do classificador
+ LDA será implementado nas lógicas digitais da FPGA na plataforma Zynq da placa \textit{Zybo-Board}, utilizando
+ os \textit{IP-Cores}, que são blocos matemáticos desenvolvidos com propriedades intelectuais \cite{munoz2010tradeoff} em unidade de ponto flutuante desenvolvidos por \cite{munoz2010tradeoff} e a linguagem de programação \textit{VHSIC Hardware Description Language} (VHDL), a fim de paralelizar os
+ processos do algoritmo. Para o mapeamento do algoritmo em VHDL será utilizado a plataforma 
+\textit{Vivado HLS}, que possui todas as ferramentas necessárias para descrição, simulação, implementação e mapeamento hardware que descreve o algoritmo na FPGA \cite{zynqBook}.
 
 \subsection{Metodologias de desenvolvimento}
 Para desenvolvimento do algoritmo será adotada a metodologia \textit{bottom-up}, onde cada sub-bloco desenvolvido é testado antes de ser inserido ao bloco principal, bloco de integração de todos sub-blocos do projeto, também conhecido como \textit{Top module}.
@@ -30,6 +37,42 @@ Os processos de implementação do hardware em um SoC é apresentado na Figura \
 \end{figure}
 
 \section{Implementação em software}
+São apresentados nesta seção, os materiais, métodos e técnicas para a implementação do
+algoritmo de treinamento do classificador LDA em software.
+
+\subsection{Materiais}
+
+Dispondo do SoC embarcado no kit de desenvolvimento da Digilent(\textit{Zybo-Board}) , a implementação do algoritmo em 
+software, explorará o processador ARM Cortex-A9 de dois núcleos no Xilinx Zynq-7000, usando também
+o auxílido do sistema operacional xilinux, a codificação do algorítmo será feita dipondo das linguagens de programação
+C e C++.
+
+\subsection{Métodos e Técnicas}
+
+O processo para implementação seguirá o método bottom-up, blocos de códigos menores serão implementados e testados
+separadamente, com a finalização de todos os blocos finalmente será integrado e testado por completo, as entradas
+para programa desenvolvido é proviniente do data-set IVa do BCI III.
+ 
+Os dados para análise pós implementação e teste serão: 
+
+\begin{itemize}
+\item Consumo de memória
+\item Tempo de execução
+\item Consumo de potência
+\item erro da implementação em comparação com os resultados obtidos por \cite{F.lotte}
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
 
 \section{\textit{Data Set IVa}}
 
