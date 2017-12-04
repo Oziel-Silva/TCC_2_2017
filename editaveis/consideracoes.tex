@@ -43,23 +43,25 @@ algoritmo de treinamento do classificador LDA em software.
 \subsection{Materiais}
 
 Dispondo do SoC embarcado no kit de desenvolvimento da Digilent(\textit{Zybo-Board}) , a implementação do algoritmo em 
-software, explorará o processador ARM Cortex-A9 de dois núcleos no Xilinx Zynq-7000, usando também
+software, explorará o processador \textit{ARM$^{\textregistered}$  Cortex$^{\textregistered}$ -A9} de dois núcleos no \textit{Xilinx Zynq$^{\textregistered}$ -7000}, usando também
 o auxílido do sistema operacional xilinux, a codificação do algorítmo será feita dipondo das linguagens de programação
 C e C++.
 
 \subsection{Métodos e Técnicas}
-
-O processo para implementação seguirá o método bottom-up, blocos de códigos menores serão implementados e testados
-separadamente, com a finalização de todos os blocos finalmente será integrado e testado por completo, as entradas
-para programa desenvolvido é proviniente do data-set IVa do BCI III.
  
-Os dados para análise pós implementação e teste serão: 
+Para o auxílio desta implemetação, será instalado o sistema operacional \textit{Xilinux}, os recursos e passos necessários
+para a instalação do S.O estão contidos no \cite{zynqBook}.
+O processo para implementação seguirá o método \textit{bottom-up}, blocos de códigos menores serão implementados e testados
+separadamente, com a finalização de todos os blocos finalmente será integrado e testado por completo, as entradas
+para programa desenvolvido são provinientes do \textit{dataset IVa} do \textit{BCI Competition III}.
 
-\begin{itemize}
+ 
+Os dados para análise pós implementação e teste serão:
+\begin{itemize}[noitemsep]
 \item Consumo de memória
 \item Tempo de execução
 \item Consumo de potência
-\item erro da implementação em comparação com os resultados obtidos por \cite{F.lotte}
+\item Erro da implementação em comparação com os resultados obtidos por \cite{F.Lotte}
 \end{itemize}
 
 
