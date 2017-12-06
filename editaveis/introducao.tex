@@ -22,21 +22,20 @@ A BCI realiza a tradução destes sinais através de seis passos: 1) medição d
 provenientes de atividades cerebrais, normalmente através da EEG, 2) pré-processamento destes sinais,
 3) extração de características, 4) classificação, 5)tradução dos sinais em comandos e 6)
 realimentação \cite{MasonAndBirch}. Um dos principais passos para a implementação de uma
-BCI é a \textbf{classificação}, pois é após este passo que é realizada a tradução dos sinais provenientes da EEG
+BCI é a \textit{classificação}, pois é após este passo que é realizada a tradução dos sinais provenientes da EEG
 em comandos de controle \cite{MasonAndBirch}.
 
-A classificação de um sinal é caracterizada, em aprendizado de máquina e em reconhecimento de
-padrões, como um algoritmo que atribui parte de um dado sinal de entrada a um dado número de
+Em aprendizado de máquina e reconhecimento de padrões, a classificação é caracterizada como um algoritmo que atribui parte de um sinal de entrada a um número de
 classes ou categorias \cite{brunelli2009template}. Um exemplo é a classificação de um e-mail
 como "spam" ou "não-spam". Os algoritmos que realizam a classificação dos sinais de entrada são
 chamados de \textbf{classificadores} \cite{Siulybook}. De acordo com \cite[p. 41]{lottephd}, "estes
 classificadores são capazes de aprender como identificar um vetor de características, graças
-aos processos de treinamentos".
+aos processos de treinamento".
 
 O algoritmo que realiza a classificação é caracterizado por uma função matemática
 que mapeia um sinal de entrada em sua respectiva classe \cite{lottephd}. Os classificadores
-preferidos pelos pesquisadores são os \textbf{classificadores supervisionados}, pois estes
-tipos de classificadores necessitam de um conjunto de dados de treinamento para realizar o processo de treinamento do classificador. O conjunto de dados para realização do processo de treinamento são formados por vetores de características previamente atribuídos às suas respectivas classes \cite{lottephd}. Portanto os classificadores supervisionados são implementados a partir de dois processos: \textbf{treinamento} e \textbf{testes} \cite{Siulybook}. As \textit{Support Vector Machines} (SVM), os \textit{Linear Discriminant Analysis} (LDA), os filtros Kalman e as árvores de decisões são alguns exemplos mais conhecidos de classificadores do tipo supervisionados \cite{Siulybook}.
+preferidos pelos pesquisadores são os \textit{classificadores supervisionados}, pois estes
+tipos de classificadores necessitam de um conjunto de dados de treinamento para realizar o processo de treinamento do classificador. O conjunto de dados para realização do processo de treinamento são formados por vetores de características previamente atribuídos às suas respectivas classes \cite{lottephd}. Portanto os classificadores supervisionados são implementados a partir de dois processos: \textit{treinamento} e \textit{testes} \cite{Siulybook}. As \textit{Support Vector Machines} (SVM), em português, Máquina de Vetor de Suporte, os \textit{Linear Discriminant Analysis} (LDA), em português, Análise Discriminante Linear, as Redes Neurais Artificiais (RNA) e as árvores de decisões são alguns exemplos mais conhecidos de classificadores do tipo supervisionados \cite{Siulybook}.
 
 O LDA como dito anteriormente é um dos classificadores supervisionados e tem como principais vantagens
 a simplicidade e atratividade computacional, por se tratar de um classificador linear \cite{patternRecogn}.
@@ -44,29 +43,28 @@ O objetivo do LDA é usar uma transformação linear para encontrar um conjunto 
 discriminantes e remapear o conjunto de características
 original, em um outro conjunto de dimensão  inferior \cite{ShashoaLDA}.
 
-A simplicidade e robustez do LDA possibilita sua implementação em um sistema embarcado, oque viabiliza sua acessibilidade a qualquer usuário, um exemplo de sistema a se embarcar este tipo de algoritmo são os \textit{Systems on Chip} (SoC).
+A simplicidade e robustez do LDA possibilita sua implementação em um sistema embarcado, o que viabiliza sua portabilidade considerando as restrições de desempenho computacional e consumo energético dos Sistemas em Chip (SoCs - do inglês \textit{System on Chip}.
 
-Um SoC é caracterizado pela implementação de todo um sistema computacional, tais como memórias, processadores, entradas e saídas, lógicas digitais, entre outros, em um único chip de silício \cite{zynqBook}. Diferente dos computadores tradicionais, que possuem seu sistema implementado a partir de módulos isolados e combinados em uma placa de circuito impresso, ou placa-mãe, os SoCs possuem como principais características um baixo custo de implementação, além de baixo consumo de potência, menor tamanho físico, maior confiabilidade e maior velocidade do sistema geral, quando comparado com um computador tradicional \cite{zynqBook}. Um exemplo de um SoC é a plataforma \textit{Zynq} que combina em um único chip processadores \textit{Advanced Risc Machine} (ARM) e \textit{Field Programmable Gate Array} (FPGA), esse útimo utilizado para configurar todos os módulos de um computador tradicional \cite{zynqBook}. 
+Um SoC é caracterizado pela implementação de todo um sistema computacional, tais como memórias, processadores, entradas e saídas, conversores de dados, controladores de periféricos, entre outros, em um único chip de silício \cite{zynqBook}. Diferente dos computadores tradicionais, que possuem seu sistema implementado a partir de módulos isolados e combinados em uma placa de circuito impresso, ou placa-mãe, os SoCs possuem como principais características um baixo custo de implementação, além de baixo consumo de potência, menor tamanho físico, maior confiabilidade e, dependendo dos recursos disponíveis, maior desempenho computacional, se comparado com um computador tradicional \cite{zynqBook}. Um exemplo de um SoC é a plataforma \textit{Zynq} que combina em um único chip processadores \textit{Advanced Risc Machine} (ARM) e \textit{Field Programmable Gate Arrays} (FPGA), conversores analógicos digitais (ADC - do inglês) \cite{zynqBook}. 
 
-Tendo em vista a grande vantagem dos SoCs sobre os computadores tradicionais, onde são implementados e executados os algoritmos de classificação, este trabalho apresenta um estudo da viabilidade da implementação em hardware e em software embarcado, do algoritmo de treinamento do classificador LDA desenvolvido previamente por \cite{F.Lotte} na plataforma \textit{Matlab}, realizando a comparação de consumo computacional, processamento computacional (tempo de execução), entre as implementações em hardware e software, onde a implementação em hardware consiste no mapeamento do algoritmo na FPGA da plataforma \textit{Zynq}, afim de paralelizar seus processos, já a implementação em software consiste em executar o algoritmo em um sistema embarcado utilizando os cores ARM, também da plataforma \textit{Zynq}, além da comparação com sua implementação inicial em \textit{Matlab}.
+Tendo em vista a grande vantagem dos SoCs sobre os computadores tradicionais, onde são implementados e executados os algoritmos de classificação, este trabalho apresenta um estudo da viabilidade da implementação em hardware e em software embarcado, do algoritmo de treinamento do classificador LDA desenvolvido previamente por \cite{F.Lotte} na plataforma \textit{Matlab}, realizando a comparação de consumo computacional (hardware), desempenho computacional (tempo de execução) e consumo energético entre as implementações em hardware e software. Em particular a implementação em hardware consiste no mapeamento do algoritmo na FPGA da plataforma \textit{Zynq}, afim de paralelizar seus processos, enquanto que a implementação em software consiste em executar o algoritmo em um sistema embarcado utilizando os cores ARM, também da plataforma \textit{Zynq}, além da comparação com sua implementação inicial em \textit{Matlab}.
 
 
 \section{Justificativa}
-As aplicações das BCIs apresentam um crescente desenvolvimento, graças ao aumento do interesse em pesquisas voltadas para o tema \cite{BCICompetition} . Por ser considerado o principal processo das BCIs, a classificação requer um cuidado especial \cite{MasonAndBirch}. Como o LDA é um classificador supervisionado, a acurácia da classificação depende inteiramente de um bom treinamento \cite{F.Lotte}. Por se tratar de um algoritmo linear e consequentemente não exigir um grande esforço computacional, torna-se viável sua implementação em um sistema embarcado. Como os SoCs apresentam características de baixo consumo de potência, tamanho físico pequeno e possuir todos módulos de um sistema computacional em um único chip, a implementação de algoritmos de classificação em sistema deste porte podem tornar as BCIs mais acessíveis, tendo em vista que um algoritmo de treinamento embarcado em um SoC reduzirá a necessidade de um sistema computacional tradicional, além de um melhor processamento computacional, pois sua implementação em plataformas como FPGAs torna-se possível paralelizar seus processos de execução \cite{zynqBook}.
+As aplicações das BCIs apresentam um crescente desenvolvimento  graças ao aumento do interesse em pesquisas voltadas para o tema \cite{BCICompetition} . As BCIs utilizam-se de algoritmos de classificação para realizar o processo de tradução dos sinais cerebrais em comandos de controle \cite{MasonAndBirch}. O LDA é um tipo de classificador utilizado para realizar tal processo.  supervisionado, a acurácia da classificação depende inteiramente de um bom treinamento \cite{F.Lotte}. Por se tratar de um algoritmo linear e consequentemente não exigir um grande esforço computacional, torna-se viável sua implementação em um sistema embarcado. Como os SoCs apresentam características de baixo consumo de energia, tamanho físico pequeno e possuir todos os módulos de um sistema computacional em um único chip, a implementação de algoritmos de classificação em sistema deste porte podem tornar as BCIs mais acessíveis, tendo em vista que um algoritmo de treinamento embarcado em um SoC reduzirá a necessidade de um sistema computacional tradicional, além de um melhor processamento computacional, pois sua implementação em plataformas FPGAs possibilitam a paralelização de seus processos \cite{zynqBook}.
 
 \section{Objetivos}
-Esta seção apresenta os objetivos gerais e específicos propostos a serem desenvolvidos neste
- presente trabalho.
+
 \subsection{Objetivos Gerais}
-\begin{itemize}
-	\item Implementar parte do algoritmo de treinamento de um classificador LDA em um sistema embarcado, utilizando um SoC na plataforma \textit{Zynq} afim de otimizar o algoritmo, tanto em relação a tempo de execução, quanto o seu consumo de recursos.
-\end{itemize} 
+
+	O objetivo geral do presente trabalho é implementar o algoritmo de treinamento de um classificador LDA em um sistema embarcado, utilizando um SoC na plataforma \textit{Zynq} da \textit{Xilinx}, no intuito de estudar os ganhos em relação ao tempo de execução e consumo de energia se comparado com implementações tradicionais.
+
 \subsection{Objetivos Específicos}
 
 \begin{itemize}
-	\item Explorar o algoritmo de treinamento do classificador LDA desenvolvido por \cite{F.Lotte};
-	\item Mapear parte deste algoritmo em arquiteturas paralelas (arquiteturas de hardware) utilizando a linguagem VHDL;
+	\item Reproduzir os resultados obtidos por \cite{F.Lotte} no desenvolvimento do algoritmo de treinamento do classificador LDA;
+	\item Mapear o algoritmo em arquiteturas paralelas, utilizando a linguagem VHDL;
 	\item Implementar em sistema embarcado o algoritmo de treinamento utilizando os cores ARM da \textit{Zynq};
-	\item Realizar teste e validação das implementações utilizando as bases de dados do BCI Competition III, em especifico o conjunto de dados BCI III \textit{dataset} IVa.
+	\item Validar as implementações utilizando as bases de dados do BCI Competition III, em especifico o conjunto de dados BCI III \textit{dataset} IVa.
 	\item Realizar uma análise estatística do erro associado a ambas implementações, comparadas com a implementação na plataforma \textit{Matlab}.
 \end{itemize}
