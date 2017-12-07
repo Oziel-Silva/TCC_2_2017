@@ -241,11 +241,29 @@ proporciona um \textit{kit} para desenvolvedores que procuram uma plataforma pla
 
 
 \section{Estado da Arte}
-A implementação de algoritmos de classificação em FPGA já foi relatada anteriormente na literatura. Em 2003 \cite{RNAFPGA} descreveu um algoritmo de uma rede neural para reconhecimento de faces, obtendo uma acurácia de 92\%. Neste mesmo trabalho realizou a comparação com a implementação em mais duas plataformas \textit{Zero Instrunction Set Computer} e em DSPs, onde obteve melhor resultado na implementação em DSP com acurácia de 98\%.
+A implementação de algoritmos de classificação em FPGA já foi relatada anteriormente na literatura, sendo utilizados para diferentes aplicações. A tabela \ref{trabalhosemFPGA} apresenta a relação de alguns autores que realizaram a implementação de classificadores em SoCs utilizando FPGA, apresentando a acurácia obtida por cada autor, bem como os sinais de entrada e sua respectiva aplicação.
 
-Os algoritmos de classificação possuem estrutura bem definida sobre o \textit{BCI Competition - Data Set IVa}, os melhores resultados obtidos foram de \cite{WangBCIWinner}, onde utilizando do classificador LDA, conseguiu acurácias de 94.17\% geral, 	95.5\% sobre o sujeito (aa), 100.0\% sobre o sujeito (al), 80.6\% sobre o sujeito (av)	100.0\% sobre o sujeito (aw) 97.6\% sobre o sujeito (ay).
+\begin{table}[h!]
+	\centering
+	\caption{My caption}
+	\label{my-label}
+	\begin{tabular}{|l|l|l|l|l|}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{Autores}} & \multicolumn{1}{c|}{\textbf{Algoritmo}} &  \multicolumn{1}{c|}{\textbf{Acurácia}} & \multicolumn{1}{c|}{\textbf{Sinal}} \\ \hline
+		\textit{\cite{RNAFPGA}} & RNA & 92\% & Imagem \\ \hline
+		\textit{\cite{Irick}} & SVM  & 88.6\% & Imagem \\ \hline
+		\textit{\cite{Glette2009}} & EHW  & \textbf{97.5\%} & Imagem \\ \hline
+		\textit{\cite{Glette2007}} & EHW & 91.4 \% & Ondas Sonoras \\ \hline
+		\textit{\cite{Alkim}} & LVQ & 85\% & EMG \\ \hline
+		\textit{\cite{Yuan}} & SVM & \textbf{97\%} & Ondas Ultrassônicas \\ \hline
+		\textit{\cite{Chen}} & NB & 92\% & EMG \\ \hline
+		\textit{\cite{Kais}} & LDA & 72\% & EEG \\ \hline
+	\end{tabular}
+\end{table}
 
-A tabela \ref{arte_state} apresenta a acurácia obtida por \cite{F.Lotte} no ano de 2010, no desenvolvimento do algoritmo de classificação LDA, utilizando do algoritmo \textit{Common Spatial Pattern} (CSP) para maximizar a variância do filtro passa-faixa utilizados pelo EEG para uma das classes, enquanto minimiza a variância para as outras demais classes.
+Os melhores resultados obtidos com a base de dados \textit{BCI Competition - Dataset IVa}foram de \cite{WangBCIWinner}, onde utilizando do classificador LDA, conseguiu acurácias de 94.17\% geral, 	95.5\% sobre o sujeito (aa), 100.0\% sobre o sujeito (al), 80.6\% sobre o sujeito (av) 100.0\% sobre o sujeito (aw) 97.6\% sobre o sujeito (ay).
+
+A tabela \ref{arte_state} apresenta a acurácia obtida por \cite{F.Lotte} no ano de 2010, no desenvolvimento do algoritmo de classificação LDA, utilizando do algoritmo \textit{Common Spatial Pattern} (CSP) para maximizar a variância do filtro passa-faixa utilizados pelo EEG para uma das classes, enquanto minimiza a variância para as outras demais classes, utilizando a base de dados \textit{BCI Competition - Dataset IVa}.
 \begin{table}[h]
 	\centering
 	\caption{Acurácia de classificação do algoritmo LDA utilizando do algoritmo CSP para maximização de variância de classes. \cite{F.Lotte}}
