@@ -209,24 +209,6 @@ São vários os argumentos a favor da escolha de um SoC a uma arquitetura que ut
 O conjunto da arquitetura pode se dividir em dois sistemas, sistema de hardware  e sistema de software. 
 
 
-No \textit{Sistema de Hardware} encontram-se todos os periféricos, memórias e processadores, para conecta-los existe um barramento de comunicação responsável por isso. Já no \textbf{Sistema de Software}, o software é do tipo \textit{stack} e funciona sobre o
-processador, que também sustenta os aplicativos que geralmente têm um
-Sistema Operacional (SO) para gerência, uma camada em um nível mais baixo
-faz a interface com o sistema de hardware. Um diagrama de blocos simplificado de um SoC é apresentado na Figura \ref{diagram SoC} \cite{zynqBook}.
-\pagebreak
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[keepaspectratio=true,scale=0.5]{figuras/diaagrama-soc.png}
-	\caption{Diagrama simplificado da relacão entre hardware e software em um SoC. Adaptado de \cite{cao2017post}}
-	\label{diagram SoC}
-\end{figure}
-
-
-\subsection{\textit{Zybo-Board}}
-O conjunto da arquitetura pode se dividir em dois sistemas, sistema de hardware  e sistema de software. 
-
-
 No \textbf{Sistema de Hardware} encontram-se todos os periféricos, memórias e processadores, para conecta-los existe um barramento de comunicação responsável por isso. Já no \textbf{Sistema de Software}, o software funciona sobre o processador, que também sustenta os aplicativos (geralmente em um Sistema Operacional)  e também possui uma camada num nível mais baixo de software que 
 faz a interface com o sistema de hardware. Um diagrama de blocos simplificado de um SoC é apresentado na Figura \ref{diagram SoC} \cite{zynqBook}.
 \pagebreak
@@ -254,7 +236,7 @@ proporciona um \textit{kit} para desenvolvedores que procuram uma plataforma pla
 	\label{Zybo Board}
 \end{figure}
 
-A figura \ref{diaagrama-zynq} mostra o diagrama funcional do Zynq-7000 AP SoC, o Processing System e a Programmable Logic têm sistemas de alimentação individual, permitindo o usuário habilita-los ou não para gerenciamento de energia. 
+A figura \ref{diaagrama-zynq} mostra o diagrama funcional do Zynq-7000 AP SoC, o \textit{Processing System e a Programmable Logic} têm sistemas de alimentação individual, permitindo o usuário habilita-los ou não para gerenciamento de energia. 
 \begin{figure}[h]
 	\centering
 	\includegraphics[keepaspectratio=true,scale=0.6]{figuras/diagrama-zinq.jpeg}
@@ -262,17 +244,18 @@ A figura \ref{diaagrama-zynq} mostra o diagrama funcional do Zynq-7000 AP SoC, o
 	\label{diaagrama-zynq}
 \end{figure}
 
-O Zynq-7000 AP SoC é composto pelos seguintes blocos majoritátios
+O Zynq-7000 AP SoC é composto pelos seguintes blocos majoritários
 \begin{itemize}
-\item Processing System (PS)
+\item Sistema de Processamento (PS do inglês \textit{Processing System})
 \begin{itemize}
-\item Aplication Processor Unit
-\item Memory intefaces
-\item I/O peripherals (IOP)
-\item Interconnect
+\item Unidade de Processador de Aplicação (APU - do inglês \textit{Application Processor Unit})
+\item  Interfaces de Memória(do inglês \textit{Memory interfaces})
+\item  Periféricos de entrada (IOP do inglês \textit{I/O peripherals})
+\item Iterconexões (do inglês \textit{Interconnect})
 \end{itemize}
-\item Programmable Logic (PL)
+\item Lógica Programável (PL - do inglês \textit{Programmable Logic})
 \end{itemize}
+
 \section{Estado da Arte}
 A implementação de algoritmos de classificação em FPGA já foi relatada anteriormente na literatura, sendo utilizados para diferentes aplicações. A tabela \ref{trabalhosemFPGA} apresenta a relação de alguns autores que realizaram a implementação de classificadores em SoCs utilizando FPGA, apresentando a acurácia obtida por cada autor, bem como os sinais de entrada e sua respectiva aplicação.
 
