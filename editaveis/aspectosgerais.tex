@@ -224,11 +224,27 @@ faz a interface com o sistema de hardware. Um diagrama de blocos simplificado de
 
 
 \subsection{\textit{Zybo-Board}}
+O conjunto da arquitetura pode se dividir em dois sistemas, sistema de hardware  e sistema de software. 
+
+
+No \textbf{Sistema de Hardware} encontram-se todos os periféricos, memórias e processadores, para conecta-los existe um barramento de comunicação responsável por isso. Já no \textbf{Sistema de Software}, o software funciona sobre o processador, que também sustenta os aplicativos (geralmente em um Sistema Operacional)  e também possui uma camada num nível mais baixo de software que 
+faz a interface com o sistema de hardware. Um diagrama de blocos simplificado de um SoC é apresentado na Figura \ref{diagram SoC} \cite{zynqBook}.
+\pagebreak
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[keepaspectratio=true,scale=0.5]{figuras/diaagrama-soc.png}
+	\caption{Diagrama simplificado da relacão entre hardware e software em um SoC. Adaptado de \cite{cao2017post}}
+	\label{diagram SoC}
+\end{figure}
+
+
+\subsection{\textit{Zybo-Board}}
 A Zybo é uma plataforma de desenvolvimento(Figura\ref{Zybo Board}).
 Baseada na arquitetura Xilinx$^{\textregistered}$ \textit{All-Programmable System-on-Chip} (AP SoC)
 do tipo Z-7010, o qual possui em seu encapsulamento um processador ARM Cortex-A9 de 
-dois núcleos e um FPGA da famíli Xilinx 7-Series. Esse chip combinado com memórias, entradas 
-e saídas de áudio e vídeo, USB, Ethernet, controlador de memória SD entre outros periférico
+dois núcleos e um FPGA da família Xilinx 7-Series. Esse chip combinado com memórias, entradas 
+e saídas de áudio e vídeo, USB, Ethernet, controlador de memória SD entre outros periféricos,
 proporciona um \textit{kit} para desenvolvedores que procuram uma plataforma plataforma de desenvolvimento SoC com flexibilidade e boa capacidade de processamento \cite{DigilentZybo}.  
 
 \begin{figure}[h]
@@ -238,8 +254,25 @@ proporciona um \textit{kit} para desenvolvedores que procuram uma plataforma pla
 	\label{Zybo Board}
 \end{figure}
 
+A figura \ref{diaagrama-zynq} mostra o diagrama funcional do Zynq-7000 AP SoC, o Processing System e a Programmable Logic têm sistemas de alimentação individual, permitindo o usuário habilita-los ou não para gerenciamento de energia. 
+\begin{figure}[h]
+	\centering
+	\includegraphics[keepaspectratio=true,scale=0.6]{figuras/diagrama-zinq.jpeg}
+	\caption{Diagrama funcional do Zynq-7000 AP SoC }
+	\label{diaagrama-zynq}
+\end{figure}
 
-
+O Zynq-7000 AP SoC é composto pelos seguintes blocos majoritátios
+\begin{itemize}
+\item Processing System (PS)
+\begin{itemize}
+\item Aplication Processor Unit
+\item Memory intefaces
+\item I/O peripherals (IOP)
+\item Interconnect
+\end{itemize}
+\item Programmable Logic (PL)
+\end{itemize}
 \section{Estado da Arte}
 A implementação de algoritmos de classificação em FPGA já foi relatada anteriormente na literatura, sendo utilizados para diferentes aplicações. A tabela \ref{trabalhosemFPGA} apresenta a relação de alguns autores que realizaram a implementação de classificadores em SoCs utilizando FPGA, apresentando a acurácia obtida por cada autor, bem como os sinais de entrada e sua respectiva aplicação.
 
