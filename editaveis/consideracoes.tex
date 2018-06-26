@@ -1,11 +1,36 @@
-\chapter[Proposta Metodológica]{Proposta Metodológica}
-Este capítulo apresenta os procedimentos e métodos a serem utilizados para desenvolvimento deste
- trabalho, detalhando as metodologias \textit{Bottom-Up}, utilizadas nas implementações tanto em hardware
- quanto em software, além das linguagens de programação utilizadas nas implementações e suas respectivas
- ferramentas. Por fim é apresentado um cronograma de atividades.
+\chapter[Metodologia]{Metodologia}
+Neste capítulo é apresentado como foi realizada a implementação do algoritmo de treinamento do classificador LDA em um sistema coprocessado hardware-software, detalhando todos os módulos que compõem a implementação.
 
-\section{Implementação em hardware}
-Esta seção apresenta os dispositivos e ferramentas a serem utilizados neste presente trabalho, além das metodologias a serem desenvolvidas, para implementação do algoritmo de treinamento do classificador LDA em Hardware.
+\section{Algoritmo Implementado}
+Em 2010 o francês Fabien Lotte publicou um trabalho com objetivo de comparar as implementações de algoritmos de extração de características de sinais provenientes de atividades cerebrais, além de propor um novo algoritmo para extração de características dos sinais \cite{F.Lotte}.\\
+Para coleta de resultados Lotte utilizou o algoritmo de classificação LDA e a base de dados \textit{BCI Competition III - Dataset IVa} obtendo como melhor resultado o extrator de características CSP, conforme apresentado anteriormente na Tabela \ref{arte_state}.\\
+O algoritmo foi desenvolvido utilizando a plataforma \textit{Matlab}, onde foram utilizados os recursos e funções da plataforma. A Figura \ref{processos_alg} apresenta um diagrama de processo que descreve as funções utilizadas no algoritmo.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[keepaspectratio=true,scale=0.6]{figuras/Processos_Algoritmo_Lotte.PNG}
+	\caption{Processos realizados pelo algoritmo de \cite{F.Lotte}.}
+	\label{processos_alg}
+\end{figure}
+
+Utilizando-se dos dados de treinamento do \textit{Data set - BCI Competition III - IVa}, o algoritmo inicia-se realizando a filtragem do sinal, a partir de um filtro \textit{Butterworth} de {$5^a$} ordem, mantendo os sinais das faixas {$\alpha$} e {$\beta$}, e atenuando as demais frequências. Em seguida, é realizado o processo de extração de características utilizando o algoritmo CSP. Logo após, é realizado o processo de treinamento, onde são calculados hiperplanos que melhor separam as classes. Por fim, para o processo de teste são atribuídos os sinais de teste, também fornecidos pelo \textit{Data Set - BCI Competition III -IVa}e os hiperplanos calculados no processo de treinamento, seguido da disponibilização dos resultados de acurácia e tempo de treinamento.
+
+\section{Implementação em Sistema Coprocessado}
+
+Conforme apresentado, o objetivo deste trabalho é o estudo dos ganhos ou perdas no processamento do algoritmo de treinamento do classificador LDA implementado em um coprocessamento hardware-software, utilizando-se da plataforma \textit{Zynq} da placa \textit{Xilinx Zybo Board}, quando comparado com a implementação realizada por \cite{F.Lotte} e a implementação apenas em software utilizando o processador ARM.\\
+Sendo assim, o trabalho se restringiu a implementação em sistema coprocessado o processo de treinamento (processo destacado) da Figura \ref{processos_alg}.\\
+A Figura \ref{processos_train} apresenta um diagrama de processos que descreve a função de treinamento do classificador LDA.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[keepaspectratio=true,scale=0.6]{figuras/Processos_LDA_Train.PNG}
+	\caption{Processos realizados pelo algoritmo de treinamento de um classificador LDA.}
+	\label{processos_train}
+\end{figure}
+
+Inicialmente é realizada a separação dos sinais em dois conjuntos de dados que representam os dados referentes às duas classes em estudo. Em seguida são calculadas as médias dos sinais de cada classe. Este valor é repassado para a função de cálculo da matriz de covariância (ou correlação), onde são realizados cálculos matriciais conforme apresentado na Equação \ref{label}. Em seguida são calculados os hiperplanos a partir da correlação das características dos sinais. Estes hiperplanos representam os parâmetros de treinamento do classificador. São a partir deles que os sinais de teste são classificados.\\
+
+Na realização do coprocessamento as funções de cálculo de média e cálculo de covariancia são as duas funções que apresentam um maior esforço computacional. Portanto ambas as funções foram mapeadas em hardware, utilizando-se da linguagem VHDL, a fim de acelerar o processamento utilizando o processamento paralelo em FPGA, enquanto as demais funções foram compiladas em software na linguagem C, executada através de um SO Linux embarcado nos processadores ARM.
 
 \subsection{Dispositivos e ferramentas}
 O algoritmo de treinamento do classificador LDA será implementado nas lógicas digitais da FPGA na plataforma Zynq da placa \textit{Zybo-Board}, utilizando \textit{IP-Cores} de cálculo aritmético em ponto flutuante, que são blocos matemáticos desenvolvidos com propriedades intelectuais \cite{munoz2010tradeoff} em unidade de ponto flutuante desenvolvidos por \cite{munoz2010tradeoff} e a linguagem descrição de hardware VHDL, a fim de paralelizar os processos do algoritmo. Para o mapeamento do algoritmo em VHDL será utilizado a plataforma \textit{Vivado}, que possui todas as ferramentas necessárias para descrição, simulação, síntese e implementação para FPGAs da \textit{Xilinx} \cite{zynqBook}.

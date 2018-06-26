@@ -23,7 +23,7 @@ Tendo em vista a grande vantagem dos SoCs sobre os computadores tradicionais, on
 
 
 \section{Justificativa}
-As aplicações das BCIs apresentam um crescente desenvolvimento  graças ao aumento do interesse em pesquisas voltadas para o tema \cite{BCICompetition} . As BCIs utilizam-se de algoritmos de classificação para realizar o processo de tradução dos sinais cerebrais em comandos de controle \cite{MasonAndBirch}. O LDA é um tipo de classificador utilizado para realizar tal processo. A acurácia da classificação depende inteiramente de um bom treinamento \cite{F.Lotte}. Por se tratar de um algoritmo linear e consequentemente não exigir um grande esforço computacional, torna-se viável sua implementação em um sistema embarcado. Como os SoCs apresentam características de baixo consumo de energia e tamanho físico pequeno, a implementação de algoritmos de classificação em sistema deste porte podem tornar as BCIs mais acessíveis, tendo em vista que um algoritmo de treinamento embarcado em um SoC reduzirá a necessidade de um sistema computacional tradicional, além de um melhor processamento computacional, pois sua implementação em plataformas FPGAs possibilitam a paralelização de seus processos \cite{zynqBook}.
+As aplicações das BCIs apresentam um crescente desenvolvimento  graças ao aumento do interesse em pesquisas voltadas para o tema \cite{BCICompetition} . As BCIs utilizam-se de algoritmos de classificação para realizar o processo de tradução dos sinais cerebrais em comandos de controle \cite{MasonAndBirch}. O LDA é um tipo de classificador utilizado para realizar tal processo. Um dos principais processos para implementação de um classificador é o processo de treinamento, é com este processo que o classificador é capaz de classificar corretamente os sinais de entrada, quando realizado um bom processo de treinamento\cite{F.Lotte}. Por se tratar de um algoritmo linear e consequentemente não exigir um grande esforço computacional, torna-se viável sua implementação em um sistema embarcado. Como os SoCs apresentam características de baixo consumo de energia e tamanho físico pequeno, a implementação de algoritmos de classificação em sistema deste porte podem tornar as BCIs mais acessíveis, tendo em vista que um algoritmo de treinamento embarcado em um SoC reduzirá a necessidade de um sistema computacional tradicional, além de um melhor processamento computacional, pois sua implementação em plataformas FPGAs possibilitam a paralelização de seus processos \cite{zynqBook}.
 
 \section{Objetivos}
 
@@ -40,10 +40,10 @@ As aplicações das BCIs apresentam um crescente desenvolvimento  graças ao aum
 	
 	\item Realizar uma análise de \textit{profile} para determinação de funções que exigem um maior esforço computacional;
 	
-	\item Mapear a(s) função(ões) que exigem um alto esforço computacional em hardware FPGA utilizando a linguagem VHDL;
+	\item Mapear a(s) função(ões) que exigem um maior esforço computacional em hardware FPGA utilizando a linguagem VHDL;
 	
 
-	\item Validar as implementações utilizando as bases de dados do BCI Competition III, em especifico o conjunto de dados BCI III \textit{dataset} IVa.
+	\item Validar as implementações utilizando as bases de dados do \textit{BCI Competition III}, em especifico o conjunto de dados BCI III \textit{dataset IVa}.
 	
 	\item Realizar uma análise estatística do erro associado a ambas implementações, comparadas com a implementação na plataforma \textit{Matlab}.
 	
