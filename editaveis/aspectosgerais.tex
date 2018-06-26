@@ -155,7 +155,7 @@ representados como dados rotulados \cite{izenmanLDA}.
 Devido a indispensabilidade de diminuir as dimensões dos dados de um determinado conjunto, o objetivo do LDA
 é reduzir a dimensão do espaço de conjunto de dados, resolvendo o inconveniente da sobreposição \cite{SinghLDA}.
 
-O LDA tem a proposta de encontrar uma transformação ótima para maximizar a proporção de acordo com a equação \ref{eq: Proporção}.
+O LDA tem a proposta de encontrar uma transformação ótima para maximizar a proporção de acordo com a Equação \ref{eq: Proporção}.
 com isso encontrando o vetor $W$ que proporciona a melhor descriminação \cite{ketsuwan2017linear}.
 
 \begin{equation}
@@ -165,7 +165,7 @@ com isso encontrando o vetor $W$ que proporciona a melhor descriminação \cite{
 
 Onde $S_B$ é a matriz de dispersão entre as classes e $ S_W$ a matriz de dispersão dentro das classes. 
 
-$S_B$ é obtido sengundo a esquação \ref{eq: dispersaosb} 
+$S_B$ é caracterizado pela matriz de covariância entre as classes, obtido sengundo a Equação \ref{eq: dispersaosb} 
 \begin{equation}
 	\label{eq: dispersaosb}
 	 S_B = \sum_{j=1}^{c} n_j(m_j - \bar m)(m_j -\bar m)^T 
@@ -196,6 +196,10 @@ Para $S_W$ sendo uma matriz não-singular, a solução da equação
 \end{equation}
  
 onde $\lambda$ é o auto-valor correspondente ao auto-vetor $W$.
+
+Ou seja, a proposta do classificador LDA é encontrar o hiperplano de maior separação entre as classes analisadas. O cálculo deste hiperplano é feito a partir dos dados de treinamento. Com os dados de treinamento, a distribuição de probabilidade é conhecida, podendo ser representada pela média da dispersão dos sinais. Em outras palavras os hiperplanos são obtidos através da correlação inter-classes e intra-classe, maximizando a separabilidade das classes e minimizando a variabilidade dentro da classe. 
+
+
 \section{\textit{System-on-Chip}}
 
 O termo Sistema em Chip (SoC, do inglês \textit{System-on-Chip}), implica que todo sistema que contém funcionalidades implementadas em hardware e software se encontra em um único chip de silício, combinando processamento, lógica de alta velocidade, interface, memória entre outros componentes ao invés de uma implementação maior em vários chips físicos diferentes agrupados em uma placa-mãe \cite{zynqBook}.
@@ -255,12 +259,12 @@ O Zynq-7000 AP SoC é composto pelos seguintes blocos majoritários
 \end{itemize}
 
 \section{Estado da Arte}
-A implementação de algoritmos de classificação em FPGA já foi relatada anteriormente na literatura, sendo utilizados para diferentes aplicações. A Tabela \ref{trabalhosemFPGA} apresenta a relação de alguns autores que realizaram a implementação de classificadores em SoCs utilizando FPGA, apresentando a acurácia obtida por cada autor, bem como os sinais de entrada e sua respectiva aplicação.
+A implementação de algoritmos de classificação em FPGA já foi relatada anteriormente na literatura, sendo utilizados para diferentes aplicações. A Tabela \ref{estado_da_arte} apresenta a relação de alguns autores que realizaram a implementação de classificadores em SoCs utilizando FPGA, apresentando a acurácia obtida por cada autor, bem como os sinais de entrada e sua respectiva aplicação.
 
 \begin{table}[h!]
 	\centering
-	\caption{My caption}
-	\label{my-label}
+	\caption{Resultados obtidos por outros autores em implementações de algoritmos de classificação em FPGA.}
+	\label{estado_da_arte}
 	\begin{tabular}{|l|l|l|l|l|}
 		\hline
 		\multicolumn{1}{|c|}{\textbf{Autores}} & \multicolumn{1}{c|}{\textbf{Algoritmo}} &  \multicolumn{1}{c|}{\textbf{Acurácia}} & \multicolumn{1}{c|}{\textbf{Sinal}} \\ \hline
