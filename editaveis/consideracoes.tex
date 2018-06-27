@@ -3,17 +3,17 @@ Neste capítulo é apresentado como foi realizada a implementação do algoritmo
 
 \section{Algoritmo Implementado}
 Em 2010 o francês Fabien Lotte publicou um trabalho com objetivo de comparar as implementações de algoritmos de extração de características de sinais provenientes de atividades cerebrais, além de propor um novo algoritmo para extração de características dos sinais \cite{F.Lotte}.\\
-Para coleta de resultados Lotte utilizou o algoritmo de classificação LDA e a base de dados \textit{BCI Competition III - Dataset IVa} obtendo como melhor resultado o extrator de características CSP, conforme apresentado anteriormente na Tabela \ref{arte_state}.\\
-O algoritmo foi desenvolvido utilizando a plataforma \textit{Matlab}, onde foram utilizados os recursos e funções da plataforma. A Figura \ref{processos_alg} apresenta um diagrama de processo que descreve as funções utilizadas no algoritmo.
+Para coleta de resultados de seu trabalho, Lotte utilizou o algoritmo de classificação LDA e a base de dados \textit{BCI Competition III - Dataset IVa}, obtendo como melhor resultado o extrator de características CSP, conforme apresentado anteriormente na Tabela \ref{arte_state}.\\
+O algoritmo foi desenvolvido utilizando a plataforma \textit{Matlab}, onde foram utilizados os recursos e funções da plataforma. A Figura \ref{processos_alg} apresenta um diagrama de atividades que descreve as funções utilizadas no algoritmo.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[keepaspectratio=true,scale=0.6]{figuras/Processos_Algoritmo_Lotte.PNG}
-	\caption{Processos realizados pelo algoritmo de \cite{F.Lotte}.}
+	\caption{Atividades realizadas pelo algoritmo de \cite{F.Lotte}.}
 	\label{processos_alg}
 \end{figure}
 
-Utilizando-se dos dados de treinamento do \textit{Data set - BCI Competition III - IVa}, o algoritmo inicia-se realizando a filtragem do sinal, a partir de um filtro \textit{Butterworth} de {$5^a$} ordem, mantendo os sinais das faixas {$\alpha$} e {$\beta$}, e atenuando as demais frequências. Em seguida, é realizado o processo de extração de características utilizando o algoritmo CSP. Logo após, é realizado o processo de treinamento, onde são calculados hiperplanos que melhor separam as classes. Por fim, para o processo de teste são atribuídos os sinais de teste, também fornecidos pelo \textit{Data Set - BCI Competition III -IVa}e os hiperplanos calculados no processo de treinamento, seguido da disponibilização dos resultados de acurácia e tempo de treinamento.
+Utilizando-se dos dados de treinamento do \textit{BCI Competition III - Data Set -IVa}, o algoritmo inicia-se realizando a filtragem dos sinais a partir de um filtro \textit{Butterworth} passa faixas de {$5^a$} ordem, mantendo os sinais das faixas {$\alpha$} e {$\beta$} e atenuando as demais frequências. Em seguida, é realizado o processo de extração de características utilizando o algoritmo CSP. Logo após, é realizado o processo de treinamento, onde são calculados hiperplanos que melhor separam as classes. Por fim, para o processo de testes o algoritmo utiliza dos hiperplanos gerados pela função de treinamento para classificar os sinais de testes, também fornecidos pelo \textit{BCI Competition III - Data Set -IVa}. Pro fim, são disponibilizados os resultados de acurácia e tempo de treinamento.
 
 \section{Implementação em Sistema Coprocessado}
 
@@ -33,7 +33,14 @@ Inicialmente é realizada a separação dos sinais em dois conjuntos de dados qu
 Na realização do coprocessamento as funções de cálculo de média e cálculo de covariancia são as duas funções que apresentam um maior esforço computacional. Portanto ambas as funções foram mapeadas em hardware, utilizando-se da linguagem VHDL, a fim de acelerar o processamento utilizando o processamento paralelo em FPGA, enquanto as demais funções foram compiladas em software na linguagem C, executada através de um SO Linux embarcado nos processadores ARM.
 
 \subsection{Dispositivos e ferramentas}
-O algoritmo de treinamento do classificador LDA será implementado nas lógicas digitais da FPGA na plataforma Zynq da placa \textit{Zybo-Board}, utilizando \textit{IP-Cores} de cálculo aritmético em ponto flutuante, que são blocos matemáticos desenvolvidos com propriedades intelectuais \cite{munoz2010tradeoff} em unidade de ponto flutuante desenvolvidos por \cite{munoz2010tradeoff} e a linguagem descrição de hardware VHDL, a fim de paralelizar os processos do algoritmo. Para o mapeamento do algoritmo em VHDL será utilizado a plataforma \textit{Vivado}, que possui todas as ferramentas necessárias para descrição, simulação, síntese e implementação para FPGAs da \textit{Xilinx} \cite{zynqBook}.
+Para estudo das implementações (\textit{Matlab}, software e coprocessamento) utilizamos três ferramentas principais:\\
+\begin{itemize}
+	\item Software\textit{Matlab R2016a - \textit{Student License}} - Utilizado para reproduzir os resultados obtidos por \cite{F.Lotte};
+	\item SO Linux - Utilizado como ambiente de desenvolvimento de software embarcado;
+	\item Software \textit{Vivado - v.2017.4} - Utilizado para desenvolver, integrar e sintetizar os IP's de cálculo em ponto flutuante das funções média e covariância;
+	\item \textit{SDK SoC} - Utilizado para desenvolver a imagem de \textit{Boot} do SO Linux já com os IP's desenvolvidos.
+\end{itemize}
+Para implementação em software e implementação coprocessada utilizamos o SoC \textit{Zynq} embarcado no kit de desenvolvimento \textit{Zybo Board}
 
 \subsection{Metodologias de desenvolvimento}
 Para implementação do algoritmo de treinamento do classificador LDA em FPGA será adotada a metodologia \textit{bottom-up}, na qual cada sub-bloco desenvolvido é testado antes de ser inserido ao bloco principal, bloco de integração de todos sub-blocos do projeto, também conhecido como \textit{Top module}.
