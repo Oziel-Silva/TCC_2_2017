@@ -53,7 +53,7 @@ Com a baixa amplitude desse tipo de sinal, ele pode sofrer facilmente atenuaçõ
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.75]{figuras/padrao1020.png}
+	\includegraphics[scale=0.75]{figuras/padrao1020.PNG}
 	\caption{Sistema Internacional de Posicionamento 10-20. Fonte: \cite{campisi2012eeg}.}
 	\label{padrao1020}
 \end{figure}
@@ -65,7 +65,7 @@ Com inúmeras oscilações não periódicas, milhares de comunicação inter-neu
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[keepaspectratio=true,scale=0.75]{figuras/formas_EEG.png}
+	\includegraphics[keepaspectratio=true,scale=0.75]{figuras/formas_EEG.PNG}
 	\caption{Exemplos de diferentes tipos de EEG. Fonte: \cite{campisi2012eeg}}.
 	\label{EEGcomun}
 \end{figure}
@@ -111,7 +111,7 @@ em comandos de controle \cite{MasonAndBirch}. Para isso são utilizados algoritm
 São utilizadas estratégias mentais para definir ao usuário tarefas mentais afim de gerar características padronizadas nos sinais cerebrais de acordo com determinada tarefa, para que o classificador possa interpretá-las corretamente \cite{SIULYDissertacao}. Uma das abordagens mais comuns é imagética motora, que caracteriza a imaginação do movimento de um membro do corpo humano \cite{SIULYDissertacao}.  
 
 \section{\textit{BCI Competition}}
-A \textit{BCI Competition} é uma competição que promove o desenvolvimento e melhoria da tecnologia voltada para as BCIs, onde são submetidas diferentes técnicas de análise de dados cerebrais \cite{BCICompetition}. Já foram realizadas quatro edições da competição, nos anos de 2001, 2002, 2004 e 2008 \cite{BCICompetition}. Em cada uma destas competições são fornecidos publicamente sinais cerebrais, adquiridos em laboratórios especializados \cite{BCICompetition}. Estes sinais são divididos em dois conjuntos de dados, os dados de treinamento e os dados de teste, que são utilizados para treinamento e teste dos algoritmos dos participantes \cite{BCICompetition}.
+A \textit{BCI Competition} é uma competição que promove o desenvolvimento e melhoria da tecnologia voltada para as BCIs, sendo submetidas diferentes técnicas de análise de dados cerebrais \cite{BCICompetition}. Já foram realizadas quatro edições da competição, nos anos de 2001, 2002, 2004 e 2008 \cite{BCICompetition}. Em cada uma destas competições são fornecidos publicamente sinais cerebrais, adquiridos em laboratórios especializados \cite{BCICompetition}. Estes sinais são divididos em dois conjuntos de dados, os dados de treinamento e os dados de teste, que são utilizados para treinamento e teste dos algoritmos dos participantes \cite{BCICompetition}.
 
 \subsection{\textit{BCI Competition III}}
 O objetivo do \textit{BCI Competition III} é validar as metodologias de classificação e processamento de sinais cerebrais aplicados em BCIs desenvolvidas pelos participantes da competição \cite{siteBCI}. Esta edição foi realizada entre Maio e Junho de 2004, período no qual foram disponilizados 8 \textit{datasets} (I, II, IIIa, IIIb, IVa, IVb, IVc e V), desenvolvidos com a participação de 49 laboratórios especializados \cite{BCICompetition}.
@@ -163,14 +163,14 @@ com isso encontrando o vetor $W$ que proporciona a melhor descriminação \cite{
 	J(W) = \frac { W^T S_B W}{W^T S_W W}
 \end{equation}
 
-Onde $S_B$ é a matriz de dispersão entre as classes e $ S_W$ a matriz de dispersão dentro das classes. 
+$S_B$ é a matriz de dispersão entre as classes e $ S_W$ a matriz de dispersão dentro das classes. 
 
 $S_B$ é caracterizado pela matriz de covariância entre as classes, obtido sengundo a Equação \ref{eq: dispersaosb} 
 \begin{equation}
 	\label{eq: dispersaosb}
 	 S_B = \sum_{j=1}^{c} n_j(m_j - \bar m)(m_j -\bar m)^T 
 \end{equation}
-onde $c$ é o número de classes, e $\bar m$ o vetor média e  $m_j$ é o vetor de média dos dados 
+$c$ é o número de classes, e $\bar m$ o vetor média e  $m_j$ é o vetor dos dados 
 pertinentes à classe $j$ e $x$ é o vetor de treinamento.
 
 \begin{equation}
@@ -213,7 +213,7 @@ O conjunto da arquitetura pode se dividir em dois sistemas, sistema de hardware 
 
 No \textbf{Sistema de Hardware} encontram-se todos os periféricos, memórias e processadores, para conecta-los existe um barramento de comunicação responsável por isso. Já no \textbf{Sistema de Software}, o software funciona sobre o processador, que também sustenta os aplicativos (geralmente em um Sistema Operacional)  e também possui uma camada num nível mais baixo de software que 
 faz a interface com o sistema de hardware. Um diagrama de blocos simplificado de um SoC é apresentado na Figura \ref{diagram SoC} \cite{zynqBook}.
-\pagebreak
+
 
 \begin{figure}[h]
 	\centering
@@ -224,7 +224,7 @@ faz a interface com o sistema de hardware. Um diagrama de blocos simplificado de
 
 
 \subsection{\textit{Zybo-Board}}
-A Zybo é uma plataforma de desenvolvimento(Figura\ref{Zybo Board}).
+A Zybo é uma plataforma de desenvolvimento (Figura\ref{Zybo Board}).
 Baseada na arquitetura Xilinx$^{\textregistered}$ \textit{All-Programmable System-on-Chip} (AP SoC)
 do tipo Z-7010, o qual possui em seu encapsulamento um processador ARM Cortex-A9 de 
 dois núcleos e um FPGA da família Xilinx 7-Series. Esse chip combinado com memórias, entradas 
@@ -256,7 +256,34 @@ O Zynq-7000 AP SoC é composto pelos seguintes blocos majoritários
 \item Iterconexões (do inglês \textit{Interconnect})
 \end{itemize}
 \item Lógica Programável (PL - do inglês \textit{Programmable Logic})
+\begin{itemize}
+	\item \textit{Look-Up Tables} - LUT
+	São tabelas da verdade capazes de implemtarem quaisquer funções lógicas combinacionais.
+	\item Flip-Flop
+	Unidade de armazenamento que quando combinado com a LUT é utilizado para implementar circuitos sequênciais.
+	\item BRAM
+	Bloco de memoria de acesso randômico utilizado para armazenar dados.
+	\item DSP
+	Processador digital de sinais, basicamente é uma unidade lógica aritimética.
+	 
 \end{itemize}
+\end{itemize}
+
+\subsubsection{Comunicação entre PS e PL}
+Conforme apresentado na figura \ref{diaagrama-zynq} a PL realiza a comunicação com 
+o PS através da interface de comunicação AXI-32bits. O AXI é uma das partes da família de protocolos \textit{ARM-AMBA}. Em 2010 a ultima versão desenvolvida do AMBA (versão 4.0), foi incluida a segunda versão do AXI, o AXI4 \cite{user-guide-axi}.
+
+Existem três tipos de barramento AXI, o AXI4, AXI4-Lite e AXI4-Stream.
+
+\begin{itemize}
+	\item AXI4 - usado quando os requisitos de projeto necessitam de alta performance no mapeamento de memória.
+	\item AXI4-Lite usado para um simples mapeamento de memória.
+	\item AXI4-Stream usado quando necessita-se fluxo de dados em alta velocidade.
+\end{itemize}
+
+
+
+
 
 \section{Estado da Arte}
 A implementação de algoritmos de classificação em FPGA já foi relatada anteriormente na literatura, sendo utilizados para diferentes aplicações. A Tabela \ref{estado_da_arte} apresenta a relação de alguns autores que realizaram a implementação de classificadores em SoCs utilizando FPGA, apresentando a acurácia obtida por cada autor, bem como os sinais de entrada e sua respectiva aplicação.
