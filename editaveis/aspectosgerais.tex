@@ -135,6 +135,8 @@ Os sinais foram adquiridos de 5 sujeitos rotulados como \textit{aa, al, av, aw} 
 		\textit{ay} & 28 & 252
 	\end{tabular}
 \end{table}
+
+Os dados \textit{Data Set IVa} foram adquiridos e armazenados utilizando amplificadores do tipo \textit{BrainAmp} e uma capa de eletrodos de 128 canais. Foram utilizados 118 canais de EEG posicionados de acordo com o sistema 10-20. Cada um destes canais foram filtrados em banda passante, utilizando um filtro \textit{butterworth} de quinta ordem entre as frequências de 0,05 e 200 Hz, posteriormente foram digitalizados com uma frequência de amostragem de 1 kHz com precisão de 16 bits, apresentando uma resolução de 0,1 $\mu$V, além disso também foram disponibilizados os mesmos dados com uma frequência de amostragem de 100 Hz \cite{siteBCI}.
  
 \section{\textit{Linear Discriminant Analisys}}
 O LDA é um classificador desenvolvido para explorar as informações no reconhecimento de padrões supervisionados,
@@ -168,10 +170,9 @@ $S_B$ é a matriz de dispersão entre as classes e $ S_W$ a matriz de dispersão
 $S_B$ é caracterizado pela matriz de covariância entre as classes, obtido sengundo a Equação \ref{eq: dispersaosb} 
 \begin{equation}
 	\label{eq: dispersaosb}
-	 S_B = \sum_{j=1}^{c} n_j(m_j - \bar m)(m_j -\bar m)^T 
+	 S_B = \frac{\sum_{j=1}^{c} (m_j - \bar m)(m_j -\bar m)^T}{n - 1} 
 \end{equation}
-$c$ é o número de classes, e $\bar m$ o vetor média e  $m_j$ é o vetor dos dados 
-pertinentes à classe $j$ e $x$ é o vetor de treinamento.
+$c$ é o número de classes, e $\bar m$ o vetor média e  $m_j$ é o vetor dos dados pertinentes à classe $n$ é a quantidade de amostras pertencentes a classe $j$ e $x$ é o vetor de treinamento.
 
 \begin{equation}
 	\label{eq: media}
@@ -280,9 +281,6 @@ Existem três tipos de barramento AXI, o AXI4, AXI4-Lite e AXI4-Stream.
 	\item AXI4-Lite usado para um simples mapeamento de memória.
 	\item AXI4-Stream usado quando necessita-se fluxo de dados em alta velocidade.
 \end{itemize}
-
-
-
 
 
 \section{Estado da Arte}
