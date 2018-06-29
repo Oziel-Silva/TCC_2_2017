@@ -32,7 +32,7 @@ Inicialmente é realizada a separação dos sinais em dois conjuntos de dados qu
 
 Na realização do coprocessamento as funções de cálculo de média e cálculo de covariância são as duas funções que apresentam um maior esforço computacional. Portanto ambas as funções foram mapeadas em hardware, utilizando-se da linguagem VHDL, a fim de acelerar o algoritmo de treinamento explorando o paralelismo dos algoritmos, enquanto as demais funções foram compiladas em software na linguagem C, executada através de um SO Linux embarcado nos processadores do SoC utilizado neste projeto.
 
-\subsection{Ferramentas utilizadas}
+\subsection{Ferramentas Utilizadas}
 Para estudo das implementações foram utilizadas cinco ferramentas principais:\\
 \begin{itemize}
 	\item Software\textit{Matlab R2016a - \textit{Student License}} - Utilizado para reproduzir os resultados obtidos por \cite{F.Lotte};
@@ -43,7 +43,7 @@ Para estudo das implementações foram utilizadas cinco ferramentas principais:\
 
 Para implementação em software e implementação coprocessada utilizamos o SoC \textit{Zynq} embarcado no kit de desenvolvimento \textit{Zybo Board}.
 
-\subsection{Metodologias de desenvolvimento}
+\subsection{Metodologias de Desenvolvimento}
 \subsubsection{Implementação em Hardware}
 Para implementação das funções de cálculo de média e cálculo da matriz de covariância em FPGA foi adotada a metodologia \textit{bottom-up}, na qual cada sub-bloco desenvolvido foi testado antes de ser inserido ao bloco principal, também conhecido como \textit{Top module}.
 Os cálculos foram realizados através dos blocos de propriedade intelectual (IP) desenvolvidos por \cite{munoz2010tradeoff}. Os IPs realizam cálculos matemáticos em unidades de ponto flutuante de acordo com o padrão IEEE-754 \cite{IEEE745} com registradores de 27 bits, representados com:
@@ -64,7 +64,7 @@ O IP que realiza o operação de soma ou subtração é controlado por uma máqu
 
 O sinal de entrada oP representa se a função do bloco será soma (caso valor lógico for igual a 0) ou subtração (caso valor lógico for igual a 1) \cite{munoz2010tradeoff}. Os sinais opA e opB representam os valores de entrada, no caso da adição representam os valores da soma, e no caso da adição representam minuendo e subtraendo, respectivamente. Há também a entrada start utilizado para iniciar a operação assim que seu nível lógico realiza uma transição de borda de subida (de nível lógico 0 para nível lógico 1), além das entradas de clock e reset. 
 
-Foram criados componentes para paralelizar o processo dos cálculos, buscando o maior nível de paralelismo. A partir do bloco de IP da Figura \ref{somador_27}, aara a função média foram implementados um total de 20 (vinte) somas em paralelo, seguido de um \textit{pipeline} de somadores, onde a saída apresenta o resultado da soma de 20 operandos. Já para a função de covariância foram implementados 4 componentes em paralelo que calculam parte da Equação \ref{eq: dispersaosb} conforme apresentado nas Figuras \ref{somador} e \ref{covariancia}.
+Foram criados componentes para paralelizar o processo dos cálculos, buscando o maior nível de paralelismo. A partir do bloco de IP da Figura \ref{somador_27}, para a função média foram implementados um total de 20 (vinte) somas em paralelo. Para sequenciar a soma final dos 20 operandos de entrada foi implementado um \textit{dataflow} de somadores, onde a saída apresenta o resultado da soma final de 20 operandos (Figura \ref{somador}). Já para a função de covariância foram implementados 4 componentes em paralelo que calculam parte da Equação \ref{eq: dispersaosb} conforme apresentado na Figura \ref{covariancia}.
 
 \begin{figure}[h]
 	\centering
@@ -96,9 +96,9 @@ A transposição da matriz (operator $^T$) e o somatório foi mantido em softwar
 
 A técnica utilizada na implementação do projeto foi a \textit{dataflow}. O princípio básico das arquiteturas \textit{dataflow} é que a execução das operações é acionada em função da disponibilidade dos operandos. Ela não segue uma estrutura convencional da máquinas algorítmicas, onde uma parte de controle é responsável pela sincronização das operações \cite{ThiagoUnB}. No caso dos sistemas em hardware implementados os blocos iniciam sua operação apenas quando suas entradas já estão carregadas.
 
-Todos os módulos desenvolvidos foram atribuidos à um novo IP com barramento AXI4-Lite para realizar a comunicação com o procesador ARM. O diagrama de comunicação entre o IP e o processador é apresentado no Anexo 01 deste de trabalho.
+Todos os módulos desenvolvidos foram atribuidos à um novo IP com barramento AXI4-Lite para realizar a comunicação com o procesador ARM. Onde são transmitido e recebido os dados de entrada referentes aos IPs de cálculo de média e cálculo da matrix de covariância. O diagrama geral da implementação, onde é apresentado a conexão entre ARM e todos os seus periféricos, além dos IPs desenvolvidos é apresentado no Anexo 01 deste trabalho.
 
-O fluxo de desenvolvimento do projeto em hardware é apresentado na Figura \ref{diagram_hardware}.
+O fluxo de desenvolvimento do projeto em hardware utilizado neste trablaho é apresentado na Figura \ref{diagram_hardware}.
 
 \begin{figure}[h]
   \centering
@@ -108,7 +108,7 @@ O fluxo de desenvolvimento do projeto em hardware é apresentado na Figura \ref{
 \end{figure}
 
 \subsection{Protocolo Para Análise estatística}
-Para efeito de análise comparatória foram coletados as seguintes informações pós síntese e implementação:
+Para efeito de análise estatística comparatória foram coletados as seguintes informações pós implementação:
 
 \begin{itemize}[noitemsep]
 	\item Consumo de hardware: LUTs, FFs, blocos de DSP, blocos de memória RAM, I/O;
@@ -134,7 +134,7 @@ Como parâmetro de análise estatística foram coletados os seguintes dados:
 \item Erro da implementação em comparação aos resultados obtidos por \cite{F.Lotte}
 \end{itemize}
 
-\subsection{Integração}
+\section{Integração}
 Toda a integração do projeto coprocessado é possibilitado pelo uso do barramento AXI4-Lite, que interliga a PL com a PS, 
 um esquemático do processo de escrita e leitura nos IP através do barramento AXI4-Lite pode ser observado na Figura \ref{axi_bus}
 \newpage
@@ -146,8 +146,8 @@ um esquemático do processo de escrita e leitura nos IP através do barramento A
 	\label{axi_bus}
 \end{figure}
 
-Para realizar escrita e leitura de dados nos IPs através da aplicação implementada em software, ultilizamos a função mmap() que faz parte da biblioteca <sys/mman.h>, esta função cria um novo mapeamento de memória no endereço de memória virtual no seu processo de chamada. Esse novo endereço começa no endereço de memória do IP (com AXI), com isso é possivel ler e escrever no endereço memória de de qualquer IP, desde que a memória esteja devidamente mapeada. 
+Para realizar escrita e leitura de dados nos IPs através da aplicação implementada em software, ultilizamos a função mmap() que faz parte da biblioteca <sys/mman.h>, esta função cria um novo mapeamento de memória no endereço de memória virtual no seu processo de chamada. Esse novo endereço começa no endereço de memória do IP (com AXI), com isso é possivel ler e escrever no endereço memória de de qualquer IP, desde que a memória esteja devidamente mapeada.
 
-
+Como os IPs desenvolvidos por \cite{munoz2010tradeoff} realizam operações em ponto flutuante de 27 bits e o barramento \textit{AXI-4Lite} possui como configuração mínima de registradores o valor de 32 bits, em todos os IPs desenvolvidos as entradas e saídas possuem tamanho de 32 bits, porém para realização dos cálculo é considerada apenas os 27 bits mais significativos presentes nos registradores do barramento de comunicação \textit{AXI-4Lite}.
 \vspace{\onelineskip}
 
