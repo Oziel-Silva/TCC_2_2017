@@ -3,13 +3,13 @@
 Neste capítulo é apresentado os resultados obtidos nas implementações do algoritmo de treinamento do classificador LDA nas plataformas \textit{Matlab} (desenvolvido por \cite{F.Lotte}), Linguagem C (executado em um SO Linux compilado em um processador \textit{ARM Cortex A9}) e sistema coprocessado hardware-software executado no SoC embarcado no kit de desenvolvimento \textit{Xilinx Zybo Board}.
 
 \section{Resultados obtidos em MATLAB}
-Em 2010 fabien lotte publicou um trabalho, demosntrando a classificação de sinais de EEG com LDA \cite{F.Lotte},usando o extrator de características \textit{common spatial pattenrs}(CSP) e outras
+Em 2010 fabien lotte publicou um trabalho, demonstrando a classificação de sinais de EEG com LDA \cite{F.Lotte},usando o extrator de características \textit{common spatial pattenrs}(CSP) e outras
 variações deste algoritmo. 
-As implementações foram codificadas em \textit{Matlab}, e o autor chegou aos seguintes resultados mostrados na Tabela \ref{resultlotte}.
+As implementações foram codificadas em \textit{Matlab}, e o autor chegou aos seguintes resultados apresentados na Tabela \ref{resultlotte}.
 
 \begin{table}[h]
 \centering
-\caption{Acurácia da classificação em \% usando o extrator CSP e classificador LDA.}
+\caption{Acurácia da classificação usando o extrator CSP, classificador LDA e  \textit{Data-Set IVa - BCI Competition III}.}
 \label{resultlotte}
 \begin{tabular}{|l|l|l|l|l|l|}
 \hline
@@ -105,7 +105,7 @@ Apesar de ainda haver insumos de hardware disponíveis optou-se por finalizar a 
 A Figura \ref{roteamento} e a Figura \ref{legenda_rot} apresentam o roteamento do sistema de coprocessamento implementado no kit de desenvolvimento e sua legenda, respectivamente.
 \begin{figure}[!h]
 	\centering
-	\includegraphics[keepaspectratio=true,scale=0.40]{figuras/roteamento.PNG}
+	\includegraphics[keepaspectratio=true,scale=0.40]{figuras/roteamento.png}
 	\caption{Roteamento do circuito implementado referente a todo o sistema de coprocessamento.}
 	\label{roteamento}
 \end{figure}
@@ -113,16 +113,26 @@ A Figura \ref{roteamento} e a Figura \ref{legenda_rot} apresentam o roteamento d
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[keepaspectratio=true,scale=0.35]{figuras/legenda_roteamento.PNG}
+	\includegraphics[keepaspectratio=true,scale=0.35]{figuras/legenda_roteamento.png}
 	\caption{Legenda para a Figura \ref{roteamento}.}
 	\label{legenda_rot}
 \end{figure}
 
 Os blocos em vermelho representam a alocação dos módulos pertinentes a função de cálculo de média, já se percebe que é a função que mais consumiu recursos. Em azul escuro a alocação dos módulos pertinentes a função de cálculo da covariância. Em azul turquesa a alocação dos módulos do processador \textit{ARM Cortex A9}. 
-Em rosa os módulos que compõem o barramento \textit{AXI-4Lite}.
+Em rosa os módulos que compõem o barramento \textit{AXI-4Lite}.\\
+Uma outra informação relevante extraída pós implementação é a estimação do consumo energético de todo o sistema desenvolvido. Estas informações são fornecidas pela função \textit{report power} do \textit{Vivado}. A estimação do consumo energético é apresentado na Figura \ref{power}.
+\begin{figure}[!h]
+	\centering
+	\includegraphics[keepaspectratio=true,scale=0.5]{figuras/power.png}
+	\caption{Estimativa do consumo energético do sistema.}
+	\label{power}
+\end{figure}
+
+A Figura \ref{power} apresenta a estimativa de consumo energético para cada componente do sistema. O processador ARM representado por PS7 na Figura \ref{power}, é o que tem maior consumo, com aproximadamente 75\% do consumo total. O sistema em geral apresentou o consumo geral de 2.156 watts.
+ 
 
 \subsection{Resultados de Simulação de Hardware}
-As simulações dos IPs desenvolvidos nos dá uma estimativa de desempenho dos IPs, com uma análise temporal. 
+As simulações dos IPs desenvolvidos nos dá uma estimativa de desempenho de processamento dos IPs, com uma análise temporal. 
 
 \subsubsection{IP Para Cálculo de Média}
 
@@ -167,4 +177,70 @@ T_{cov} = \frac{N_{class}(N_{col}^2)(T_{cov1})}{N_{par}}
 
 Sendo, $T_{cov} =$ período total de processamento da função; $N =$ número de colunas da matriz de características; $N_{class} =$ número de classes; $N_{col} =$ número de colunas da matriz de entrada; $T_{cov1} =$ \textit{troughput} da covariância, $N_{par} =$ número de implementações sendo executadas em paralelo.\\
 Sendo assim, pela Equação \ref{eq: throughput_hw} tem-se que $T_{cov} =$ 50.4 $\mu$s, ou seja, o IP de cálculo em ponto flutuante da função covariância consome um tempo de processamento de 50.4 $\mu$s para calcular a covariância das duas classes dos dados de treinamento do \textit{data-set - BCI Competition III - IVa}.
+\subsection{Resultados de Execução}
+Após todo o processo de implementação e simulação, executou-se o sistema coprocessado utilizando-se do \textit{data-set - BCI Competition III - IVa}
+como sinais de entrada, obtendo-se os seguintes resultados de acurácia apresentados na Tabela \ref{resacc}.
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[!h]
+	\label{resacc}
+	\caption{Acurácia da classificação dos sinais com treinamento em sistema coprocessado.}
+	\centering
+	\begin{tabular}{lcccll}
+		\rowcolor[HTML]{DAE8FC} 
+		\multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{Sistema}} & \textit{\textbf{aa}}        & \textit{\textbf{al}}        & \textit{\textbf{av}}        & \textit{\textbf{aw}} & \textit{\textbf{ay}} \\
+		\textbf{Coprocessado}                                        & \multicolumn{1}{r}{65.18\%} & \multicolumn{1}{r}{96.43\%} & \multicolumn{1}{r}{50.51\%} & 59.82\%              & 57.14\%             
+	\end{tabular}
+\end{table}
+O sistema obteve uma melhor acurácia no sujeito \textit{al}, pois é o sujeito que mais possui tarefas realizadas e préviamente classificadas. O oposto ocorre com o sujeito \textit{av}.\\
+Outro dado importante coletado após a execução foi o tempo de processamento da função de treinamento implementada no sistema coprocessado. Realizando a análise de perfil, obteve-se um tempo de processamento de \textbf{10 milissegundos}.
+
+ 
+\subsection{Análise de Resultados de Desempenho de Processamento}
+
+Em cada uma das implementações foram utilizadas arquiteturas diferentes, a Tabela \ref{propriedades} apresenta as arquiteturas utilizadas em cada uma das implementações.  
+
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[!h]
+	\label{propriedades}
+	\caption{Propriedades das plataformas utilizadas.}
+	\centering
+	\begin{tabular}{lrrr}
+		\rowcolor[HTML]{DAE8FC} 
+		\multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{Implementação}} & \multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{Sistema}} & \multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{Processador(es)}} & \multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{Dados}} \\
+		\textit{\textbf{Matlab}}                                        & Windows 10                                                   & Intel Core i5 (2.2 GHz)                                              & 64 bits                                                    \\
+		\rowcolor[HTML]{DAE8FC} 
+		\textit{\textbf{Linguagem C}}                                   & Linux                                                        & ARM Cortex A9 (600 MHz)                                              & 32 bits                                                    \\
+		\textit{\textbf{Hardware-Software}}                             & \textit{Zynq}                                                & ARM /Artix 7 (100 MHz)                                               & 27 bits                                                   
+	\end{tabular}
+\end{table}
+
+
+A partir da execução de cada uma das implementações obteve-se os seguintes resultados de acurácia apresentados na Tabela \ref{acuracias}. 
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[!h]
+	\label{acuracias}
+	\caption{Acurácia das implementações de estudo.}
+	\centering
+	\begin{tabular}{lccccc}
+		\rowcolor[HTML]{DAE8FC} 
+		\multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{Implementação}} & \textit{\textbf{aa}} & \textit{\textbf{al}} & \textit{\textbf{av}} & \multicolumn{1}{l}{\cellcolor[HTML]{DAE8FC}\textit{\textbf{aw}}} & \multicolumn{1}{l}{\cellcolor[HTML]{DAE8FC}\textit{\textbf{ay}}} \\
+		\textit{\textbf{Matlab}}                                        & 66.70\%              & 96.43\%              & 47.75\%              & 71.88\%                                                          & 49.60\%                                                          \\
+		\rowcolor[HTML]{DAE8FC} 
+		\textit{\textbf{Linguagem C}}                                   & 66.70\%              & 96.43\%              & 47.75\%              & 71.88\%                                                          & 49.60\%                                                          \\
+		\textit{\textbf{Hardware-Software}}                             & 66.18\%              & 96.43\%              & 50.51\%              & 59.82\%                                                          & 57.14\%                                                         
+	\end{tabular}
+\end{table}
+
+
+
+
+
 
