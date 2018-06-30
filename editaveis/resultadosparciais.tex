@@ -33,7 +33,48 @@ Uma outra aplicação do algoritmo é a representação gráfica dos potenciais 
 Após execução do algoritmo um dos resultados apresentados na interface gráfica da ferramenta \textit{Matlab} é o tempo de execução do algoritmo de treinamento, onde obteve-se um resultado de tempo médio de processamento de aproximadamente \textbf{10.89 ms} (milissegundos).
 
 \section{Resultados Obtidos em Linguagem C}
+Após a implementação do algoritmo em linguagem C e sua respectiva execução sob o auxílio do sistema operacional Linux, distribuição \textit{Debian}, embarcado nos processadores ARM do kit de desenvolvimento \textit{Zybo Board}. Os resultados obtidos de acurácia de classificação são apresentados na Tabela \ref{acuraciaC}.
 
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[!h]
+	\centering
+	\caption{Acurácia da classificação dos sinais com treinamento em linguagem C.}
+	\label{acuraciaC}
+	
+	\begin{tabular}{lcccll}
+		\rowcolor[HTML]{DAE8FC} 
+		\multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{Sistema}} & \textit{\textbf{aa}}        & \textit{\textbf{al}}        & \textit{\textbf{av}}        & \textit{\textbf{aw}} & \textit{\textbf{ay}} \\
+		\textbf{Linguagem C}                                        & \multicolumn{1}{r}{65.18\%} & \multicolumn{1}{r}{96.43\%} & \multicolumn{1}{r}{50.51\%} & 59.82\%              & 57.14\%             
+	\end{tabular}
+\end{table}
+
+Em comparação com os resultados obtidos na implementação em \textit{Matlab}(Tabela \ref{resultadoLotte}), pode-se observar que houveram divergências. Isto ocorreu devido as diferentes aquiteturas de execução, sendo a execução em \textit{Matlab} em arquitetura de tamanho de palavra de 64 bits, enquanto a execução em linguagem C em arquitetura de 32 bits, acarretando em erros de truncamento de palavra, sendo estes propragados durante a execução dos cálculos. Porém, apesar do erro associado, obteve-se uma melhora nos hiperplanos para classificação do sinais dos sujeitos \textit{ay} e \textit{av}.\\
+
+No que diz respeito a desempenho computacional esta implementação obteve os melhores resultados, a Tabela \ref{temposC} apresenta o resutado da análise de perfil.  
+
+ 	% Please add the following required packages to your document preamble:
+ 	% \usepackage[table,xcdraw]{xcolor}
+ 	% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+ 	\begin{table}[!h]
+ 		 \centering
+ 		\caption{Análise de perfil da função de treinamento.}
+ 		\label{temposC}
+ 		
+ 		\begin{tabular}{lrrrr}
+ 			\rowcolor[HTML]{DAE8FC} 
+ 			\multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{Implementação}} & \multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{\#Chamadas}} & \multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{\begin{tabular}[c]{@{}c@{}}Tempo por\\ Chamada\end{tabular}}} & \multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{\begin{tabular}[c]{@{}c@{}}Tempo \\ Total\end{tabular}}} & \multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{\%}} \\
+ 			\textit{\textbf{Cov}}                                              & 2                                                               & 260 $\mu$s                                                                                                       & 520 $\mu$s                                                                                                  & 81.25 $\mu$s                                            \\
+ 			\rowcolor[HTML]{DAE8FC} 
+ 			\textit{\textbf{Média}}                                            & 2                                                               & 40 $\mu$s                                                                                                        & 80 $\mu$s                                                                                                   & 12.50 $\mu$s                                            \\
+ 			\textit{\textbf{Sigma}}                                            & 1                                                               & 40 $\mu$s                                                                                                        & 40 $\mu$s                                                                                                   & 6.25 $\mu$s                                            
+ 		\end{tabular}
+ 	\end{table}
+ 
+De acordo com a Tabela \ref{temposC} a função de covariância é a que mais consome tempo de execução e esforço computacional para realizar o treinamento do classificador, consumindo um total de 81.25\% de to tempo de execução do algoritmo de treinamento e a função média a segunda com maior consumo, registrando um total de 12.5\%, enquanto a função sigma consome apenas 6.25\%.\\
+
+Analizando os tempos de execução das funções e seus respectivos números de chamada dentro do algoritmo de treinamento tem-se que o tempo total de execução da função é de 640 $\mu$s.
 
 \section{Resultados Obtidos no Coprocessamento Hardware-Software}
 As funções do algoritmo de treinamento do classificador LDA que continuaram mapeadas em software continuaram com os mesmos resultados obtidos na seção anterior. Portanto, esta seção se restringe aos resultados obtidos quanto a implementação das funções em hardware FPGA.
@@ -186,9 +227,10 @@ como sinais de entrada, obtendo-se os seguintes resultados de acurácia apresent
 % \usepackage[table,xcdraw]{xcolor}
 % If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
 \begin{table}[!h]
-	\label{resacc}
-	\caption{Acurácia da classificação dos sinais com treinamento em sistema coprocessado.}
 	\centering
+	\caption{Acurácia da classificação dos sinais com treinamento em sistema coprocessado.}
+	\label{resacc}
+	
 	\begin{tabular}{lcccll}
 		\rowcolor[HTML]{DAE8FC} 
 		\multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{Sistema}} & \textit{\textbf{aa}}        & \textit{\textbf{al}}        & \textit{\textbf{av}}        & \textit{\textbf{aw}} & \textit{\textbf{ay}} \\
@@ -215,7 +257,7 @@ Em cada uma das implementações foram utilizadas arquiteturas diferentes, a Tab
 		\multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{Implementação}} & \multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{Sistema}} & \multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{Processador(es)}} & \multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{Dados}} \\
 		\textit{\textbf{Matlab}}                                        & Windows 10                                                   & Intel Core i5 (2.2 GHz)                                              & 64 bits                                                    \\
 		\rowcolor[HTML]{DAE8FC} 
-		\textit{\textbf{Linguagem C}}                                   & Linux                                                        & ARM Cortex A9 (480 MHz)                                              & 32 bits                                                    \\
+		\textit{\textbf{Linguagem C}}                                   & Linux                                                        & ARM Cortex A9 (650 MHz)                                              & 32 bits                                                    \\
 		\textit{\textbf{Hardware-Software}}                             & \textit{Zynq}                                                & ARM /Artix 7 (100 MHz)                                               & 27 bits                                                   
 	\end{tabular}
 \end{table}
@@ -256,7 +298,7 @@ Por se tratarem de sistemas com frequências de \textit{clock} diferentes cada u
 		\multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{Implementação}} & \textit{\textbf{Tempo de execução da função de treinamento}} \\
 		\textit{\textbf{Matlab}}                                           & 10.89 ms                                                     \\
 		\rowcolor[HTML]{DAE8FC} 
-		\textit{\textbf{Linguagem C}}                                      & 340$\mu$s                                                 \\
+		\textit{\textbf{Linguagem C}}                                      & 640$\mu$s                                                 \\
 		\textit{\textbf{Hardware-Software}}                                & 10 ms                                                       
 	\end{tabular}
 \end{table}
