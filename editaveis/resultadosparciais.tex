@@ -207,15 +207,15 @@ Em cada uma das implementações foram utilizadas arquiteturas diferentes, a Tab
 % \usepackage[table,xcdraw]{xcolor}
 % If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
 \begin{table}[!h]
-	\label{propriedades}
-	\caption{Propriedades das plataformas utilizadas.}
 	\centering
+	\caption{Propriedades das plataformas utilizadas.}
+	\label{propriedades}
 	\begin{tabular}{lrrr}
 		\rowcolor[HTML]{DAE8FC} 
 		\multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{Implementação}} & \multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{Sistema}} & \multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{Processador(es)}} & \multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{Dados}} \\
 		\textit{\textbf{Matlab}}                                        & Windows 10                                                   & Intel Core i5 (2.2 GHz)                                              & 64 bits                                                    \\
 		\rowcolor[HTML]{DAE8FC} 
-		\textit{\textbf{Linguagem C}}                                   & Linux                                                        & ARM Cortex A9 (600 MHz)                                              & 32 bits                                                    \\
+		\textit{\textbf{Linguagem C}}                                   & Linux                                                        & ARM Cortex A9 (480 MHz)                                              & 32 bits                                                    \\
 		\textit{\textbf{Hardware-Software}}                             & \textit{Zynq}                                                & ARM /Artix 7 (100 MHz)                                               & 27 bits                                                   
 	\end{tabular}
 \end{table}
@@ -226,21 +226,39 @@ A partir da execução de cada uma das implementações obteve-se os seguintes r
 % \usepackage[table,xcdraw]{xcolor}
 % If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
 \begin{table}[!h]
-	\label{acuracias}
-	\caption{Acurácia das implementações de estudo.}
 	\centering
+	\caption{Acurácia das implementações de estudo.}
+	\label{acuracias}
 	\begin{tabular}{lccccc}
 		\rowcolor[HTML]{DAE8FC} 
 		\multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{Implementação}} & \textit{\textbf{aa}} & \textit{\textbf{al}} & \textit{\textbf{av}} & \multicolumn{1}{l}{\cellcolor[HTML]{DAE8FC}\textit{\textbf{aw}}} & \multicolumn{1}{l}{\cellcolor[HTML]{DAE8FC}\textit{\textbf{ay}}} \\
 		\textit{\textbf{Matlab}}                                        & 66.70\%              & 96.43\%              & 47.75\%              & 71.88\%                                                          & 49.60\%                                                          \\
 		\rowcolor[HTML]{DAE8FC} 
-		\textit{\textbf{Linguagem C}}                                   & 66.70\%              & 96.43\%              & 47.75\%              & 71.88\%                                                          & 49.60\%                                                          \\
+		\textit{\textbf{Linguagem C}}                                   & 66.18\%              & 96.43\%              & 50.51\%              & 59.82\%                                                          & 57.14\%                                                             \\
 		\textit{\textbf{Hardware-Software}}                             & 66.18\%              & 96.43\%              & 50.51\%              & 59.82\%                                                          & 57.14\%                                                         
 	\end{tabular}
 \end{table}
 
+De acordo com a Tabela \ref{acuracias}, as implementações em linguagem C e coprocessamento obtiveram valores diferentes da implementação original em \textit{Matlab}, devido ao que apresentado na Tabela \ref{propriedades}, apresentam tamanho de dados inferiores à implementação em \textit{Matlab}. Com isso todos os sinais foram truncados em seus respectivos tamanhos de dados, propagando erros em seus cálculos em ponto flutuante.\\
+Além disso a implementação em sistema coprocessado apresentou um erro quadrático médio de 0,42\% em relação à implementação \textit{Matlab}
 
+Por se tratarem de sistemas com frequências de \textit{clock} diferentes cada uma das implementações apreseta tempos de execução diferentes. Estes tempos são apresentados na Tabela \ref{tempos}. 
 
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[!h]
+	\centering
+	\caption{Tempos de execução da função de treinamento nas diferentes implementações.}
+	\label{tempos}
+	\begin{tabular}{lc}
+		\rowcolor[HTML]{DAE8FC} 
+		\multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{Implementação}} & \textit{\textbf{Tempo de execução da função de treinamento}} \\
+		\textit{\textbf{Matlab}}                                           & 10.89 ms                                                     \\
+		\rowcolor[HTML]{DAE8FC} 
+		\textit{\textbf{Linguagem C}}                                      & 340$\mu$s                                                 \\
+		\textit{\textbf{Hardware-Software}}                                & 10 ms                                                       
+	\end{tabular}
+\end{table}
 
-
-
+A implementação que obteve o melhor desempenho de processamento foi a implementação em Linguagem C embarcado no processador \textit{ARM Cortex A9} presente no \textit{SoC} do kit de desenvolvimento \textit{Zybo Board}. A implementação com menor desempenho de tempo de processamento foi a implementação em \textit{Matlab}, isto é devido o fato da implementação estar sendo executada em uma plataforma \textit{Windows 10} e por se tratar de uma linguagem de programação interpretada os outros porcessos executados juntos com a execução do algoritmo interfere em seu processamento. Já a respeito da implementação em sistema coprocessado o que se esperava era um melhor desempenho pois de acordo com os resultados obtidos em simulação os IPs de cálculos de média e de covariância apresentaram um tempo de execução extremamente baixo quando comparado com o resultado de execução obtido.

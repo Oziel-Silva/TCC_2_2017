@@ -96,7 +96,7 @@ A transposição da matriz (operator $^T$) e o somatório foi mantido em softwar
 
 A técnica utilizada na implementação do projeto foi a \textit{dataflow}. O princípio básico das arquiteturas \textit{dataflow} é que a execução das operações é acionada em função da disponibilidade dos operandos. Ela não segue uma estrutura convencional da máquinas algorítmicas, onde uma parte de controle é responsável pela sincronização das operações \cite{ThiagoUnB}. No caso dos sistemas em hardware implementados os blocos iniciam sua operação apenas quando suas entradas já estão carregadas.
 
-Todos os módulos desenvolvidos foram atribuidos à um novo IP com barramento AXI4-Lite para realizar a comunicação com o procesador ARM. Onde são transmitido e recebido os dados de entrada referentes aos IPs de cálculo de média e cálculo da matrix de covariância. O diagrama geral da implementação, onde é apresentado a conexão entre ARM e todos os seus periféricos, além dos IPs desenvolvidos é apresentado no Anexo 01 deste trabalho.
+Todos os módulos desenvolvidos foram atribuidos à um novo IP com barramento AXI4-Lite para realizar a comunicação com o procesador ARM. Onde são transmitido e recebido os dados de entrada referentes aos IPs de cálculo de média e cálculo da matrix de covariância. O diagrama geral da implementação, onde é apresentado a conexão entre ARM e todos os seus periféricos, além dos IPs desenvolvidos é apresentado no ANEXO A deste trabalho.
 
 O fluxo de desenvolvimento do projeto em hardware utilizado neste trablaho é apresentado na Figura \ref{diagram_hardware}.
 
@@ -122,7 +122,7 @@ Para efeito de análise estatística comparatória foram coletados as seguintes 
 
 \subsection{Métodos e Técnicas}
 Para o auxílio desta implementação, foi instalado o sistema operacional \textit{Debian Linux} sobre os cores ARM, cujos recursos e passos necessários
-para a instalação do SO estão contidos no Anexo 02.
+para a instalação do SO estão contidos no ANEXO B.
 
 O processo para implementação seguiu o método \textit{bottom-up}, blocos de códigos menores foram implementados e testados separadamente, com a finalidade de todos os blocos serem integrados e testados em um único bloco principal. Todas as codificações foram implementadas utilizando a linguagem de programação C, e para compilar o código principal foi utilizado o compilador GCC \textit{(GNU Compiler Collection)}. Com esse método conseguimos realizar uma análise de perfil das funções implementadas onde foram reportados os tempo de execução de cada uma das funções, sendo assim possível deduzir as funções que necessitam de maior esforço computacional. As entradas para programa desenvolvido são os sinais de treinamento fornecidos pelo \textit{dataset IVa} do \textit{BCI Competition III}.
 
