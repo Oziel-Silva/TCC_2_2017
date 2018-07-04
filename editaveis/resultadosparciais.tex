@@ -3,9 +3,9 @@
 Neste capítulo são apresentados os resultados obtidos nas implementações do algoritmo de treinamento do classificador LDA nas plataformas \textit{Matlab} (desenvolvido por \cite{F.Lotte}), Linguagem C (executado em um SO Linux compilado em um processador \textit{ARM Cortex A9}) e pelo sistema coprocessado hardware-software executado no SoC embarcado no kit de desenvolvimento \textit{Xilinx Zybo Board}.
 
 \section{Resultados obtidos em MATLAB}
-Em 2010 Fabien Lotte publicou um trabalho, demonstrando a classificação de sinais de EEG com LDA \cite{F.Lotte},usando o extrator de características \textit{common spatial pattenrs}(CSP) e outras
+Em 2010 Fabien Lotte publicou um trabalho demonstrando a classificação de sinais de EEG com LDA \cite{F.Lotte} usando o extrator de características \textit{common spatial pattenrs} (CSP) e outras
 variações deste algoritmo. 
-As implementações foram codificadas em \textit{Matlab}, e o autor chegou aos seguintes resultados apresentados na Tabela \ref{resultlotte}.
+As implementações foram codificadas em \textit{Matlab} e o autor chegou aos seguintes resultados apresentados na Tabela \ref{resultlotte}.
 
 \begin{table}[h]
 \centering
@@ -19,9 +19,9 @@ Acurácia(\%)     & 66.07 & 96.43 & 47.45 & 71.88 & 49.6 \\ \hline
 \end{tabular}
 \end{table}
  
-Reproduzir os resultados do autor, é de suma importância para este trabalho, tanto para comparação quanto para o entendimento do algoritmo. Utilizando-se do \textit{data set BCI Competition III - IVa}, obteve-se os mesmos resultados obtidos por \cite{F.Lotte} apresentados na tabela \ref{resultlotte}.
+Reproduzir os resultados do autor é de suma importância para este trabalho, tanto para comparação quanto para o entendimento do algoritmo. Utilizando-se do \textit{data set BCI Competition III - IVa}, obteve-se os mesmos resultados obtidos por \cite{F.Lotte} apresentados na tabela \ref{resultlotte}.
 
-Uma outra aplicação do algoritmo é a representação gráfica dos potenciais obtidos em cada um dos 118 sensores posicionados na superfície do crânio do sujeito, apresentado na Figura \ref{resultadoLotte}.
+Uma outra aplicação do algoritmo é a representação gráfica dos potenciais obtidos em cada um dos 118 sensores posicionados na superfície do crânio do sujeito, apresentado na Fig. \ref{resultadoLotte}.
 \newpage
 \begin{figure}[h]
 	\centering
@@ -52,7 +52,7 @@ Após a implementação do algoritmo em linguagem C e sua respectiva execução 
 
 Em comparação com os resultados obtidos na implementação em \textit{Matlab}(Tabela \ref{resultadoLotte}), pode-se observar que houveram divergências. Isto ocorreu devido as diferentes aquiteturas de execução, sendo a execução em \textit{Matlab} em arquitetura de tamanho de palavra de 64 bits, enquanto a execução em linguagem C em arquitetura de 32 bits, acarretando em erros de truncamento de palavra, sendo estes propragados durante a execução dos cálculos. Porém, apesar do erro associado, obteve-se uma melhora nos hiperplanos para classificação do sinais dos sujeitos \textit{ay} e \textit{av}.\\
 
-No que diz respeito a desempenho computacional esta implementação obteve os melhores resultados, a Tabela \ref{temposC} apresenta o resutado da análise de perfil. A função de covariância é a que mais consome tempo de execução e esforço computacional para realizar o treinamento do classificador, consumindo um total de 81.25\% de to tempo de execução do algoritmo de treinamento e a função média a segunda com maior consumo, registrando um total de 12.5\%, enquanto a função sigma, função de cálculo dos hiperplanos, onde é realizado o cálculo da média entre as covariâncias da classe 1 e classe 2, consome apenas 6.25\%.\\
+No que diz respeito ao desempenho computacional esta implementação obteve os melhores resultados, a Tabela \ref{temposC} apresenta o resutado da análise de perfil. A função de covariância é a que mais consome tempo de execução e esforço computacional para realizar o treinamento do classificador, consumindo um total de 81.25\% de to tempo de execução do algoritmo de treinamento e a função média a segunda com maior consumo, registrando um total de 12.5\%, enquanto a função sigma, função de cálculo dos hiperplanos, no qual é realizado o cálculo da média entre as covariâncias da classe 1 e classe 2, consome apenas 6.25\%.\\
 
 
  	% Please add the following required packages to your document preamble:
@@ -76,7 +76,7 @@ No que diz respeito a desempenho computacional esta implementação obteve os me
 Após realizar 10 execuções da função e analizando os tempos de execução das funções e seus respectivos números de chamada dentro do algoritmo de treinamento tem-se que o tempo médio total de execução da função é de 640 $\mu$s.
 
 \section{Resultados Obtidos no Coprocessamento Hardware-Software}
-As funções do algoritmo de treinamento do classificador LDA que continuaram mapeadas em software continuaram com os mesmos resultados obtidos na seção anterior. Portanto, esta seção se restringe aos resultados obtidos quanto a implementação das funções em hardware FPGA (Funções destacadas na Figura \ref{processos_train}).
+As funções do algoritmo de treinamento do classificador LDA que continuaram mapeadas em software continuaram com os mesmos resultados obtidos na seção anterior. Portanto, esta seção se restringe aos resultados obtidos quanto a implementação das funções em hardware FPGA (Funções destacadas na Fig. \ref{processos_train}).
 
 \subsection{Resultados Obtidos Pós Implementação em Hardware}
 \subsubsection{IP Para Cálculo de Média}
@@ -142,7 +142,7 @@ Após a integralização dos blocos IPs desenvolvidos com o SoC \textit{Zynq} e 
 
 Apesar de ainda haver insumos de hardware disponíveis optou-se por finalizar a implementação seguindo os resultados da Tabela \ref{consumo_geral}. Pois, um consumo de LUT acima de 90\% poderia resultar num mal roteamento do circuito.\\
 
-A Figura \ref{roteamento} e a Figura \ref{legenda_rot} apresentam o roteamento do sistema de coprocessamento implementado no kit de desenvolvimento e sua legenda, respectivamente.
+A Fig. \ref{roteamento} e a Fig. \ref{legenda_rot} apresentam o roteamento do sistema de coprocessamento implementado no kit de desenvolvimento e sua legenda, respectivamente.
 \begin{figure}[!h]
 	\centering
 	\includegraphics[keepaspectratio=true,scale=0.40]{figuras/roteamento.png}
@@ -154,13 +154,13 @@ A Figura \ref{roteamento} e a Figura \ref{legenda_rot} apresentam o roteamento d
 \begin{figure}[!h]
 	\centering
 	\includegraphics[keepaspectratio=true,scale=0.35]{figuras/legenda_roteamento.png}
-	\caption{Legenda para a Figura \ref{roteamento}.}
+	\caption{Legenda para a Fig. \ref{roteamento}.}
 	\label{legenda_rot}
 \end{figure}
 
 Os blocos em vermelho representam a alocação dos módulos pertinentes a função de cálculo de média, já se percebe que é a função que mais consumiu recursos. Em azul escuro a alocação dos módulos pertinentes a função de cálculo da covariância. Em azul turquesa a alocação dos módulos do processador \textit{ARM Cortex A9}. 
 Em rosa os módulos que compõem o barramento \textit{AXI-4Lite}.\\
-Uma outra informação relevante extraída pós implementação é a estimação do consumo energético de todo o sistema desenvolvido. Estas informações são fornecidas pela função \textit{report power} do \textit{Vivado}. A estimação do consumo energético é apresentado na Figura \ref{power}.
+Uma outra informação relevante extraída pós implementação é a estimação do consumo energético de todo o sistema desenvolvido. Estas informações são fornecidas pela função \textit{report power} do \textit{Vivado}. A estimação do consumo energético é apresentado na Fig. \ref{power}.
 \begin{figure}[!h]
 	\centering
 	\includegraphics[keepaspectratio=true,scale=0.5]{figuras/power.png}
@@ -168,7 +168,7 @@ Uma outra informação relevante extraída pós implementação é a estimação
 	\label{power}
 \end{figure}
 
-A Figura \ref{power} apresenta a estimativa de consumo energético para cada componente do sistema. O processador ARM representado por PS7 na Figura \ref{power}, é o que tem maior consumo, com aproximadamente 75\% do consumo total. O sistema em geral apresentou o consumo total de 2.156 watts.
+A Fig. \ref{power} apresenta a estimativa de consumo energético para cada componente do sistema. O processador ARM representado por PS7 na Fig. \ref{power}, é o que tem maior consumo, com aproximadamente 75\% do consumo total. O sistema em geral apresentou o consumo total de 2.156 watts.
  
 
 \subsection{Resultados de Simulação de Hardware}
@@ -176,7 +176,7 @@ As simulações dos IPs desenvolvidos nos dá uma estimativa de desempenho de pr
 
 \subsubsection{IP Para Cálculo de Média}
 
-Na plataforma \textit{Vivado 2017.4} e com um \textit{clock} estipulado em 100 MHz, a Figura \ref{simulacao_sum} apresenta os resultados da simulação temporal do IP de soma para 20 sinais de entrada. Estes 20 sinais são carregados para a entrada do somador, representados como oP1, oP2,...,oP20. O sinal de \textit{start} realiza o inicio das operações. A partir da Figura \ref{simulacao_sum} tem-se que o sinal de \textit{start} recebe nível alto no intervalo de tempo $t = 50 ns$, iniciando o processo de soma dos valores de entrada. O resultado de saída é atualizado no instante de tempo $t = 145 ns$. Ou seja, do instante de tempo que o \textit{start} é acionado ao instante em que a saída é atualizada tem-se um total de $95 ns$, isso configura o valor de \textit{latência} do hardware, ou seja, com uma $\textbf{latência = 95 ns}$, a cada sinal de \textit{start} em 95 ns é realizada uma soma de 20 operandos. Por se tratar de uma implementação em \textit{dataflow} o \textit{throughput} é igual a latência do hardware.
+Na plataforma \textit{Vivado 2017.4} e com um \textit{clock} estipulado em 100 MHz, a Fig. \ref{simulacao_sum} apresenta os resultados da simulação temporal do IP de soma para 20 sinais de entrada. Estes 20 sinais são carregados para a entrada do somador, representados como oP1, oP2,...,oP20. O sinal de \textit{start} realiza o inicio das operações. A partir da Fig. \ref{simulacao_sum} tem-se que o sinal de \textit{start} recebe nível alto no intervalo de tempo $t = 50 ns$, iniciando o processo de soma dos valores de entrada. O resultado de saída é atualizado no instante de tempo $t = 145 ns$. Ou seja, do instante de tempo que o \textit{start} é acionado ao instante em que a saída é atualizada tem-se um total de $95 ns$, isso configura o valor de \textit{latência} do hardware, ou seja, com uma $\textbf{latência = 95 ns}$, a cada sinal de \textit{start} em 95 ns é realizada uma soma de 20 operandos. Por se tratar de uma implementação em \textit{dataflow} o \textit{throughput} é igual a latência do hardware.
 
 \begin{figure}[!h]
 	\centering
@@ -186,7 +186,7 @@ Na plataforma \textit{Vivado 2017.4} e com um \textit{clock} estipulado em 100 M
 \end{figure} 
 
 
-Os sinais de entrada são as características de cada uma das classes. Estas características são matrizes de dimensão 80x6 para cada uma das classes, portanto, para realização do cálculo da média utilizando o IP é necessária a execução do cálculo 4 vezes para somar todos os 80 dados de cada uma das 6 colunas. O processamento em hardware retorna então para o processador ARM 1 (um) valor de soma, que representa a soma de 20 (vinte) operandos. Como são necessária 4 somas de 20 operandos para totalizar a soma dos 80 (oitenta) amostras, os 4 (quatro) valores retornado para o ARM são retornados via \textit{AXI-Lite} para o processamento em hardware, onde são somados e em seguida dividido pelo numero de amostras, resultando na média final. Como uma única soma possui \textit{throughput} = 95 ns, o somador de 4 entradas possui \textit{throughput} = 20 ns e a divisão tem \textit{troughput} = 30 ns (obtido também através da simulação do IP), pode-se obter o \textit{troughput} para cálculo da média de uma classe de acordo com a Equação \ref{eq: throughput}.
+Os sinais de entrada são as características de cada uma das classes. Estas características são matrizes de dimensão 80x6 para cada uma das classes, portanto, para realização do cálculo da média utilizando o IP é necessária a execução do cálculo 4 vezes para somar todos os 80 dados de cada uma das 6 colunas. O processamento em hardware retorna então para o processador ARM 1 (um) valor de soma, que representa a soma de 20 (vinte) operandos. Como são necessária 4 somas de 20 operandos para totalizar a soma dos 80 (oitenta) amostras, os 4 (quatro) valores retornado para o ARM são retornados via \textit{AXI-Lite} para o processamento em hardware, nos quais são somados e em seguida dividido pelo numero de amostras, resultando na média final. Como uma única soma possui \textit{throughput} = 95 ns, o somador de 4 entradas possui \textit{throughput} = 20 ns e a divisão tem \textit{troughput} = 30 ns (obtido também através da simulação do IP), pode-se obter o \textit{troughput} para cálculo da média de uma classe de acordo com a Equação \ref{eq: throughput}.
 
 \begin{equation}
 \label{eq: throughput}
@@ -197,7 +197,7 @@ Sendo, $T_m =$ período para cálculo da média; $N =$ número de colunas da mat
 
 \subsubsection{IP Para Cálculo de Covariância}
 
-Na mesma ferramenta e mesmo \textit{clock} utilizado na simulação do IP de cálculo de média, realizou-se a simulação do IP de covariância. A Figura \ref{simulacao_cov} apresenta a simulação temporal do IP que realiza o cálculo da Equação \ref{eq: cov_hw}.
+Na mesma ferramenta e mesmo \textit{clock} utilizado na simulação do IP de cálculo de média, realizou-se a simulação do IP de covariância. A Fig. \ref{simulacao_cov} apresenta a simulação temporal do IP que realiza o cálculo da Equação \ref{eq: cov_hw}.
 
 
 \begin{figure}[!h]
@@ -207,7 +207,7 @@ Na mesma ferramenta e mesmo \textit{clock} utilizado na simulação do IP de cá
 	\label{simulacao_cov}
 \end{figure}
 
-De acordo com a Figura \ref{simulacao_cov} os quatro valores necessários para o cálculo são carregados nos quatro operadores de entrada. Com o \textit{start} ativado em $t = 70 ns$ o primeiro resultado de saída é obtido em $t = 105 ns$, portanto a latência do hardware é de $t = 30 ns$, como a implementação também segue uma técnica de \textit{dataflow} este valor também é referido ao \textit{troughput} do hardware. Como são 4 implementações executando em paralelo então a cada 35 ns partindo do \textit{start} obtém-se 4 valores de saídas referente a Equação \ref{eq: cov_hw}. Como os dados de entrada se referem a uma matriz de tamanho 80x6 para cada classe, pode-se estimar o \textit{troughput} do hardware desenvolvido, a partir da Equação \ref{eq: throughput_hw}.
+De acordo com a Fig. \ref{simulacao_cov} os quatro valores necessários para o cálculo são carregados nos quatro operadores de entrada. Com o \textit{start} ativado em $t = 70 ns$ o primeiro resultado de saída é obtido em $t = 105 ns$, portanto a latência do hardware é de $t = 30 ns$, como a implementação também segue uma técnica de \textit{dataflow} este valor também é referido ao \textit{troughput} do hardware. Como são 4 implementações executando em paralelo então a cada 35 ns partindo do \textit{start} obtém-se 4 valores de saídas referente a Equação \ref{eq: cov_hw}. Como os dados de entrada se referem a uma matriz de tamanho 80x6 para cada classe, pode-se estimar o \textit{troughput} do hardware desenvolvido, a partir da Equação \ref{eq: throughput_hw}.
 
 \begin{equation}
 \label{eq: throughput_hw}
@@ -282,7 +282,8 @@ A partir da execução de cada uma das implementações obteve-se os seguintes r
 De acordo com a Tabela \ref{acuracias}, as implementações em linguagem C e coprocessamento obtiveram valores diferentes da implementação original em \textit{Matlab}, devido ao que apresentado na Tabela \ref{propriedades}, apresentam tamanho de dados inferiores à implementação em \textit{Matlab}. Com isso todos os sinais foram truncados em seus respectivos tamanhos de dados, propagando erros em seus cálculos em ponto flutuante.\\
 Além disso a implementação em sistema coprocessado apresentou um erro quadrático médio de 0,42\% em relação à implementação \textit{Matlab}
 
-Por se tratarem de sistemas com frequências de \textit{clock} diferentes cada uma das implementações apreseta tempos de execução diferentes. Estes tempos são apresentados na Tabela \ref{tempos}. 
+Por se tratarem de sistemas com frequências de \textit{clock} diferentes cada uma das implementações apreseta tempos de execução diferentes. Estes tempos são apresentados na Tabela \ref{tempos}.
+\newpage 
 
 % Please add the following required packages to your document preamble:
 % \usepackage[table,xcdraw]{xcolor}
@@ -301,4 +302,6 @@ Por se tratarem de sistemas com frequências de \textit{clock} diferentes cada u
 	\end{tabular}
 \end{table}
 
-A implementação que obteve o melhor desempenho de processamento foi a implementação em Linguagem C embarcado no processador \textit{ARM Cortex A9} presente no \textit{SoC} do kit de desenvolvimento \textit{Zybo Board}. A implementação com menor desempenho de tempo de processamento foi a implementação em \textit{Matlab}, isto é devido o fato da implementação estar sendo executada em uma plataforma \textit{Windows 10} e por se tratar de uma linguagem de programação interpretada os outros porcessos executados juntos com a execução do algoritmo interfere em seu processamento. Já a respeito da implementação em sistema coprocessado o que se esperava era um melhor desempenho pois de acordo com os resultados obtidos em simulação os IPs de cálculos de média e de covariância apresentaram um tempo de execução extremamente baixo quando comparado com o resultado de execução obtido.
+A implementação que obteve o melhor desempenho de processamento foi a implementação em Linguagem C embarcado no processador \textit{ARM Cortex A9} presente no \textit{SoC} do kit de desenvolvimento \textit{Zybo Board}. A implementação com menor desempenho de tempo de processamento foi a implementação em \textit{Matlab}, isto é devido o fato da implementação estar sendo executada em uma plataforma \textit{Windows 10} e por se tratar de uma linguagem de programação interpretada os outros porcessos executados juntos com a execução do algoritmo interfere em seu processamento. Já a respeito da implementação em sistema coprocessado o que se esperava era um melhor desempenho pois de acordo com os resultados obtidos em simulação os IPs de cálculos de média e de covariância apresentaram um tempo de execução extremamente baixo quando comparado com o resultado de execução obtido.\\
+
+Sobre o consumo energético as implementações no SoC (Liguagem C e Coprocessada) apresentaram um consumo bem abaixo da implementação em \textit{Matlab}, no qual foi utilizado um computador tradicional (de acordo com a Tabela \ref{propriedades}). O processador \textit{intel core i5} apresenta um consumo energético de 15 W, enquanto as implementações em SoC apresentou um consumo de 2.024 W, representando um consumo de aproximadamente 7 vezes menor.

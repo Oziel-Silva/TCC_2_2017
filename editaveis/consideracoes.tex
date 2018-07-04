@@ -4,7 +4,7 @@ Neste capítulo é apresentado como foi realizada a implementação do algoritmo
 \section{Algoritmo Implementado}
 Em 2010 o francês Fabien Lotte publicou um trabalho com objetivo de comparar as implementações de algoritmos de extração de características de sinais provenientes de atividades cerebrais, além de propor um novo algoritmo para extração de características dos sinais \cite{F.Lotte}.\\
 Para coleta de resultados de seu trabalho, Lotte utilizou o algoritmo de classificação LDA e a base de dados \textit{BCI Competition III - Dataset IVa}, obtendo como melhor resultado o extrator de características CSP, conforme apresentado anteriormente na Tabela \ref{arte_state}.\\
-O algoritmo foi desenvolvido utilizando a plataforma \textit{Matlab}, onde foram utilizados os recursos e funções da plataforma. A Figura \ref{processos_alg} apresenta um diagrama de atividades que descreve as funções utilizadas no algoritmo.
+O algoritmo foi desenvolvido utilizando a plataforma \textit{Matlab}, utilizando-se dos recursos e funções da plataforma. A Fig. \ref{processos_alg} apresenta um diagrama de atividades que descreve as funções utilizadas no algoritmo.
 
 \begin{figure}[h]
 	\centering
@@ -13,13 +13,13 @@ O algoritmo foi desenvolvido utilizando a plataforma \textit{Matlab}, onde foram
 	\label{processos_alg}
 \end{figure}
 
-Utilizando-se dos dados de treinamento do \textit{BCI Competition III - Data Set -IVa}, o algoritmo inicia-se realizando a filtragem dos sinais a partir de um filtro \textit{Butterworth} passa faixas de {$5^a$} ordem, mantendo os sinais das faixas {$\alpha$} e {$\beta$} e atenuando as demais frequências. Em seguida, é realizado o processo de extração de características utilizando o algoritmo CSP. Logo após, é realizado o processo de treinamento, onde são calculados hiperplanos que melhor separam as classes. Estes hiperplanos são os parâmetros utilizados no processo de classificação, sendo então, um dos parâmetros de entrada da função de teste, onde são classificados os sinais de testes, também fornecidos pelo \textit{BCI Competition III - Data Set -IVa}. Por fim, são disponibilizados os resultados de acurácia e tempo de treinamento.
+Utilizando-se dos dados de treinamento do \textit{BCI Competition III - Data Set -IVa}, o algoritmo inicia-se realizando a filtragem dos sinais a partir de um filtro \textit{Butterworth} passa faixas de {$5^a$} ordem, mantendo os sinais das faixas {$\alpha$} e {$\beta$} e atenuando as demais frequências. Em seguida, é realizado o processo de extração de características utilizando o algoritmo CSP. Logo após, é realizado o processo de treinamento, nos quais são calculados hiperplanos que melhor separam as classes. Estes hiperplanos são os parâmetros utilizados no processo de classificação, sendo então, um dos parâmetros de entrada da função de teste, nos quais são classificados os sinais de testes, também fornecidos pelo \textit{BCI Competition III - Data Set -IVa}. Por fim, são disponibilizados os resultados de acurácia e tempo de treinamento.
 
 \section{Implementação em Sistema Coprocessado}
 
 Conforme apresentado, o objetivo deste trabalho é o estudo dos ganhos ou perdas no processamento do algoritmo de treinamento do classificador LDA implementado em um coprocessamento hardware-software, utilizando-se do SoC \textit{Zynq} embarcado no kit de desenvolvimento \textit{Xilinx Zybo Board} modelo 70-10, comparado com a implementação realizada por \cite{F.Lotte} e a implementação em software executado sobre um SO Linux embarcado nos processadores ARM, também disponíveis no SoC. \\
-Sendo assim, o trabalho se restringiu à implementação das atividades que compõem a função de treinamento do classificador LDA (atividades destacadas) na Figura \ref{processos_alg}, em um sistema coprocessado .\\
-A Figura \ref{processos_train} apresenta um diagrama de atividades que descreve a função de treinamento do classificador LDA.
+Sendo assim, o trabalho se restringiu à implementação das atividades que compõem a função de treinamento do classificador LDA (atividades destacadas) na Fig. \ref{processos_alg}, em um sistema coprocessado .\\
+A Fig. \ref{processos_train} apresenta um diagrama de atividades que descreve a função de treinamento do classificador LDA.
 
 \begin{figure}[h]
 	\centering
@@ -28,9 +28,9 @@ A Figura \ref{processos_train} apresenta um diagrama de atividades que descreve 
 	\label{processos_train}
 \end{figure}
 
-Inicialmente é realizada a separação dos sinais em dois conjuntos de dados que representam os dados referentes às duas classes em estudo. Em seguida são calculadas as médias dos sinais de cada classe. Estes valores são repassados para a função de cálculo da matriz de covariância (ou dispersão), onde são realizados cálculos matriciais conforme apresentado na Equação \ref{eq: dispersaosb}. Posteriormente são calculados os hiperplanos a partir da covariância das características dos sinais. Estes hiperplanos representam os parâmetros de treinamento do classificador. São a partir deles que os sinais de teste são classificados.\\
+Inicialmente é realizada a separação dos sinais em dois conjuntos de dados que representam os dados referentes às duas classes em estudo. Em seguida são calculadas as médias dos sinais de cada classe. Estes valores são repassados para a função de cálculo da matriz de covariância (ou dispersão), nos quais são realizados cálculos matriciais conforme apresentado na Equação \ref{eq: dispersaosb}. Posteriormente são calculados os hiperplanos a partir da covariância das características dos sinais. Estes hiperplanos representam os parâmetros de treinamento do classificador. São a partir deles que os sinais de teste são classificados.\\
 
-Como será detalhado no capítulo seguinte as funções de cálculo de média e cálculo de covariância são as duas funções que apresentam um maior esforço computacional. Portanto ambas as funções foram mapeadas em hardware (funções destacadas na cor verde na Figura \ref{processos_train}), utilizando-se da linguagem VHDL, a fim de acelerar o algoritmo de treinamento explorando o paralelismo dos algoritmos, enquanto as demais funções foram compiladas em software na linguagem C, executada através de um SO Linux embarcado nos processadores do SoC utilizado neste projeto.
+Como será detalhado no capítulo seguinte as funções de cálculo de média e cálculo de covariância são as duas funções que apresentam um maior esforço computacional. Portanto ambas as funções foram mapeadas em hardware (funções destacadas na cor verde na Fig. \ref{processos_train}), utilizando-se da linguagem VHDL, a fim de acelerar o algoritmo de treinamento explorando o paralelismo dos algoritmos, enquanto as demais funções foram compiladas em software na linguagem C, executada através de um SO Linux embarcado nos processadores do SoC utilizado neste projeto.
 
 \subsection{Ferramentas Utilizadas}
 Para estudo das implementações foram utilizadas cinco ferramentas principais:\\
@@ -53,7 +53,7 @@ Os cálculos foram realizados através dos blocos de propriedade intelectual (IP
 	\item Sinal: 1 bit.
 \end{itemize}
 
-O IP que realiza o operação de soma ou subtração é controlado por uma máquina de estado finita (FSM - do inglês \textit{Finite State Machine}) \cite{munoz2010tradeoff}. O bloco apresentado na Figura \ref{somador_27} representa o IP somador/subtrator, com suas respectivas entradas e saídas.
+O IP que realiza o operação de soma ou subtração é controlado por uma máquina de estado finita (FSM - do inglês \textit{Finite State Machine}) \cite{munoz2010tradeoff}. O bloco apresentado na Fig. \ref{somador_27} representa o IP somador/subtrator, com suas respectivas entradas e saídas.
 
 \begin{figure}[h]
 	\centering
@@ -64,7 +64,7 @@ O IP que realiza o operação de soma ou subtração é controlado por uma máqu
 
 O sinal de entrada oP representa se a função do bloco será soma (caso valor lógico for igual a 0) ou subtração (caso valor lógico for igual a 1) \cite{munoz2010tradeoff}. Os sinais opA e opB representam os valores de entrada, no caso da adição representam os valores da soma, e no caso da adição representam minuendo e subtraendo, respectivamente. Há também a entrada start utilizado para iniciar a operação assim que seu nível lógico realiza uma transição de borda de subida (de nível lógico 0 para nível lógico 1), além das entradas de clock e reset. 
 
-Foram criados componentes para paralelizar o processo dos cálculos, buscando o maior nível de paralelismo. A partir do bloco de IP da Figura \ref{somador_27}, para a função média foram implementados um total de 20 (vinte) somas em paralelo. Para sequenciar a soma final dos 20 operandos de entrada foi implementado um \textit{dataflow} de somadores, onde a saída apresenta o resultado da soma final de 20 operandos (Figura \ref{somador}). Já para a função de covariância foram implementados 4 componentes em paralelo que calculam parte da Equação \ref{eq: dispersaosb} conforme apresentado na Figura \ref{covariancia}.
+Foram criados componentes para paralelizar o processo dos cálculos, buscando o maior nível de paralelismo. A partir do bloco de IP da Fig. \ref{somador_27}, para a função média foram implementados um total de 20 (vinte) somas em paralelo. Para sequenciar a soma final dos 20 operandos de entrada foi implementado um \textit{dataflow} de somadores, no qual a saída apresenta o resultado da soma final de 20 operandos (Fig. \ref{somador}). Já para a função de covariância foram implementados 4 componentes em paralelo que calculam parte da Equação \ref{eq: dispersaosb} conforme apresentado na Fig. \ref{covariancia}.
 
 \begin{figure}[h]
 	\centering
@@ -73,7 +73,7 @@ Foram criados componentes para paralelizar o processo dos cálculos, buscando o 
 	\label{somador}
 \end{figure}
 
-Foram instanciados 5 blocos de somadores de 4 entradas, nomeados de soma primária, desenvolvidos a partir do bloco do IP somador da Figura \ref{somador_27}. A saída de 4 (quatro) destes 5 (cinco) blocos são entradas de um novo bloco somador de 4 entrada, nomeado de soma secundária, com \textit{start} acionado após finalizar as somas primárias. A saída deste somador representa a entrada de um somador básico com 2 (duas) entradas, nomeado de soma final, completando a soma com a saída do $5^0$ (quinto) somador primário, resultando na saída final a soma dos 20 (vinte) operandos de entrada.
+Foram instanciados 5 blocos de somadores de 4 entradas, nomeados de soma primária, desenvolvidos a partir do bloco do IP somador da Fig. \ref{somador_27}. A saída de 4 (quatro) destes 5 (cinco) blocos são entradas de um novo bloco somador de 4 entrada, nomeado de soma secundária, com \textit{start} acionado após finalizar as somas primárias. A saída deste somador representa a entrada de um somador básico com 2 (duas) entradas, nomeado de soma final, completando a soma com a saída do $5^0$ (quinto) somador primário, resultando na saída final a soma dos 20 (vinte) operandos de entrada.
 Após a soma de todos os valores pertencentes ao vetor de características de sua respectiva classe, o valor da soma total é dividido pela quantidade de sinais de características, resultando assim na média final de um determinado vetor de característica. 
 
 
@@ -94,11 +94,11 @@ A transposição da matriz (operator $^T$) e o somatório foi mantido em softwar
 	\label{covariancia}
 \end{figure}
 
-A técnica utilizada na implementação do projeto foi a \textit{dataflow}. O princípio básico das arquiteturas \textit{dataflow} é que a execução das operações é acionada em função da disponibilidade dos operandos. Ela não segue uma estrutura convencional da máquinas algorítmicas, onde uma parte de controle é responsável pela sincronização das operações \cite{ThiagoUnB}. No caso dos sistemas em hardware implementados os blocos iniciam sua operação apenas quando suas entradas já estão carregadas.
+A técnica utilizada na implementação do projeto foi a \textit{dataflow}. O princípio básico das arquiteturas \textit{dataflow} é que a execução das operações é acionada em função da disponibilidade dos operandos. Ela não segue uma estrutura convencional de máquinas algorítmicas, no qual uma parte de controle é responsável pela sincronização das operações \cite{ThiagoUnB}. No caso dos sistemas em hardware implementados os blocos iniciam sua operação apenas quando suas entradas já estão carregadas.
 
-Todos os módulos desenvolvidos foram atribuidos à um novo IP com barramento AXI4-Lite para realizar a comunicação com o procesador ARM. Onde são transmitido e recebido os dados de entrada referentes aos IPs de cálculo de média e cálculo da matrix de covariância. O diagrama geral da implementação, onde é apresentado a conexão entre ARM e todos os seus periféricos, além dos IPs desenvolvidos é apresentado no ANEXO A deste trabalho.
+Todos os módulos desenvolvidos foram atribuidos à um novo IP com barramento AXI4-Lite para realizar a comunicação com o procesador ARM. Nos quais são transmitido e recebido os dados de entrada referentes aos IPs de cálculo de média e cálculo da matrix de covariância. O diagrama geral da implementação, no qual é apresentado a conexão entre ARM e todos os seus periféricos, além dos IPs desenvolvidos é apresentado no ANEXO A deste trabalho.
 
-O fluxo de desenvolvimento do projeto em hardware utilizado neste trablaho é apresentado na Figura \ref{diagram_hardware}.
+O fluxo de desenvolvimento do projeto em hardware utilizado neste trablaho é apresentado na Fig. \ref{diagram_hardware}.
 
 \begin{figure}[h]
   \centering
@@ -124,7 +124,7 @@ Para efeito de análise estatística comparatória foram coletados as seguintes 
 Para o auxílio desta implementação, foi instalado o sistema operacional \textit{Debian Linux} sobre os cores ARM, cujos recursos e passos necessários
 para a instalação do SO estão contidos no ANEXO B.
 
-O processo para implementação seguiu o método \textit{bottom-up}, blocos de códigos menores foram implementados e testados separadamente, com a finalidade de todos os blocos serem integrados e testados em um único bloco principal. Todas as codificações foram implementadas utilizando a linguagem de programação C, e para compilar o código principal foi utilizado o compilador GCC \textit{(GNU Compiler Collection)}. Com esse método conseguimos realizar uma análise de perfil das funções implementadas onde foram reportados os tempo de execução de cada uma das funções, sendo assim possível deduzir as funções que necessitam de maior esforço computacional. As entradas para programa desenvolvido são os sinais de treinamento fornecidos pelo \textit{dataset IVa} do \textit{BCI Competition III}.
+O processo para implementação seguiu o método \textit{bottom-up}, blocos de códigos menores foram implementados e testados separadamente, com a finalidade de todos os blocos serem integrados e testados em um único bloco principal. Todas as codificações foram implementadas utilizando a linguagem de programação C, e para compilar o código principal foi utilizado o compilador GCC \textit{(GNU Compiler Collection)}. Com esse método conseguimos realizar uma análise de perfil das funções implementadas reportando os tempo de execução de cada uma das funções, sendo assim possível deduzir as funções que necessitam de maior esforço computacional. As entradas para programa desenvolvido são os sinais de treinamento fornecidos pelo \textit{dataset IVa} do \textit{BCI Competition III}.
 
 Como parâmetro de análise estatística foram coletados os seguintes dados:
 
@@ -136,7 +136,7 @@ Como parâmetro de análise estatística foram coletados os seguintes dados:
 
 \section{Integração}
 Toda a integração do projeto coprocessado é possibilitado pelo uso do barramento \textit{AXI4-Lite}, que interliga a PL com a PS, 
-um esquemático do processo de escrita e leitura nos IP através do barramento \textit{AXI4-Lite} pode ser observado na Figura \ref{axi_bus}
+um esquemático do processo de escrita e leitura nos IP através do barramento \textit{AXI4-Lite} pode ser observado na Fig. \ref{axi_bus}
 \newpage
 
 \begin{figure}[h]

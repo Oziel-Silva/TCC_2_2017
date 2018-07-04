@@ -3,7 +3,7 @@
 Este capítulo apresenta os conceitos teóricos que abordam este trabalho, detalhando a estrutura cerebral responsável pela geração dos sinais de interesse na subseção 2.1, o sistema de captura dos sinais (a EEG) na subseção 2.2, o sistema que se refere às BCIs que realizam a tradução dos sinais em comandos para dispositivos na subseção 2.3, os detalhes técnicos a respeito dos sinais oferecidos pela base de dados \textit{BCI Competition} na subseção 2.4, a estrutura geral de um classificador LDA na subseção 2.5, os conceitos de um SoC na subseção 2.6 e por fim o estado da arte das implementações de algoritmos de classificação na subseção 2.7. 
 
 \section{O Cérebro}
-O Sistema Nervoso Central (SNC) é o responsável direto pelo comando do nosso comportamento geral \cite{David_Clarck}. Ele pode ser dividido em três principais áreas: tronco encefálico ou medula espinhal, o cérebro e o cerebelo (Figura \ref{BrainParts}) \cite{alvarezneurobiomecanismos}.
+O Sistema Nervoso Central (SNC) é o responsável direto pelo comando do nosso comportamento geral \cite{David_Clarck}. Ele pode ser dividido em três principais áreas: tronco encefálico ou medula espinhal, o cérebro e o cerebelo (Fig. \ref{BrainParts}) \cite{alvarezneurobiomecanismos}.
 
 \begin{figure}[h]
 	\centering
@@ -12,13 +12,13 @@ O Sistema Nervoso Central (SNC) é o responsável direto pelo comando do nosso c
 	\label{BrainParts}
 \end{figure}
 
-O tronco encefálico, parte caldal do SNC, recebe e processa todos os sinais dos sensores corporais, além de realizar o controle dos membros e do tronco humano \cite{KANDEL}.
+O tronco encefálico, parte caudal do SNC, recebe e processa todos os sinais dos sensores corporais, além de realizar o controle dos membros e do tronco humano \cite{KANDEL}.
 
 O cérebro é o processador do SNC, nele são recebidos e processados os sinais da medula espinhal, além de fornecer todos os sinais de controle para a própria medula, que por sua vez, distribui os sinais para os membros e para o tronco \cite{KANDEL}.
 
 O cerebelo está localizado logo atrás do tronco encefálico, onde, através de fibras chamadas de pedúnculos, realizam a comunicação entre sí \cite{KANDEL}. O cerebelo é a segunda maior estrutura do SNC contendo mais da metade dos neurônios cerebrais \cite{SIULYDissertacao}. É ele o responsável nossa percepção \cite{alvarezneurobiomecanismos}, além do controle da região motora e a memória de movimentos \cite{SIULYDissertacao,alvarezneurobiomecanismos}
 
-Os sinais de controle e de sensoriamento são sinais elétricos armazenados nos neurônios \cite{KANDEL}. Suas características eletroquímicas permitem que os mesmos armazenem e transmitam sinais elétricos para qualquer outra célula receptora mesmo que a longa distâncias \cite{SIULYDissertacao}. Sua estrutura pode ser dividida em três principais partes: 1) Corpo da celula, 2) axônio e 3) dendrito, conforme apresentado na Figura(\ref{neuronParts}).
+Os sinais de controle e de sensoriamento são sinais elétricos armazenados nos neurônios \cite{KANDEL}. Suas características eletroquímicas permitem que os mesmos armazenem e transmitam sinais elétricos para qualquer outra célula receptora mesmo que a longa distâncias \cite{SIULYDissertacao}. Sua estrutura pode ser dividida em três principais partes: 1) Corpo da celula, 2) axônio e 3) dendrito, conforme apresentado na Fig. (\ref{neuronParts}).
 \begin{figure}[h]
 	\centering
 	\includegraphics[keepaspectratio=true,scale=1.0]{figuras/Estrutura_neuronio.PNG}
@@ -49,7 +49,7 @@ Em um adulto normal, o sinal típico de EEG tem sua amplitude variando de 1 a 10
 
 Com a baixa amplitude desse tipo de sinal, ele pode sofrer facilmente atenuações, contaminações em seu espectro, como por exemplo interferência da rede elétrica de 60 Hz e seus harmônicos associados, e principalmente atividades musculares exercidas no ato da extração dos sinais. Portanto no momento do exame os pacientes são orientados a não realizar nenhum tipo de movimento \cite{raobrain}.
 
- O sistema internacional 10-20 é utilizado para especificar um padrão de alocação dos eletrodos na cabeça dos pacientes ou voluntários. Esse padrão determina as distâncias entre os eletrodos \cite{Siulybook}. São posicionados eletrodos primeiramente em pontos estratégicos, os pontos são nomeados por: \textit{mastoids}, eletrodos de referência localizados atŕas de cada orelha (A1 e A2), \textit{Nasion}, referência no segmento do topo do nariz, porém nivelado com os olhos e por fim, o \textit{onion}, referência situada na base do crânio no ponto médio da parte de trás da cabeça, as medidas são feitas a partir desses pontos, no sentido transversal e médio,  com intervalos de 10 e 20 \% \cite{raobrain}, assim representado na Figura \ref{padrao1020}.
+ O sistema internacional 10-20 é utilizado para especificar um padrão de alocação dos eletrodos na cabeça dos pacientes ou voluntários. Esse padrão determina as distâncias entre os eletrodos \cite{Siulybook}. São posicionados eletrodos primeiramente em pontos estratégicos, os pontos são nomeados por: \textit{mastoids}, eletrodos de referência localizados atŕas de cada orelha (A1 e A2), \textit{Nasion}, referência no segmento do topo do nariz, porém nivelado com os olhos e por fim, o \textit{onion}, referência situada na base do crânio no ponto médio da parte de trás da cabeça, as medidas são feitas a partir desses pontos, no sentido transversal e médio,  com intervalos de 10 e 20 \% \cite{raobrain}, assim representado na Fig. \ref{padrao1020}.
 
 \begin{figure}[h]
 	\centering
@@ -60,7 +60,7 @@ Com a baixa amplitude desse tipo de sinal, ele pode sofrer facilmente atenuaçõ
 
 A Frequência do sinal é um dos parâmetros mais importantes na avaliação clínica de anomalias em EEGs, e também para compreender o comportamento operacional na pesquisa cognitiva \cite{SIULYDissertacao}.
 Com inúmeras oscilações não periódicas, milhares de comunicação inter-neurônios e comportamentos estocásticos o EEG humano é comumente ordenado  em faixas de frequências específicas. Tais bandas são divididas em: delta
- (0.5-4 Hz) , theta($\theta$)(4-8Hz), alpha($\alpha$)(8-13Hz), beta($\beta$)(13-30Hz) e acima de 30Hz gama($\gamma$), conforme Figura \ref{EEGcomun}.
+ (0.5-4 Hz) , theta($\theta$)(4-8Hz), alpha($\alpha$)(8-13Hz), beta($\beta$)(13-30Hz) e acima de 30Hz gama($\gamma$), conforme Fig. \ref{EEGcomun}.
  \newline
 
 \begin{figure}[h]
@@ -75,7 +75,7 @@ Com inúmeras oscilações não periódicas, milhares de comunicação inter-neu
 
 Uma das aplicações dos sinais adquiridos pela EEG são as \textit{Brain Computer Interface} (em português, Interface cérebro máquina) \cite{F.Lotte, SIULYDissertacao}. Uma Interface Cérebro Máquina (BCI, do inglês \textit{Brain Computer Interface}) é um sistema que analisa sinais cerebrais e os convertem para um novo sinal de saída \cite{BCIWolpaw}, ou seja, uma BCI é um sistema que realiza a comunicação entre o cérebro e o mundo externo sem a interação neuromuscular \cite{BCIWolpaw}.
 
-O termo BCI foi utilizado pela primeira vez por Jacques Vidal em 1970, onde foram utilizadas técnicas invasivas para aquisição dos sinais cerebrais, sistema de eletrocorticografia (ECoG) \cite{BCIWolpaw}, sistema em que os sensores de aquisição eram instalados na região do córtex. Em 1980 o mesmo Jacques Vidal publicou pela primeira vez a utilização de uma BCI não invasiva utilizando o sistema da EEG \cite{CristophBCI}, as duas técnicas são apresentadas na Figura \ref{ECoGeEEG}.
+O termo BCI foi utilizado pela primeira vez por Jacques Vidal em 1970, onde foram utilizadas técnicas invasivas para aquisição dos sinais cerebrais, sistema de eletrocorticografia (ECoG) \cite{BCIWolpaw}, sistema em que os sensores de aquisição eram instalados na região do córtex. Em 1980 o mesmo Jacques Vidal publicou pela primeira vez a utilização de uma BCI não invasiva utilizando o sistema da EEG \cite{CristophBCI}, as duas técnicas são apresentadas na Fig. \ref{ECoGeEEG}.
 \pagebreak
 
 
@@ -86,7 +86,7 @@ O termo BCI foi utilizado pela primeira vez por Jacques Vidal em 1970, onde fora
 	\label{ECoGeEEG}
 \end{figure}
 
-Atualmente é mais comum a utilização do sistema da EEG para aquisição de sinais cerebrais por se tratar de um sistema não invasivo \cite{CristophBCI}. A BCI realiza a tradução dos sinais cerebrais por meio de seis passos, de acordo com o fluxograma apresentado na Figura \ref{BCI_flow}.
+Atualmente é mais comum a utilização do sistema da EEG para aquisição de sinais cerebrais por se tratar de um sistema não invasivo \cite{CristophBCI}. A BCI realiza a tradução dos sinais cerebrais por meio de seis passos, de acordo com o fluxograma apresentado na Fig. \ref{BCI_flow}.
 
 \begin{figure}[h!]
 	\centering
@@ -213,7 +213,7 @@ O conjunto da arquitetura pode se dividir em dois sistemas, sistema de hardware 
 
 
 No \textbf{Sistema de Hardware} encontram-se todos os periféricos, memórias e processadores, para conecta-los existe um barramento de comunicação responsável por isso. Já no \textbf{Sistema de Software}, o software funciona sobre o processador, que também sustenta os aplicativos (geralmente em um Sistema Operacional)  e também possui uma camada num nível mais baixo de software que 
-faz a interface com o sistema de hardware. Um diagrama de blocos simplificado de um SoC é apresentado na Figura \ref{diagram SoC} \cite{zynqBook}.
+faz a interface com o sistema de hardware. Um diagrama de blocos simplificado de um SoC é apresentado na Fig. \ref{diagram SoC} \cite{zynqBook}.
 
 
 \begin{figure}[h]
@@ -225,7 +225,7 @@ faz a interface com o sistema de hardware. Um diagrama de blocos simplificado de
 
 
 \subsection{\textit{Zybo-Board}}
-A Zybo é uma plataforma de desenvolvimento (Figura\ref{Zybo Board}).
+A Zybo é uma plataforma de desenvolvimento (Fig. \ref{Zybo Board}).
 Baseada na arquitetura Xilinx$^{\textregistered}$ \textit{All-Programmable System-on-Chip} (AP SoC)
 do tipo Z-7010, o qual possui em seu encapsulamento um processador ARM Cortex-A9 de 
 dois núcleos e um FPGA da família Xilinx 7-Series. Esse chip combinado com memórias, entradas 
@@ -239,7 +239,7 @@ proporciona um \textit{kit} para desenvolvedores que procuram uma plataforma pla
 	\label{Zybo Board}
 \end{figure}
 
-A Figura \ref{diaagrama-zynq} mostra o diagrama funcional do Zynq-7000 AP SoC, o \textit{Processing System e a Programmable Logic} têm sistemas de alimentação individual, permitindo o usuário habilita-los ou não para gerenciamento de energia. 
+A Fig. \ref{diaagrama-zynq} mostra o diagrama funcional do Zynq-7000 AP SoC, o \textit{Processing System e a Programmable Logic} têm sistemas de alimentação individual, permitindo o usuário habilita-los ou não para gerenciamento de energia. 
 \begin{figure}[h]
 	\centering
 	\includegraphics[keepaspectratio=true,scale=0.6]{figuras/diagrama-zinq.jpeg}
@@ -271,7 +271,7 @@ O Zynq-7000 AP SoC é composto pelos seguintes blocos majoritários
 \end{itemize}
 
 \subsubsection{Comunicação Entre PS e PL}
-Conforme apresentado na figura \ref{diaagrama-zynq} a PL realiza a comunicação com 
+Conforme apresentado na Fig. \ref{diaagrama-zynq} a PL realiza a comunicação com 
 o PS através da interface de comunicação AXI-32bits. O AXI é uma das partes da família de protocolos \textit{ARM-AMBA}. Em 2010 a ultima versão desenvolvida do AMBA (versão 4.0), foi incluida a segunda versão do AXI, o AXI4 \cite{user-guide-axi}.
 
 Existem três tipos de barramento AXI, o AXI4, AXI4-Lite e AXI4-Stream.
