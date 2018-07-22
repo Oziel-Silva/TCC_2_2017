@@ -44,6 +44,20 @@ Para estudo das implementações foram utilizadas cinco ferramentas principais:\
 Para implementação em software e implementação coprocessada utilizamos o SoC \textit{Zynq} embarcado no kit de desenvolvimento \textit{Zybo Board}.
 
 \subsection{Metodologias de Desenvolvimento}
+\subsubsection{Implementação em Software}
+Para o auxílio desta implementação, foi instalado o sistema operacional \textit{Debian Linux} sobre os cores ARM, cujos recursos e passos necessários
+para a instalação do SO estão contidos no ANEXO B.
+
+O processo para implementação seguiu o método \textit{bottom-up}, blocos de códigos menores foram implementados e testados separadamente, com a finalidade de todos os blocos serem integrados e testados em um único bloco principal. Todas as codificações foram implementadas utilizando a linguagem de programação C, e para compilar o código principal foi utilizado o compilador GCC \textit{(GNU Compiler Collection)}. Com esse método conseguimos realizar uma análise de perfil das funções implementadas reportando os tempos de execução de cada uma das funções, sendo assim possível deduzir as funções que necessitam de maior esforço computacional. As entradas para programa desenvolvido são os sinais de treinamento fornecidos pelo \textit{dataset IVa} do \textit{BCI Competition III}.
+
+Como parâmetro de análise estatística foram coletados os seguintes dados:
+
+\begin{itemize}[noitemsep]
+	\item Consumo de memória
+	\item Tempo de execução
+	\item Erro da implementação em comparação aos resultados obtidos por \cite{F.Lotte}
+\end{itemize}
+
 \subsubsection{Implementação em Hardware}
 Para implementação das funções de cálculo de média e cálculo da matriz de covariância em FPGA foi adotada a metodologia \textit{bottom-up}, na qual cada sub-bloco desenvolvido foi testado antes de ser inserido ao bloco principal, também conhecido como \textit{Top module}.
 Os cálculos foram realizados através dos blocos de propriedade intelectual (IP) desenvolvidos por \cite{munoz2010tradeoff}. Os IPs realizam cálculos matemáticos em unidades de ponto flutuante de acordo com o padrão IEEE-754 \cite{IEEE745} com registradores de 27 bits, representados com:
@@ -84,7 +98,7 @@ A matriz de covariância é encontrada a partir de um cálculo matricial, confor
 cov_{hw} = \frac{(m_j - \bar m)(m_j -\bar m)}{n - 1} 
 \end{equation}
 
-A transposição da matriz (operator $^T$) e o somatório foi mantido em software. Sendo assim, o módulo apresenta 5 (cinco) saídas paralelas para cada uma das entradas da equação \ref{eq: cov_hw}.\\
+A transposição da matriz (operator $^T$) e o somatório foi mantido em software. Sendo assim, o módulo apresenta 5 (cinco) saídas paralelas para cada uma das entradas da Equação \ref{eq: cov_hw}.\\
 \newpage
 
 \begin{figure}[h]
@@ -96,18 +110,9 @@ A transposição da matriz (operator $^T$) e o somatório foi mantido em softwar
 
 A técnica utilizada na implementação do projeto foi a \textit{dataflow}. O princípio básico das arquiteturas \textit{dataflow} é que a execução das operações é acionada em função da disponibilidade dos operandos. Ela não segue uma estrutura convencional de máquinas algorítmicas, no qual uma parte de controle é responsável pela sincronização das operações \cite{ThiagoUnB}. No caso dos sistemas em hardware implementados os blocos iniciam sua operação apenas quando suas entradas já estão carregadas.
 
-Todos os módulos desenvolvidos foram atribuidos à um novo IP com barramento AXI4-Lite para realizar a comunicação com o procesador ARM. Nos quais são transmitido e recebido os dados de entrada referentes aos IPs de cálculo de média e cálculo da matrix de covariância. O diagrama geral da implementação, no qual é apresentado a conexão entre ARM e todos os seus periféricos, além dos IPs desenvolvidos é apresentado no ANEXO A deste trabalho.
+Todos os módulos desenvolvidos foram atribuidos à um novo IP com barramento AXI4-Lite para realizar a comunicação com o procesador ARM. Nos quais são transmitidos e recebidos os dados de entrada referentes aos IPs de cálculo de média e cálculo da matrix de covariância. O diagrama geral da implementação, no qual é apresentado a conexão entre ARM e todos os seus periféricos, além dos IPs desenvolvidos é apresentado no ANEXO A deste trabalho.
 
-O fluxo de desenvolvimento do projeto em hardware utilizado neste trablaho é apresentado na Fig. \ref{diagram_hardware}.
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[keepaspectratio=true,scale=1.0]{figuras/fluxograma_hardware.PNG}
-  \caption{Fluxograma de implementação de hardware em um SoC. Adaptado de \cite{zynqBook}}
-  \label{diagram_hardware}
-\end{figure}
-
-\subsection{Protocolo Para Análise estatística}
+\subsection{Protocolo para Análise Estatística}
 Para efeito de análise estatística comparatória foram coletados as seguintes informações pós implementação:
 
 \begin{itemize}[noitemsep]
@@ -118,26 +123,10 @@ Para efeito de análise estatística comparatória foram coletados as seguintes 
 	\item Estimação estatística do erro quadrático de implementação em hardware comparada com a implementação original em \textit{Matlab}.
 \end{itemize}
 
-\section{Implementação em software}
-
-\subsection{Métodos e Técnicas}
-Para o auxílio desta implementação, foi instalado o sistema operacional \textit{Debian Linux} sobre os cores ARM, cujos recursos e passos necessários
-para a instalação do SO estão contidos no ANEXO B.
-
-O processo para implementação seguiu o método \textit{bottom-up}, blocos de códigos menores foram implementados e testados separadamente, com a finalidade de todos os blocos serem integrados e testados em um único bloco principal. Todas as codificações foram implementadas utilizando a linguagem de programação C, e para compilar o código principal foi utilizado o compilador GCC \textit{(GNU Compiler Collection)}. Com esse método conseguimos realizar uma análise de perfil das funções implementadas reportando os tempo de execução de cada uma das funções, sendo assim possível deduzir as funções que necessitam de maior esforço computacional. As entradas para programa desenvolvido são os sinais de treinamento fornecidos pelo \textit{dataset IVa} do \textit{BCI Competition III}.
-
-Como parâmetro de análise estatística foram coletados os seguintes dados:
-
-\begin{itemize}[noitemsep]
-\item Consumo de memória
-\item Tempo de execução
-\item Erro da implementação em comparação aos resultados obtidos por \cite{F.Lotte}
-\end{itemize}
-
-\section{Integração}
-Toda a integração do projeto coprocessado é possibilitado pelo uso do barramento \textit{AXI4-Lite}, que interliga a PL com a PS, 
-um esquemático do processo de escrita e leitura nos IP através do barramento \textit{AXI4-Lite} pode ser observado na Fig. \ref{axi_bus}
 \newpage
+\subsection{Integração}
+Toda a integração do projeto coprocessado é possibilitado pelo uso do barramento \textit{AXI4-Lite}, que interliga a PL com a PS, 
+um esquemático do processo de escrita e leitura nos IP através do barramento \textit{AXI4-Lite} pode ser observado na Figura \ref{axi_bus}.
 
 \begin{figure}[h]
 	\centering
@@ -146,8 +135,8 @@ um esquemático do processo de escrita e leitura nos IP através do barramento \
 	\label{axi_bus}
 \end{figure}
 
-Para realizar escrita e leitura de dados nos IPs através da aplicação implementada em software, ultilizamos a função mmap() que faz parte da biblioteca <sys/mman.h>, esta função cria um novo mapeamento de memória no endereço de memória virtual no seu processo de chamada. Esse novo endereço começa no endereço de memória do IP (com AXI), com isso é possivel ler e escrever no endereço memória de de qualquer IP, desde que a memória esteja devidamente mapeada.
+Para realizar escrita e leitura de dados nos IPs através da aplicação implementada em software, ultilizamos a função mmap() que faz parte da biblioteca <sys/mman.h>, esta função cria um novo mapeamento de memória no endereço de memória virtual no seu processo de chamada. Esse novo endereço começa no endereço de memória do IP (com AXI), com isso é possivel ler e escrever no endereço memória de qualquer IP, desde que a memória esteja devidamente mapeada.
 
-Como os IPs desenvolvidos por \cite{munoz2010tradeoff} realizam operações em ponto flutuante de 27 bits e o barramento \textit{AXI-4Lite} possui como configuração mínima de registradores o valor de 32 bits, em todos os IPs desenvolvidos as entradas e saídas possuem tamanho de 32 bits, porém para realização dos cálculo é considerada apenas os 27 bits mais significativos presentes nos registradores do barramento de comunicação \textit{AXI-4Lite}.
+Os IPs desenvolvidos por \cite{munoz2010tradeoff} realizam operações em ponto flutuante com tamanho de palavra genérico, para análise comparativa as implementações em hardware utilizaram tamanho de palavra de 27 bits. Como o barramento \textit{AXI-4Lite} possui como configuração mínima de registradores o valor de 32 bits, em todos os IPs desenvolvidos as entradas e saídas possuem tamanho de 32 bits, porém para realização dos cálculo é considerada apenas os 27 bits mais significativos presentes nos registradores do barramento de comunicação \textit{AXI-4Lite}.
 \vspace{\onelineskip}
 

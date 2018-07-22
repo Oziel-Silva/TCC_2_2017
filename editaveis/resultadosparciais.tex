@@ -7,15 +7,22 @@ Em 2010 Fabien Lotte publicou um trabalho demonstrando a classificação de sina
 variações deste algoritmo. 
 As implementações foram codificadas em \textit{Matlab} e o autor chegou aos seguintes resultados apresentados na Tabela \ref{resultlotte}.
 
+
+
 \begin{table}[h]
 \centering
 \caption{Acurácia da classificação usando o extrator CSP, classificador LDA e  \textit{Data-Set IVa - BCI Competition III}.}
 \label{resultlotte}
-\begin{tabular}{|l|l|l|l|l|l|}
-\hline
-\multicolumn{6}{|c|}{BCI III -  data set IVa}  \\ \hline
-Sujeito & \textit{aa}    & \textit{al}    & \textit{av}    & \textit{aw}    & \textit{ay}   \\ \hline
-Acurácia(\%)     & 66.07 & 96.43 & 47.45 & 71.88 & 49.6 \\ \hline
+	\begin{tabular}{ll}
+	\rowcolor[HTML]{ECF4FF} 
+	\multicolumn{1}{c}{\cellcolor[HTML]{ECF4FF}\textbf{Sujeito}} & \multicolumn{1}{c}{\cellcolor[HTML]{ECF4FF}\textbf{Acurácia}} \\
+	\textit{aa}                                                  & 66,7\%                                                        \\
+	\rowcolor[HTML]{ECF4FF} 
+	\textit{al}                                                  & 96,4\%                                                        \\
+	\textit{av}                                                  & 47,4\%                                                        \\
+	\rowcolor[HTML]{ECF4FF} 
+	\textit{aw}                                                  & 71,9\%                                                        \\
+	\textit{ay}                                                  & 49,6\%                                                       
 \end{tabular}
 \end{table}
  
@@ -52,7 +59,7 @@ Após a implementação do algoritmo em linguagem C e sua respectiva execução 
 
 Em comparação com os resultados obtidos na implementação em \textit{Matlab}(Tabela \ref{resultadoLotte}), pode-se observar que houveram divergências. Isto ocorreu devido as diferentes aquiteturas de execução, sendo a execução em \textit{Matlab} em arquitetura de tamanho de palavra de 64 bits, enquanto a execução em linguagem C em arquitetura de 32 bits, acarretando em erros de truncamento de palavra, sendo estes propragados durante a execução dos cálculos. Porém, apesar do erro associado, obteve-se uma melhora nos hiperplanos para classificação do sinais dos sujeitos \textit{ay} e \textit{av}.\\
 
-No que diz respeito ao desempenho computacional esta implementação obteve os melhores resultados, a Tabela \ref{temposC} apresenta o resutado da análise de perfil. A função de covariância é a que mais consome tempo de execução e esforço computacional para realizar o treinamento do classificador, consumindo um total de 81.25\% de to tempo de execução do algoritmo de treinamento e a função média a segunda com maior consumo, registrando um total de 12.5\%, enquanto a função sigma, função de cálculo dos hiperplanos, no qual é realizado o cálculo da média entre as covariâncias da classe 1 e classe 2, consome apenas 6.25\%.\\
+No que diz respeito ao desempenho computacional esta implementação obteve os melhores resultados, a Tabela \ref{temposC} apresenta o resutado da análise de perfil. A função de covariância é a que mais consome tempo de execução e esforço computacional para realizar o treinamento do classificador, consumindo um total de 81.25\% de todo tempo de execução do algoritmo de treinamento e a função média a segunda com maior consumo, registrando um total de 12.5\%, enquanto a função sigma, função de cálculo dos hiperplanos, no qual é realizado o cálculo da média entre as covariâncias da classe 1 e classe 2, consome apenas 6.25\%.\\
 
 
  	% Please add the following required packages to your document preamble:
@@ -66,10 +73,10 @@ No que diz respeito ao desempenho computacional esta implementação obteve os m
  		\begin{tabular}{lrrrr}
  			\rowcolor[HTML]{DAE8FC} 
  			\multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{Implementação}} & \multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{\#Chamadas}} & \multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{\begin{tabular}[c]{@{}c@{}}Tempo por\\ Chamada\end{tabular}}} & \multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{\begin{tabular}[c]{@{}c@{}}Tempo \\ Total\end{tabular}}} & \multicolumn{1}{c}{\cellcolor[HTML]{DAE8FC}\textbf{\%}} \\
- 			\textit{\textbf{Cov}}                                              & 2                                                               & 260 $\mu$s                                                                                                       & 520 $\mu$s                                                                                                  & 81.25 $\mu$s                                            \\
+ 			\textit{\textbf{Cov}}                                              & 2                                                               & 260 $\mu$s                                                                                                       & 520 $\mu$s                                                                                                  & 81.25                                            \\
  			\rowcolor[HTML]{DAE8FC} 
- 			\textit{\textbf{Média}}                                            & 2                                                               & 40 $\mu$s                                                                                                        & 80 $\mu$s                                                                                                   & 12.50 $\mu$s                                            \\
- 			\textit{\textbf{Sigma}}                                            & 1                                                               & 40 $\mu$s                                                                                                        & 40 $\mu$s                                                                                                   & 6.25 $\mu$s                                            
+ 			\textit{\textbf{Média}}                                            & 2                                                               & 40 $\mu$s                                                                                                        & 80 $\mu$s                                                                                                   & 12.50                                            \\
+ 			\textit{\textbf{Sigma}}                                            & 1                                                               & 40 $\mu$s                                                                                                        & 40 $\mu$s                                                                                                   & 6.25                                           
  		\end{tabular}
  	\end{table}
  
@@ -87,10 +94,11 @@ Após a execução de todos os procedimentos de desenvolvimento, síntese e impl
 	\centering
 	\caption{Consumo de hardware da função Média.}
 	\label{consumo_media}
-	\begin{tabular}{ccccl}
-		\textbf{}         & \textbf{LUT}  & \textbf{FF}  & \textbf{BUFG} & \textbf{DSP} \\
-		\textit{Média} & \textit{40\%} & \textit{6\%} & \textit{3\%}  & \textit{1\%}
-	\end{tabular}
+\begin{tabular}{lllll}
+	\rowcolor[HTML]{ECF4FF} 
+	\multicolumn{1}{c}{\cellcolor[HTML]{ECF4FF}\textbf{}} & \multicolumn{1}{c}{\cellcolor[HTML]{ECF4FF}\textbf{LUT}} & FF  & BUFG & DSP \\
+	\textit{Média}                                        & 40\%                                                     & 6\% & 3\%  & 1\%
+\end{tabular}
 \end{table}
 
 A maior parte dos recursos consumidos se destinam ao somadores. Para garantir uma maior velocidade de tratamento dos dados, optou-se por não armazenar os sinais de entrada da função média em BRAMs, mas sim, lê-los diretamente dos registrados do barramento \textit{AXI-4Lite}, pois o processo de leitura e escrita nos blocos de memória RAM consomem 4 ciclos de relógio por operação. Além disso, para comando de leitura e escrita seria necessária a implementação de uma FSM o que demandaria mais recursos.\\
@@ -103,10 +111,11 @@ Utilizando-se da mesma função de ferramenta \textit{Report post-Synthesis}, ob
 	\centering
 	\caption{Consumo de hardware da função Covariância.}
 	\label{consumo_cov}
-	\begin{tabular}{ccccl}
-		\textbf{}         & \textbf{LUT}  & \textbf{FF}  & \textbf{BUFG} & \textbf{DSP} \\
-		\textit{Covariância} & \textit{26\%} & \textit{5\%} & \textit{3\%}  & \textit{8\%}
-	\end{tabular}
+\begin{tabular}{lllll}
+	\rowcolor[HTML]{ECF4FF} 
+	\multicolumn{1}{c}{\cellcolor[HTML]{ECF4FF}\textbf{}} & \multicolumn{1}{c}{\cellcolor[HTML]{ECF4FF}\textbf{LUT}} & FF  & BUFG & DSP \\
+	\textit{Covariância}                                  & 26\%                                                     & 5\% & 3\%  & 8\%
+\end{tabular}
 \end{table}
 
 Grande parte do consumo de recursos da função é destinada ao processo de multiplicação e sinais de registradores para conectar os IPs de soma e multiplicação desenvolvidos por \cite{munoz2010tradeoff}.
@@ -142,20 +151,14 @@ Após a integralização dos blocos IPs desenvolvidos com o SoC \textit{Zynq} e 
 
 Apesar de ainda haver insumos de hardware disponíveis optou-se por finalizar a implementação seguindo os resultados da Tabela \ref{consumo_geral}. Pois, um consumo de LUT acima de 90\% poderia resultar num mal roteamento do circuito.\\
 
-A Fig. \ref{roteamento} e a Fig. \ref{legenda_rot} apresentam o roteamento do sistema de coprocessamento implementado no kit de desenvolvimento e sua legenda, respectivamente.
+A Fig. \ref{roteamento} apresenta o roteamento do sistema de coprocessamento implementado no kit de desenvolvimento.
+
+\newpage
 \begin{figure}[!h]
 	\centering
 	\includegraphics[keepaspectratio=true,scale=0.40]{figuras/roteamento.png}
 	\caption{Roteamento do circuito implementado referente a todo o sistema de coprocessamento.}
 	\label{roteamento}
-\end{figure}
-
-
-\begin{figure}[!h]
-	\centering
-	\includegraphics[keepaspectratio=true,scale=0.35]{figuras/legenda_roteamento.png}
-	\caption{Legenda para a Fig. \ref{roteamento}.}
-	\label{legenda_rot}
 \end{figure}
 
 Os blocos em vermelho representam a alocação dos módulos pertinentes a função de cálculo de média, já se percebe que é a função que mais consumiu recursos. Em azul escuro a alocação dos módulos pertinentes a função de cálculo da covariância. Em azul turquesa a alocação dos módulos do processador \textit{ARM Cortex A9}. 
@@ -169,6 +172,8 @@ Uma outra informação relevante extraída pós implementação é a estimação
 \end{figure}
 
 A Fig. \ref{power} apresenta a estimativa de consumo energético para cada componente do sistema. O processador ARM representado por PS7 na Fig. \ref{power}, é o que tem maior consumo, com aproximadamente 75\% do consumo total. O sistema em geral apresentou o consumo total de 2.156 watts.
+
+\newpage
  
 
 \subsection{Resultados de Simulação de Hardware}
@@ -186,7 +191,7 @@ Na plataforma \textit{Vivado 2017.4} e com um \textit{clock} estipulado em 100 M
 \end{figure} 
 
 
-Os sinais de entrada são as características de cada uma das classes. Estas características são matrizes de dimensão 80x6 para cada uma das classes, portanto, para realização do cálculo da média utilizando o IP é necessária a execução do cálculo 4 vezes para somar todos os 80 dados de cada uma das 6 colunas. O processamento em hardware retorna então para o processador ARM 1 (um) valor de soma, que representa a soma de 20 (vinte) operandos. Como são necessária 4 somas de 20 operandos para totalizar a soma dos 80 (oitenta) amostras, os 4 (quatro) valores retornado para o ARM são retornados via \textit{AXI-Lite} para o processamento em hardware, nos quais são somados e em seguida dividido pelo numero de amostras, resultando na média final. Como uma única soma possui \textit{throughput} = 95 ns, o somador de 4 entradas possui \textit{throughput} = 20 ns e a divisão tem \textit{troughput} = 30 ns (obtido também através da simulação do IP), pode-se obter o \textit{troughput} para cálculo da média de uma classe de acordo com a Equação \ref{eq: throughput}.
+Os sinais de entrada são as características de cada uma das classes. Estas características são matrizes de dimensão 80x6 para cada uma das classes, portanto, para realização do cálculo da média utilizando o IP é necessária a execução do cálculo 4 vezes para somar todos os 80 dados de cada uma das 6 colunas. O processamento em hardware retorna então para o processador ARM 1 (um) valor de soma, que representa a soma de 20 (vinte) operandos. Como são necessárias 4 somas de 20 operandos para totalizar a soma dos 80 (oitenta) amostras, os 4 (quatro) valores retornado para o ARM são retornados via \textit{AXI-Lite} para o processamento em hardware, nos quais são somados e em seguida dividido pelo numero de amostras, resultando na média final. Como uma única soma possui \textit{throughput} = 95 ns, o somador de 4 entradas possui \textit{throughput} = 20 ns e a divisão tem \textit{troughput} = 30 ns (obtido também através da simulação do IP), pode-se obter o \textit{troughput} para cálculo da média de uma classe de acordo com a Equação \ref{eq: throughput}.
 
 \begin{equation}
 \label{eq: throughput}
@@ -235,7 +240,7 @@ como sinais de entrada, obtendo-se os seguintes resultados de acurácia apresent
 		\textbf{Coprocessado}                                        & \multicolumn{1}{r}{65.18\%} & \multicolumn{1}{r}{96.43\%} & \multicolumn{1}{r}{50.51\%} & 59.82\%              & 57.14\%             
 	\end{tabular}
 \end{table}
-O sistema obteve uma melhor acurácia no sujeito \textit{al}, pois é o sujeito que mais possui tarefas realizadas e préviamente classificadas. O oposto ocorre com o sujeito \textit{av}.\\
+O sistema obteve uma melhor acurácia no sujeito \textit{al}, pois é o sujeito que mais possui tarefas realizadas e previamente classificadas. O oposto ocorre com o sujeito \textit{av}.\\
 Outro dado importante coletado após a execução foi o tempo de processamento da função de treinamento implementada no sistema coprocessado. Realizando a análise de perfil, obteve-se um tempo de processamento de \textbf{7 milissegundos}.
 
  

@@ -16,13 +16,13 @@ O tronco encefálico, parte caudal do SNC, recebe e processa todos os sinais dos
 
 O cérebro é o processador do SNC, nele são recebidos e processados os sinais da medula espinhal, além de fornecer todos os sinais de controle para a própria medula, que por sua vez, distribui os sinais para os membros e para o tronco \cite{KANDEL}.
 
-O cerebelo está localizado logo atrás do tronco encefálico, onde, através de fibras chamadas de pedúnculos, realizam a comunicação entre sí \cite{KANDEL}. O cerebelo é a segunda maior estrutura do SNC contendo mais da metade dos neurônios cerebrais \cite{SIULYDissertacao}. É ele o responsável nossa percepção \cite{alvarezneurobiomecanismos}, além do controle da região motora e a memória de movimentos \cite{SIULYDissertacao,alvarezneurobiomecanismos}
+O cerebelo está localizado logo atrás do tronco encefálico, onde, através de fibras chamadas de pedúnculos, realizam a comunicação entre sí \cite{KANDEL}. O cerebelo é a segunda maior estrutura do SNC contendo mais da metade dos neurônios cerebrais \cite{SIULYDissertacao}. É ele o responsável pela nossa percepção \cite{alvarezneurobiomecanismos}, além do controle da região motora e a memória de movimentos \cite{SIULYDissertacao,alvarezneurobiomecanismos}
 
 Os sinais de controle e de sensoriamento são sinais elétricos armazenados nos neurônios \cite{KANDEL}. Suas características eletroquímicas permitem que os mesmos armazenem e transmitam sinais elétricos para qualquer outra célula receptora mesmo que a longa distâncias \cite{SIULYDissertacao}. Sua estrutura pode ser dividida em três principais partes: 1) Corpo da celula, 2) axônio e 3) dendrito, conforme apresentado na Fig. (\ref{neuronParts}).
 \begin{figure}[h]
 	\centering
 	\includegraphics[keepaspectratio=true,scale=1.0]{figuras/Estrutura_neuronio.PNG}
-	\caption{Estrutura de um neurônio. Fonte: \cite{SIULYDissertacao}}
+	\caption{Estrutura de um neurônio. Fonte: \cite{SIULYDissertacao}.}
 	\label{neuronParts}
 \end{figure}
 
@@ -58,9 +58,9 @@ Com a baixa amplitude desse tipo de sinal, ele pode sofrer facilmente atenuaçõ
 	\label{padrao1020}
 \end{figure}
 
-A Frequência do sinal é um dos parâmetros mais importantes na avaliação clínica de anomalias em EEGs, e também para compreender o comportamento operacional na pesquisa cognitiva \cite{SIULYDissertacao}.
-Com inúmeras oscilações não periódicas, milhares de comunicação inter-neurônios e comportamentos estocásticos o EEG humano é comumente ordenado  em faixas de frequências específicas. Tais bandas são divididas em: delta
- (0.5-4 Hz) , theta($\theta$)(4-8Hz), alpha($\alpha$)(8-13Hz), beta($\beta$)(13-30Hz) e acima de 30Hz gama($\gamma$), conforme Fig. \ref{EEGcomun}.
+A energia em banda do sinal cerebral é um dos parâmetros mais importantes na avaliação clínica de anomalias em EEGs, e também para compreender o comportamento operacional na pesquisa cognitiva \cite{SIULYDissertacao}.
+Com inúmeras oscilações não periódicas, milhares de comunicações inter-neurônios e comportamentos estocásticos o EEG humano é comumente ordenado em faixas de frequências específicas. Tais bandas são divididas em: delta
+ (0.5 a 4 Hz) , theta($\theta$)(4 a 8Hz), alpha($\alpha$)(8 a 13Hz), beta($\beta$)(13 a 30Hz) e gama($\gamma$)  acima de 30Hz, conforme Fig. \ref{EEGcomun}.
  \newline
 
 \begin{figure}[h]
@@ -120,28 +120,34 @@ Para cada um dos \textit{datasets} foram realizadas diferentes tarefas que estim
 \subsection{\textit{BCI Competition III - Dataset IVa}}
 O \textit{dataset IVa} refere-se a um conjunto de dados adquiridos por meio da EEG, em que os sujeitos (indivíduos nos quais foram capturados os sinais) foram submetidos a estimular o cérebro por imagética motora, através de indicações visuais \cite{BCICompetition}. Os indivíduos foram submetidos a realizarem três tarefas, indicadas visualmente por 3.5s cada tarefa, sendo interrompidas em períodos aleatórios entre 1.75s e 2.25s, onde o sujeito era submetido a um período de relaxamento \cite{BCICompetition}. As três tarefas de imagéticas motoras foram: (L) mão esquerda, (R) mão direita e (F) pé direito \cite{BCICompetition}.
 
-Os sinais foram adquiridos de 5 sujeitos rotulados como \textit{aa, al, av, aw} e \textit{ay}, onde foram executadas no total 280 tarefas por cada sujeito. Algumas destas tarefas foram previamente classificadas, ou seja, foram mapeadas características do sinal cerebral em sua respectiva classe, formando o conjunto de dados de treinamento, enquanto que as tarefas não classificadas formam o conjunto de dados de teste \cite{siteBCI}. Estes sinais foram adquiridos, pré-processados e disponibilizados por \textit{Fraunhofer FIRST, Intelligent Data Analysis Group (Head: Klaus-Robert Müller), and Charité University Medicine Berlin, Campus Benjamin Franklin, Department of Neurology, Neurophysics Group} \cite{BCICompetition}. A Tabela 1 apresenta a quantidade de tarefas previamente classificadas (nomeados \#tr) e a quantidade de tarefas não classificadas (nomeadas \#te) para cada sujeito.
+Os sinais foram adquiridos de 5 sujeitos rotulados como \textit{aa, al, av, aw} e \textit{ay}, onde foram executadas no total 280 tarefas por cada sujeito. Algumas destas tarefas foram previamente classificadas, ou seja, foram mapeadas características do sinal cerebral em sua respectiva classe, formando o conjunto de dados de treinamento, enquanto que as tarefas não classificadas formam o conjunto de dados de teste \cite{siteBCI}. Estes sinais foram adquiridos, pré-processados e disponibilizados por \textit{Fraunhofer FIRST, Intelligent Data Analysis Group (Head: Klaus-Robert Müller), and Charité University Medicine Berlin, Campus Benjamin Franklin, Department of Neurology, Neurophysics Group} \cite{BCICompetition}. A Tabela \ref{tarefas
+} apresenta a quantidade de tarefas previamente classificadas (nomeados \#tr) e a quantidade de tarefas não classificadas (nomeadas \#te) para cada sujeito.
 
-\begin{table}[h!]
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[]
 	\centering
-	\caption{Número de tarefas classificadas e não classificadas por sujeito \cite{BCICompetition}.}
-	\label{my-label}
+	\caption{Número de tarefas classificadas e não-classificadas por sujeito \cite{BCICompetition}.}
+	\label{tarefas}
 	\begin{tabular}{lll}
+		\rowcolor[HTML]{ECF4FF} 
 		\textbf{Sujeitos} & \textbf{\#tr} & \textbf{\#te} \\
-		\textit{aa} & 168 & 112 \\
-		\textit{al} & 224 & 56 \\
-		\textit{av} & 84 & 196 \\
-		\textit{aw} & 56 & 224 \\
-		\textit{ay} & 28 & 252
+		aa                & 168           & 112           \\
+		\rowcolor[HTML]{ECF4FF} 
+		al                & 224           & 56            \\
+		av                & 84            & 196           \\
+		\rowcolor[HTML]{ECF4FF} 
+		aw                & 56            & 224           \\
+		ay                & 28            & 252          
 	\end{tabular}
 \end{table}
-
 Os dados \textit{Data Set IVa} foram adquiridos e armazenados utilizando amplificadores do tipo \textit{BrainAmp} e uma capa de eletrodos de 128 canais. Foram utilizados 118 canais de EEG posicionados de acordo com o sistema 10-20. Cada um destes canais foram filtrados em banda passante, utilizando um filtro \textit{butterworth} de quinta ordem entre as frequências de 0,05 e 200 Hz, posteriormente foram digitalizados com uma frequência de amostragem de 1 kHz com precisão de 16 bits, apresentando uma resolução de 0,1 $\mu$V, além disso também foram disponibilizados os mesmos dados com uma frequência de amostragem de 100 Hz \cite{siteBCI}.
  
 \section{\textit{Linear Discriminant Analisys}}
 O LDA é um classificador desenvolvido para explorar as informações no reconhecimento de padrões supervisionados,
 as informações conhecidas são contidas num vetor de treinamento previamente disponibilizado \cite{izenmanLDA}.
-No algoritmo do LDA as informações de maior relevância são descobertas, enquanto que as de menor são 
+No algoritmo do LDA as informações de maior relevância são descobertas, enquanto que as de menores são 
 eliminadas. O critério usado pelo algoritmo é obter as dimensões que possuem as características mais
 distintas das classes padrão \cite{korkmaz2017expert}.
 
@@ -154,11 +160,11 @@ entre outros. Para separar as classes conhecidas uma das outras, é atribuído u
 representados como dados rotulados \cite{izenmanLDA}.
 
 
-Devido a indispensabilidade de diminuir as dimensões dos dados de um determinado conjunto, o objetivo do LDA
+Devido à indispensabilidade de diminuir as dimensões dos dados de um determinado conjunto, o objetivo do LDA
 é reduzir a dimensão do espaço de conjunto de dados, resolvendo o inconveniente da sobreposição \cite{SinghLDA}.
 
 O LDA tem a proposta de encontrar uma transformação ótima para maximizar a proporção de acordo com a Equação \ref{eq: Proporção}.
-com isso encontrando o vetor $W$ que proporciona a melhor descriminação \cite{ketsuwan2017linear}.
+Com isso, encontra-se o vetor $W$ que proporciona a melhor separação \cite{ketsuwan2017linear}.
 
 \begin{equation}
 	\label{eq: Proporção}
@@ -183,12 +189,12 @@ $c$ é o número de classes, e $\bar m$ o vetor média e  $m_j$ é o vetor dos d
 	\label{eq: media2}
 	m = \frac{1}{n_j}\sum_{x \in c j}^{} x
 \end{equation}
-A matriz de dispersão entre classes é definida pela equaçao \ref{eq: dispersaosw},
+A matriz de dispersão entre classes é definida pela Equação \ref{eq: dispersaosw},
 \begin{equation}
 	\label{eq: dispersaosw}
 	 S_B = \sum_{j=1}^{c} \sum_{x \in C j}{} (X - m_j)(X - m_j)^T 
 \end{equation}
-Para $S_W$ sendo uma matriz não-singular, a solução da equação 
+Para $S_W$ sendo uma matriz não-singular, a solução da Equação 
 \ref{eq: Proporção}, pode ser escrita como: 
 
  \begin{equation}
@@ -209,8 +215,7 @@ São vários os argumentos a favor da escolha de um SoC a uma arquitetura que ut
 
 \subsection{Aquitetura Simplificada de um SoC}
 
-O conjunto da arquitetura pode se dividir em dois sistemas, sistema de hardware  e sistema de software. 
-
+O conjunto da arquitetura pode ser dividir em dois sistemas: sistema de processamento (executam os softwares) e lógica programável (hardware). 
 
 No \textbf{Sistema de Hardware} encontram-se todos os periféricos, memórias e processadores, para conecta-los existe um barramento de comunicação responsável por isso. Já no \textbf{Sistema de Software}, o software funciona sobre o processador, que também sustenta os aplicativos (geralmente em um Sistema Operacional)  e também possui uma camada num nível mais baixo de software que 
 faz a interface com o sistema de hardware. Um diagrama de blocos simplificado de um SoC é apresentado na Fig. \ref{diagram SoC} \cite{zynqBook}.
@@ -230,7 +235,7 @@ Baseada na arquitetura Xilinx$^{\textregistered}$ \textit{All-Programmable Syste
 do tipo Z-7010, o qual possui em seu encapsulamento um processador ARM Cortex-A9 de 
 dois núcleos e um FPGA da família Xilinx 7-Series. Esse chip combinado com memórias, entradas 
 e saídas de áudio e vídeo, USB, Ethernet, controlador de memória SD entre outros periféricos,
-proporciona um \textit{kit} para desenvolvedores que procuram uma plataforma plataforma de desenvolvimento SoC com flexibilidade e boa capacidade de processamento \cite{DigilentZybo}.  
+proporciona um \textit{kit} para desenvolvedores que procuram uma plataforma de desenvolvimento SoC com flexibilidade e boa capacidade de processamento \cite{DigilentZybo}.  
 
 \begin{figure}[h]
 	\centering
@@ -285,38 +290,46 @@ Existem três tipos de barramento AXI, o AXI4, AXI4-Lite e AXI4-Stream.
 
 \section{Estado da Arte}
 A implementação de algoritmos de classificação em FPGA já foi relatada anteriormente na literatura, sendo utilizados para diferentes aplicações. A Tabela \ref{estado_da_arte} apresenta a relação de alguns autores que realizaram a implementação de classificadores em SoCs utilizando FPGA, apresentando a acurácia obtida por cada autor, bem como os sinais de entrada e sua respectiva aplicação.
+\newpage
 
 \begin{table}[h!]
 	\centering
 	\caption{Resultados obtidos por outros autores em implementações de algoritmos de classificação em FPGA.}
 	\label{estado_da_arte}
-	\begin{tabular}{|l|l|l|l|l|}
-		\hline
-		\multicolumn{1}{|c|}{\textbf{Autores}} & \multicolumn{1}{c|}{\textbf{Algoritmo}} &  \multicolumn{1}{c|}{\textbf{Acurácia}} & \multicolumn{1}{c|}{\textbf{Sinal}} \\ \hline
-		\textit{\cite{RNAFPGA}} & RNA & 92\% & Imagem \\ \hline
-		\textit{\cite{Irick}} & SVM  & 88.6\% & Imagem \\ \hline
-		\textit{\cite{Glette2009}} & EHW  & \textbf{97.5\%} & Imagem \\ \hline
-		\textit{\cite{Glette2007}} & EHW & 91.4 \% & Ondas Sonoras \\ \hline
-		\textit{\cite{Alkim}} & LVQ & 85\% & EMG \\ \hline
-		\textit{\cite{Yuan}} & SVM & \textbf{97\%} & Ondas Ultrassônicas \\ \hline
-		\textit{\cite{Chen}} & NB & 92\% & EMG \\ \hline
-		\textit{\cite{Kais}} & LDA & 72\% & EEG \\ \hline
+	\begin{tabular}{llll}
+		\rowcolor[HTML]{ECF4FF} 
+		\multicolumn{1}{c}{\cellcolor[HTML]{ECF4FF}\textbf{Autores}} & \multicolumn{1}{c}{\cellcolor[HTML]{ECF4FF}\textbf{Algoritmo}} & \multicolumn{1}{c}{\cellcolor[HTML]{ECF4FF}\textbf{Acurácia}} & \multicolumn{1}{c}{\cellcolor[HTML]{ECF4FF}\textbf{Sinal}} \\
+		\textit{\cite{RNAFPGA}}                                     & RNA                                                            & 92\%                                                          & Imagem                                                     \\
+		\rowcolor[HTML]{ECF4FF} 
+		\textit{\cite{Irick}}                                       & SVM                                                            & 88,6\%                                                        & Imagem                                                     \\
+		\textit{\cite{Glette2009}}                                  & EHW                                                            & 97,5\%                                                        & Imagem                                                     \\
+		\rowcolor[HTML]{ECF4FF} 
+		\textit{\cite{Glette2007}}                                  & EHW                                                            & 91,4\%                                                        & Ondas Sonoras                                              \\
+		\textit{\cite{Alkim}}                                       & LVQ                                                            & 85\%                                                          & EMG                                                        \\
+		\rowcolor[HTML]{ECF4FF} 
+		\textit{\cite{Yuan}}                                        & SVM                                                            & 97\%                                                          & Ondas Ultrassônicas                                        \\
+		\textit{\cite{Chen}}                                        & NB                                                             & 92\%                                                          & EMG                                                        \\
+		\rowcolor[HTML]{ECF4FF} 
+		\textit{\cite{Kais}}                                        & LDA                                                            & 72\%                                                          & EEG                                                       
 	\end{tabular}
 \end{table}
 
-Os melhores resultados obtidos com a base de dados \textit{BCI Competition - Dataset IVa}foram de \cite{WangBCIWinner}, onde utilizando do classificador LDA, conseguiu acurácias de 94.17\% geral, 	95.5\% sobre o sujeito (aa), 100.0\% sobre o sujeito (al), 80.6\% sobre o sujeito (av) 100.0\% sobre o sujeito (aw) 97.6\% sobre o sujeito (ay).
+Os melhores resultados obtidos com a base de dados \textit{BCI Competition - Dataset IVa} foram de \cite{WangBCIWinner}, onde utilizando do classificador LDA, conseguiu acurácias de 94.17\% geral, 	95.5\% sobre o sujeito (aa), 100.0\% sobre o sujeito (al), 80.6\% sobre o sujeito (av) 100.0\% sobre o sujeito (aw) 97.6\% sobre o sujeito (ay).
 
 A Tabela \ref{arte_state} apresenta a acurácia obtida por \cite{F.Lotte} no ano de 2010, no desenvolvimento do algoritmo de classificação LDA, utilizando do algoritmo \textit{Common Spatial Pattern} (CSP) para maximizar a variância do filtro passa-faixa utilizados pelo EEG para uma das classes, enquanto minimiza a variância para as outras demais classes, utilizando a base de dados \textit{BCI Competition - Dataset IVa}.
 \begin{table}[h]
 	\centering
 	\caption{Acurácia de classificação do algoritmo LDA utilizando do algoritmo CSP para maximização de variância de classes. \cite{F.Lotte}}
 	\label{arte_state}
-	\begin{tabular}{ll}
-		\textbf{Sujeitos} & \textbf{\begin{tabular}[c]{@{}l@{}}Acurácia do LDA com \\ algoritmo CSP\end{tabular}} \\
-		\textit{aa} & 66,70\% \\
-		\textit{al} & 96,43\% \\
-		\textit{av} & 47,45\% \\
-		\textit{aw} & 71,88\% \\
-		\textit{ay} & 49,60\%
-	\end{tabular}
+\begin{tabular}{ll}
+	\rowcolor[HTML]{ECF4FF} 
+	\multicolumn{1}{c}{\cellcolor[HTML]{ECF4FF}\textbf{Sujeito}} & \multicolumn{1}{c}{\cellcolor[HTML]{ECF4FF}\textbf{Acurácia}} \\
+	\textit{aa}                                                  & 66,7\%                                                        \\
+	\rowcolor[HTML]{ECF4FF} 
+	\textit{al}                                                  & 96,4\%                                                        \\
+	\textit{av}                                                  & 47,4\%                                                        \\
+	\rowcolor[HTML]{ECF4FF} 
+	\textit{aw}                                                  & 71,9\%                                                        \\
+	\textit{ay}                                                  & 49,6\%                                                       
+\end{tabular}
 \end{table}
